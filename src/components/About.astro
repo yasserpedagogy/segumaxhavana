@@ -1,0 +1,80 @@
+---
+import { Users, Award } from '@lucide/astro';
+import Container from './Container.astro';
+---
+
+<section class="bg-segumax-bg-alt py-20">
+  <Container>
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <!-- Imagen placeholder -->
+      <div class="relative order-2 lg:order-1">
+        <div class="aspect-[4/3] rounded-2xl border border-segumax-border bg-white p-8 shadow-card">
+          <div class="flex h-full flex-col items-center justify-center gap-4 text-center">
+            <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-segumax-primary/10">
+              <Users class="h-10 w-10 text-segumax-primary" />
+            </div>
+            <span class="font-display text-sm font-semibold tracking-wider text-segumax-text-soft">
+              EQUIPO SEGUMAX
+            </span>
+          </div>
+        </div>
+        <!-- Badge flotante -->
+        <div class="absolute -bottom-6 -right-6 hidden rounded-2xl bg-segumax-primary p-6 shadow-card-hover lg:block">
+          <div class="flex items-center gap-4">
+            <Award class="h-10 w-10 text-segumax-accent" />
+            <div>
+              <div class="font-display text-3xl font-bold text-white">12+</div>
+              <div class="text-sm text-white/70">años de experiencia</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenido -->
+      <div class="order-1 lg:order-2">
+        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+          NUESTRA HISTORIA
+        </span>
+        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
+          ¿Cómo surge Segumax?
+        </h2>
+
+        <div class="mt-6 space-y-4 text-lg leading-relaxed text-segumax-text-soft">
+          <p>
+            Un grupo de técnicos e ingenieros que trabajábamos por separado
+            decidimos unir fuerzas para crear un proyecto en común.
+          </p>
+          <p>
+            Cada uno aportando su experiencia, sumamos más de <strong class="text-segumax-primary">12 años</strong>
+            de trabajo en el rubro. Nos radicamos en La Habana, pero estamos
+            disponibles para todo el país previa negociación.
+          </p>
+          <p>
+            Nuestro propósito es claro: <strong class="text-segumax-primary">no vendemos equipos, proponemos soluciones</strong>.
+            Diseñamos sistemas escalables priorizando tus vulnerabilidades y
+            ajustados a tu presupuesto.
+          </p>
+        </div>
+
+        <div class="mt-8 grid grid-cols-2 gap-6">
+          <div class="border-l-4 border-segumax-accent pl-4">
+            <div class="font-display text-2xl font-bold text-segumax-primary">
+              Técnicos e ingenieros
+            </div>
+            <div class="mt-1 text-sm text-segumax-text-soft">
+              Equipo especializado certificado
+            </div>
+          </div>
+          <div class="border-l-4 border-segumax-accent pl-4">
+            <div class="font-display text-2xl font-bold text-segumax-primary">
+              Cobertura nacional
+            </div>
+            <div class="mt-1 text-sm text-segumax-text-soft">
+              La Habana y toda Cuba
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>

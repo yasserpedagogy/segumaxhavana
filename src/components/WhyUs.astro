@@ -1,0 +1,63 @@
+---
+import { ShieldCheck, Clock, Wallet, Headphones } from '@lucide/astro';
+import Container from './Container.astro';
+
+const reasons = [
+  {
+    icon: ShieldCheck,
+    title: 'Seguridad garantizada',
+    description:
+      'Nunca comprometemos la seguridad. Priorizamos tus vulnerabilidades y proponemos la solución más sólida.',
+  },
+  {
+    icon: Clock,
+    title: 'Monitoreo 24/7',
+    description:
+      'Supervisión remota constante de nuestros técnicos. Tu sistema siempre bajo control.',
+  },
+  {
+    icon: Wallet,
+    title: 'Ajustado a tu presupuesto',
+    description:
+      'Diseñamos soluciones escalables según tu presupuesto, sin sacrificar calidad ni protección.',
+  },
+  {
+    icon: Headphones,
+    title: 'Soporte técnico continuo',
+    description:
+      'Acompañamiento permanente. No estarás solo después de la instalación.',
+  },
+];
+---
+
+<section class="bg-segumax-bg py-20">
+  <Container>
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+        POR QUÉ ELEGIRNOS
+      </span>
+      <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
+        La diferencia Segumax
+      </h2>
+      <p class="mt-4 text-lg text-segumax-text-soft">
+        Más que un proveedor, un aliado en la protección de tu propiedad.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {reasons.map((reason) => (
+        <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
+          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-accent/10">
+            <reason.icon class="h-6 w-6 text-segumax-accent" />
+          </div>
+          <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
+            {reason.title}
+          </h3>
+          <p class="mt-2 text-sm leading-relaxed text-segumax-text-soft">
+            {reason.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

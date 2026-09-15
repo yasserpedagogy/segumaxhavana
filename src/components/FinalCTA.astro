@@ -1,0 +1,43 @@
+---
+import { Phone, MessageCircle, MapPin } from '@lucide/astro';
+import Container from './Container.astro';
+---
+
+<section class="bg-segumax-primary-dark text-white">
+  <Container class="py-20">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+        CONTÁCTANOS
+      </span>
+      <h2 class="font-display mt-4 text-4xl font-bold tracking-tight lg:text-5xl">
+        ¿Listo para proteger lo que más te importa?
+      </h2>
+      <p class="mt-4 text-lg text-white/70">
+        Nos radicamos en La Habana y llevamos más de 12 años en el rubro. Tenemos
+        experiencia en todo tipo de situaciones y requerimientos.
+      </p>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href="tel:+5355555555"
+          class="font-display inline-flex items-center gap-2 rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+        >
+          <Phone class="h-5 w-5" />
+          Llamar ahora
+        </a>
+        <a
+          href="https://wa.me/5355555555"
+          class="font-display inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-lg font-semibold tracking-wide text-white backdrop-blur transition hover:bg-white/10"
+        >
+          <MessageCircle class="h-5 w-5" />
+          WhatsApp
+        </a>
+      </div>
+
+      <div class="mt-10 inline-flex items-center gap-2 text-white/60">
+        <MapPin class="h-4 w-4" />
+        <span>La Habana, Cuba</span>
+      </div>
+    </div>
+  </Container>
+</section>
