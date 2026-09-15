@@ -1,0 +1,63 @@
+---
+import { Search, FileCheck, Wrench } from '@lucide/astro';
+import Container from './Container.astro';
+
+const steps = [
+  {
+    icon: Search,
+    number: '01',
+    title: 'Diagnóstico gratuito',
+    description:
+      'Visitamos tu propiedad sin compromiso y evaluamos tus vulnerabilidades y necesidades reales.',
+  },
+  {
+    icon: FileCheck,
+    number: '02',
+    title: 'Propuesta a tu medida',
+    description:
+      'Diseñamos un sistema integral escalable, ajustado a tu presupuesto y priorizando lo más crítico.',
+  },
+  {
+    icon: Wrench,
+    number: '03',
+    title: 'Instalación y soporte',
+    description:
+      'Instalamos, configuramos y monitoreamos remotamente. Te acompañamos con soporte técnico continuo.',
+  },
+];
+---
+
+<section class="bg-segumax-bg py-20">
+  <Container>
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+        CÓMO FUNCIONAMOS
+      </span>
+      <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
+        Un proceso claro, sin sorpresas
+      </h2>
+      <p class="mt-4 text-lg text-segumax-text-soft">
+        No vendemos equipos. Proponemos soluciones pensadas para ti.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
+      {steps.map((step) => (
+        <div class="group relative rounded-2xl border border-segumax-border bg-white p-8 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
+          <div class="flex items-center justify-between">
+            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-segumax-primary/10 transition group-hover:bg-segumax-accent/10">
+              <step.icon class="h-7 w-7 text-segumax-primary transition group-hover:text-segumax-accent" />
+            </div>
+            <span class="font-display text-5xl font-bold text-segumax-border">
+              {step.number}
+            </span>
+          </div>
+          <h3 class="font-display mt-6 text-2xl font-bold text-segumax-primary">
+            {step.title}
+          </h3>
+          <p class="mt-3 text-segumax-text-soft">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>

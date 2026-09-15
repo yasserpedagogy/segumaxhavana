@@ -1,0 +1,31 @@
+---
+import { ShieldCheck, Users, Building2, Clock } from '@lucide/astro';
+import Container from './Container.astro';
+
+const stats = [
+  { icon: Clock, value: '12+', label: 'Años de experiencia' },
+  { icon: Users, value: '500+', label: 'Hogares protegidos' },
+  { icon: Building2, value: '150+', label: 'Negocios protegidos' },
+  { icon: ShieldCheck, value: '24/7', label: 'Soporte técnico' },
+];
+---
+
+<section class="border-b border-segumax-border bg-segumax-bg-alt">
+  <Container class="py-10">
+    <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
+      {stats.map((stat) => (
+        <div class="flex items-center gap-4">
+          <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-segumax-primary/10">
+            <stat.icon class="h-6 w-6 text-segumax-primary" />
+          </div>
+          <div>
+            <div class="font-display text-2xl font-bold text-segumax-primary">
+              {stat.value}
+            </div>
+            <div class="text-sm text-segumax-text-soft">{stat.label}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </Container>
+</section>
