@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+import { Phone, MessageCircle, Mail, MapPin, Clock } from '@lucide/astro';
+
+const contactChannels = [
+  {
+    icon: Phone,
+    title: 'Teléfono',
+    value: '+53 5555 5555',
+    href: 'tel:+5355555555',
+    description: 'Lun-Vie de 8:00 a 18:00',
+  },
+  {
+    icon: MessageCircle,
+    title: 'WhatsApp',
+    value: '+53 5555 5555',
+    href: 'https://wa.me/5355555555',
+    description: 'Respuesta rápida',
+  },
+  {
+    icon: Mail,
+    title: 'Email',
+    value: 'info@segumaxhavana.com',
+    href: 'mailto:info@segumaxhavana.com',
+    description: 'Respuesta en 24h',
+  },
+  {
+    icon: MapPin,
+    title: 'Ubicación',
+    value: 'La Habana, Cuba',
+    href: null,
+    description: 'Cobertura nacional',
+  },
+];
+---
+
+<Layout
+  title="Contacto | Segumax"
+  description="Contáctanos para una visita gratuita sin compromiso. Alarmas, videovigilancia, energía solar en La Habana."
+>
+  <!-- Hero corto -->
+  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+          CONTACTO
+        </span>
+        <h1 class="font-display mt-4 text-4xl font-bold tracking-tight lg:text-5xl">
+          Hablemos de tu seguridad
+        </h1>
+        <p class="mt-4 text-lg text-white/70">
+          Visita de diagnóstico gratuita, sin compromiso. Te ayudamos a pensar
+          con seguridad.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Canales de contacto -->
+  <section class="bg-segumax-bg py-16 lg:py-20">
+    <Container>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {contactChannels.map((channel) => {
+          const CardWrapper = channel.href ? 'a' : 'div';
+          return (
+            <CardWrapper
+              href={channel.href}
+              class="group flex flex-col rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-segumax-accent/30 hover:shadow-card-hover"
+            >
+              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-primary/10 transition group-hover:bg-segumax-accent/10">
+                <channel.icon class="h-6 w-6 text-segumax-primary transition group-hover:text-segumax-accent" />
+              </div>
+              <h3 class="font-display mt-4 text-lg font-bold text-segumax-primary">
+                {channel.title}
+              </h3>
+              <p class="mt-1 font-medium text-segumax-text">{channel.value}</p>
+              <p class="mt-1 text-sm text-segumax-text-soft">{channel.description}</p>
+            </CardWrapper>
+          );
+        })}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Formulario + Info adicional -->
+  <section class="bg-segumax-bg-alt py-16 lg:py-20">
+    <Container>
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr]">
+        <!-- Formulario -->
+        <div class="rounded-2xl border border-segumax-border bg-white p-8 shadow-card lg:p-10">
+          <h2 class="font-display text-3xl font-bold text-segumax-primary">
+            Solicita tu visita gratuita
+          </h2>
+          <p class="mt-2 text-segumax-text-soft">
+            Cuéntanos qué necesitas y te contactamos a la brevedad.
+          </p>
+
+          <form
+            action="https://api.web3forms.com/submit"
+            method="POST"
+            class="mt-8 space-y-5"
+          >
+            <!-- Reemplazar con tu clave de Web3Forms -->
+            <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI" />
+            <input type="hidden" name="subject" value="Nuevo contacto desde Segumax" />
+            <input type="hidden" name="from_name" value="Web Segumax" />
+
+            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <div>
+                <label for="name" class="font-display text-sm font-semibold text-segumax-primary">
+                  Nombre *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  class="mt-2 w-full rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
+                  placeholder="Tu nombre completo"
+                />
+              </div>
+
+              <div>
+                <label for="phone" class="font-display text-sm font-semibold text-segumax-primary">
+                  Teléfono *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  required
+                  class="mt-2 w-full rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
+                  placeholder="+53 5 555 5555"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label for="email" class="font-display text-sm font-semibold text-segumax-primary">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="mt-2 w-full rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
+                placeholder="tu@email.com"
+              />
+            </div>
+
+            <div>
+              <label for="service" class="font-display text-sm font-semibold text-segumax-primary">
+                Servicio de interés *
+              </label>
+              <select
+                id="service"
+                name="service"
+                required
+                class="mt-2 w-full rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
+              >
+                <option value="">Selecciona un servicio</option>
+                <option value="alarmas-ajax">Alarmas AJAX inalámbricas</option>
+                <option value="alarmas-cableadas">Alarmas cableadas (DSC NEO / Honeywell)</option>
+                <option value="incendio">Sistema contra incendios</option>
+                <option value="videovigilancia">Videovigilancia</option>
+                <option value="videoporteros">Videoporteros</option>
+                <option value="automatizacion">Automatización</option>
+                <option value="energia-solar">Energía solar</option>
+                <option value="integral">Solución integral</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="font-display text-sm font-semibold text-segumax-primary">
+                Mensaje *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+                class="mt-2 w-full resize-none rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
+                placeholder="Cuéntanos sobre tu propiedad y qué necesitas proteger..."
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="font-display w-full rounded-lg bg-segumax-accent px-6 py-4 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+            >
+              Enviar solicitud
+            </button>
+
+            <p class="text-center text-xs text-segumax-text-soft">
+              Al enviar aceptas ser contactado por nuestro equipo. Sin spam.
+            </p>
+          </form>
+        </div>
+
+        <!-- Info adicional -->
+        <div class="space-y-6">
+          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-accent/10">
+              <Clock class="h-6 w-6 text-segumax-accent" />
+            </div>
+            <h3 class="font-display mt-4 text-xl font-bold text-segumax-primary">
+              Horario de atención
+            </h3>
+            <ul class="mt-4 space-y-2 text-sm text-segumax-text-soft">
+              <li class="flex justify-between">
+                <span>Lunes a Viernes</span>
+                <span class="font-medium text-segumax-text">8:00 - 18:00</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Sábado</span>
+                <span class="font-medium text-segumax-text">9:00 - 14:00</span>
+              </li>
+              <li class="flex justify-between">
+                <span>Domingo</span>
+                <span class="font-medium text-segumax-text">Solo emergencias</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="rounded-2xl bg-segumax-primary p-6 text-white shadow-card">
+            <h3 class="font-display text-xl font-bold">Visita gratuita</h3>
+            <p class="mt-2 text-sm text-white/80">
+              Nos trasladamos a tu propiedad sin costo y sin compromiso de
+              contratación. Evaluamos y te proponemos la mejor solución.
+            </p>
+            <a
+              href="https://wa.me/5355555555"
+              class="font-display mt-4 inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-segumax-accent transition hover:gap-3"
+            >
+              <MessageCircle class="h-4 w-4" />
+              Agendar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Mapa placeholder -->
+  <section class="bg-segumax-bg pb-20">
+    <Container>
+      <div class="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-segumax-border bg-segumax-bg-alt shadow-card">
+        <div class="flex h-full flex-col items-center justify-center gap-3 text-center">
+          <MapPin class="h-16 w-16 text-segumax-primary/30" stroke-width={1.5} />
+          <span class="font-display text-lg font-semibold tracking-wider text-segumax-text-soft">
+            MAPA — LA HABANA, CUBA
+          </span>
+          <span class="text-sm text-segumax-text-soft">
+            Aquí irá el mapa de Google Maps embebido
+          </span>
+        </div>
+      </div>
+    </Container>
+  </section>
+</Layout>
