@@ -1,0 +1,56 @@
+---
+import { Shield, Menu, Phone } from '@lucide/astro';
+import Container from './Container.astro';
+
+const navLinks = [
+  { label: 'Inicio', href: '/' },
+  { label: 'Servicios', href: '/servicios' },
+  { label: 'Soluciones', href: '/soluciones' },
+  { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Contacto', href: '/contacto' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-segumax-border bg-segumax-bg/95 backdrop-blur">
+  <Container>
+    <div class="flex h-16 items-center justify-between gap-4 lg:h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2">
+        <Shield class="h-8 w-8 text-segumax-accent" stroke-width={2.5} />
+        <span class="font-display text-2xl font-bold tracking-wider text-segumax-primary">
+          SEGUMAX
+        </span>
+      </a>
+
+      <!-- Nav desktop -->
+      <nav class="hidden items-center gap-8 lg:flex">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="font-display text-base font-medium tracking-wide text-segumax-text transition hover:text-segumax-accent"
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA desktop -->
+      <a
+        href="tel:+5355555555"
+        class="font-display hidden items-center gap-2 rounded-lg bg-segumax-accent px-5 py-2.5 text-base font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover lg:flex"
+      >
+        <Phone class="h-4 w-4" />
+        Llamar ahora
+      </a>
+
+      <!-- Botón menú móvil -->
+      <button
+        type="button"
+        class="rounded-lg p-2 text-segumax-primary transition hover:bg-segumax-bg-alt lg:hidden"
+        aria-label="Abrir menú"
+      >
+        <Menu class="h-6 w-6" />
+      </button>
+    </div>
+  </Container>
+</header>

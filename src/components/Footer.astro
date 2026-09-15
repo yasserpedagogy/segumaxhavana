@@ -1,0 +1,103 @@
+---
+import { Shield, MapPin, Phone, Mail, MessageCircle } from '@lucide/astro';
+import Container from './Container.astro';
+
+const year = new Date().getFullYear();
+
+const servicios = [
+  { label: 'Alarmas AJAX', href: '/servicios/alarmas' },
+  { label: 'Videovigilancia', href: '/servicios/videovigilancia' },
+  { label: 'Sistema contra incendios', href: '/servicios/incendio' },
+  { label: 'Automatización', href: '/servicios/automatizacion' },
+  { label: 'Energía solar', href: '/servicios/energia-solar' },
+];
+
+const empresa = [
+  { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Soluciones', href: '/soluciones' },
+  { label: 'Galería', href: '/galeria' },
+  { label: 'Contacto', href: '/contacto' },
+];
+---
+
+<footer class="bg-segumax-primary-dark text-white">
+  <Container class="py-16">
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
+      <!-- Columna 1: Marca -->
+      <div>
+        <div class="flex items-center gap-2">
+          <Shield class="h-8 w-8 text-segumax-accent" stroke-width={2.5} />
+          <span class="font-display text-2xl font-bold tracking-wider">SEGUMAX</span>
+        </div>
+        <p class="mt-4 text-sm leading-relaxed text-white/70">
+          Más de 12 años protegiendo hogares y negocios en La Habana con soluciones de
+          seguridad electrónica y respaldo energético.
+        </p>
+      </div>
+
+      <!-- Columna 2: Servicios -->
+      <div>
+        <h3 class="font-display text-lg font-semibold tracking-wide">Servicios</h3>
+        <ul class="mt-4 space-y-3">
+          {servicios.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-white/70 transition hover:text-segumax-accent">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Columna 3: Empresa -->
+      <div>
+        <h3 class="font-display text-lg font-semibold tracking-wide">Empresa</h3>
+        <ul class="mt-4 space-y-3">
+          {empresa.map((item) => (
+            <li>
+              <a href={item.href} class="text-sm text-white/70 transition hover:text-segumax-accent">
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Columna 4: Contacto -->
+      <div>
+        <h3 class="font-display text-lg font-semibold tracking-wide">Contacto</h3>
+        <ul class="mt-4 space-y-3 text-sm text-white/70">
+          <li class="flex items-start gap-3">
+            <MapPin class="mt-0.5 h-4 w-4 flex-shrink-0 text-segumax-accent" />
+            <span>La Habana, Cuba</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Phone class="mt-0.5 h-4 w-4 flex-shrink-0 text-segumax-accent" />
+            <a href="tel:+5355555555" class="transition hover:text-segumax-accent">
+              +53 5555 5555
+            </a>
+          </li>
+          <li class="flex items-start gap-3">
+            <MessageCircle class="mt-0.5 h-4 w-4 flex-shrink-0 text-segumax-accent" />
+            <a href="https://wa.me/5355555555" class="transition hover:text-segumax-accent">
+              WhatsApp
+            </a>
+          </li>
+          <li class="flex items-start gap-3">
+            <Mail class="mt-0.5 h-4 w-4 flex-shrink-0 text-segumax-accent" />
+            <a href="mailto:info@segumaxhavana.com" class="transition hover:text-segumax-accent">
+              info@segumaxhavana.com
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Línea inferior -->
+    <div class="mt-12 border-t border-white/10 pt-8">
+      <p class="text-center text-sm text-white/50">
+        © {year} Segumax. Todos los derechos reservados.
+      </p>
+    </div>
+  </Container>
+</footer>

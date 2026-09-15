@@ -1,17 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
 ---
 
 <Layout title="Segumax | Máxima Protección">
-  <main class="min-h-screen bg-segumax-bg p-8">
+  <Container class="py-20">
     <h1 class="font-display text-5xl font-bold tracking-tight text-segumax-primary">
-      Segumax — Prueba de Tailwind
+      Máxima Protección para tu Hogar y Negocio
     </h1>
-    <p class="mt-4 max-w-2xl text-lg text-segumax-text-soft">
-      Si ves este texto con tipografía moderna y colores, Tailwind está funcionando.
+    <p class="mt-6 max-w-2xl text-lg text-segumax-text-soft">
+      Sistemas de alarma AJAX, videovigilancia profesional y respaldo energético
+      con paneles solares en La Habana.
     </p>
-    <button class="font-display mt-6 rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover">
-      Botón de prueba
-    </button>
-  </main>
+    <a
+      href="/contacto"
+      class="font-display mt-8 inline-block rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+    >
+      Solicitar visita gratuita
+    </a>
+  </Container>
 </Layout>
