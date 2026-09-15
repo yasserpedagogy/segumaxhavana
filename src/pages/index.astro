@@ -1,17 +1,17 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Segumax | Máxima Protección">
+  <main class="min-h-screen bg-segumax-bg p-8">
+    <h1 class="text-4xl font-bold text-segumax-primary">
+      Segumax — Prueba de Tailwind
+    </h1>
+    <p class="mt-4 text-lg text-segumax-text-soft">
+      Si ves este texto con tipografía moderna y colores, Tailwind está funcionando.
+    </p>
+    <button class="mt-6 rounded-lg bg-segumax-accent px-6 py-3 font-semibold text-white">
+      Botón de prueba
+    </button>
+  </main>
+</Layout>
