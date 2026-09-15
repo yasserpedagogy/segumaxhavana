@@ -1,0 +1,107 @@
+---
+import {
+  BellRing,
+  Cable,
+  Flame,
+  Camera,
+  DoorOpen,
+  Lightbulb,
+  Sun,
+  ArrowRight,
+} from '@lucide/astro';
+import Container from './Container.astro';
+
+const services = [
+  {
+    icon: BellRing,
+    title: 'Alarmas AJAX inalámbricas',
+    description:
+      'Sistemas por radio frecuencia con respaldo interno de baterías y monitoreo remoto.',
+    href: '/servicios/alarmas-ajax',
+  },
+  {
+    icon: Cable,
+    title: 'Alarmas cableadas',
+    description:
+      'Sistemas DSC NEO y Honeywell para instalaciones que requieren máxima robustez.',
+    href: '/servicios/alarmas-cableadas',
+  },
+  {
+    icon: Flame,
+    title: 'Sistemas contra incendios',
+    description:
+      'Detección temprana AJAX Fire para proteger vidas y bienes en tu propiedad.',
+    href: '/servicios/incendio',
+  },
+  {
+    icon: Camera,
+    title: 'Videovigilancia',
+    description:
+      'Cámaras de alta definición con grabación 24/7 y acceso remoto desde tu móvil.',
+    href: '/servicios/videovigilancia',
+  },
+  {
+    icon: DoorOpen,
+    title: 'Videoporteros',
+    description:
+      'Sistemas analógicos y digitales para controlar el acceso a tu hogar o negocio.',
+    href: '/servicios/videoporteros',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Automatización',
+    description:
+      'Controla luces, portones y más desde tu teléfono con domótica inteligente.',
+    href: '/servicios/automatizacion',
+  },
+  {
+    icon: Sun,
+    title: 'Energía solar',
+    description:
+      'Paneles solares e inversores para mantener tu propiedad protegida durante apagones.',
+    href: '/servicios/energia-solar',
+  },
+];
+---
+
+<section class="bg-segumax-bg py-20">
+  <Container>
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+        NUESTROS SERVICIOS
+      </span>
+      <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
+        Soluciones integrales de seguridad
+      </h2>
+      <p class="mt-4 text-lg text-segumax-text-soft">
+        Un sistema completo, escalable y adaptado a tu presupuesto. Nunca
+        comprometemos la seguridad.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => (
+        <a
+          href={service.href}
+          class="group relative flex flex-col rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-segumax-accent/30 hover:shadow-card-hover"
+        >
+          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-segumax-primary/10 transition group-hover:bg-segumax-accent/10">
+            <service.icon class="h-6 w-6 text-segumax-primary transition group-hover:text-segumax-accent" />
+          </div>
+
+          <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
+            {service.title}
+          </h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-segumax-text-soft">
+            {service.description}
+          </p>
+
+          <div class="mt-4 flex items-center gap-2 text-sm font-semibold text-segumax-accent opacity-0 transition group-hover:opacity-100">
+            <span>Ver más</span>
+            <ArrowRight class="h-4 w-4 transition group-hover:translate-x-1" />
+          </div>
+        </a>
+      ))}
+    </div>
+  </Container>
+</section>

@@ -1,0 +1,66 @@
+---
+import { Sun, Battery, Zap, CheckCircle2 } from '@lucide/astro';
+import Container from './Container.astro';
+
+const benefits = [
+  'Paneles solares de alta eficiencia',
+  'Inversores dimensionados a tu consumo',
+  'Respaldo energético durante apagones',
+  'Integración con tu sistema de alarma',
+];
+---
+
+<section class="bg-segumax-primary text-white">
+  <Container class="py-20">
+    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+      <!-- Contenido -->
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-segumax-success/30 bg-segumax-success/10 px-4 py-1.5 backdrop-blur">
+          <Sun class="h-4 w-4 text-segumax-success" />
+          <span class="font-display text-sm font-medium tracking-wider text-segumax-success">
+            RESPALDO ENERGÉTICO
+          </span>
+        </div>
+
+        <h2 class="font-display mt-6 text-4xl font-bold leading-tight tracking-tight lg:text-5xl">
+          Luz y seguridad, incluso en medio del <span class="text-segumax-accent">apagón</span>
+        </h2>
+
+        <p class="mt-6 max-w-xl text-lg text-white/80">
+          Cuando te agobie la falta de corriente y la inseguridad, Segumax te
+          trae la luz hasta tu hogar con paneles solares y el inversor adecuado.
+          Protegemos tu propiedad las 24 horas.
+        </p>
+
+        <ul class="mt-8 space-y-3">
+          {benefits.map((item) => (
+            <li class="flex items-center gap-3">
+              <CheckCircle2 class="h-5 w-5 flex-shrink-0 text-segumax-success" />
+              <span class="text-white/90">{item}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href="/servicios/energia-solar"
+          class="font-display mt-10 inline-flex items-center gap-2 rounded-lg bg-segumax-success px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:brightness-110"
+        >
+          Conocer más
+        </a>
+      </div>
+
+      <!-- Imagen/cards placeholder -->
+      <div class="grid grid-cols-2 gap-4">
+        <div class="flex aspect-square items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
+          <Sun class="h-16 w-16 text-segumax-success/40" stroke-width={1.5} />
+        </div>
+        <div class="flex aspect-square items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
+          <Battery class="h-16 w-16 text-segumax-success/40" stroke-width={1.5} />
+        </div>
+        <div class="col-span-2 flex aspect-[2/1] items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
+          <Zap class="h-16 w-16 text-segumax-success/40" stroke-width={1.5} />
+        </div>
+      </div>
+    </div>
+  </Container>
+</section>
