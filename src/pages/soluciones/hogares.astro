@@ -1,0 +1,159 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Container from '../../components/Container.astro';
+import { Home, BellRing, Camera, Lightbulb, DoorOpen, Sun, ArrowRight, Check } from '@lucide/astro';
+
+const pilares = [
+  {
+    icon: BellRing,
+    title: 'Alarmas AJAX',
+    description: 'Detección inalámbrica por radio frecuencia con respaldo de baterías.',
+  },
+  {
+    icon: Camera,
+    title: 'Videovigilancia',
+    description: 'Cámaras con visión nocturna y acceso remoto desde tu móvil.',
+  },
+  {
+    icon: DoorOpen,
+    title: 'Videoporteros',
+    description: 'Control de acceso con audio y video antes de abrir la puerta.',
+  },
+  {
+    icon: Lightbulb,
+    title: 'Automatización',
+    description: 'Controla luces, portones y dispositivos desde tu teléfono.',
+  },
+  {
+    icon: Sun,
+    title: 'Energía solar',
+    description: 'Respaldo energético para mantener tu hogar protegido en apagones.',
+  },
+  {
+    icon: Home,
+    title: 'Solución integral',
+    description: 'Combinamos todos los sistemas en una sola plataforma unificada.',
+  },
+];
+---
+
+<Layout
+  title="Seguridad para Hogares | Segumax"
+  description="Soluciones de seguridad residencial en La Habana: alarmas AJAX, videovigilancia, videoporteros y respaldo energético para tu hogar."
+>
+  <!-- Hero -->
+  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl">
+        <div class="flex items-center gap-3">
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-segumax-accent/20">
+            <Home class="h-7 w-7 text-segumax-accent" />
+          </div>
+          <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+            PARA HOGARES
+          </span>
+        </div>
+        <h1 class="font-display mt-6 text-4xl font-bold tracking-tight lg:text-5xl">
+          Protección pensada para tu familia
+        </h1>
+        <p class="mt-4 text-lg text-white/70">
+          Soluciones de respaldo y protección para tu hogar, adaptadas a tu
+          presupuesto y a las necesidades reales de tu familia.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Pilares -->
+  <section class="bg-segumax-bg py-16 lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+          QUÉ INCLUYE
+        </span>
+        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
+          Sistemas disponibles para tu hogar
+        </h2>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {pilares.map((pilar) => (
+          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-primary/10">
+              <pilar.icon class="h-6 w-6 text-segumax-primary" />
+            </div>
+            <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
+              {pilar.title}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-segumax-text-soft">
+              {pilar.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Por qué elegirnos para hogares -->
+  <section class="bg-segumax-bg-alt py-16 lg:py-20">
+    <Container>
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div class="order-2 lg:order-1">
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl border border-segumax-border bg-white shadow-card">
+            <div class="flex h-full flex-col items-center justify-center gap-3 text-center">
+              <Home class="h-20 w-20 text-segumax-primary/20" stroke-width={1.5} />
+              <span class="font-display text-sm font-semibold tracking-wider text-segumax-text-soft">
+                FOTO DE INSTALACIÓN RESIDENCIAL
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="order-1 lg:order-2">
+          <h2 class="font-display text-4xl font-bold tracking-tight text-segumax-primary">
+            Seguridad que se adapta a tu familia
+          </h2>
+          <ul class="mt-8 space-y-4">
+            {[
+              'Instalación limpia y discreta en tu hogar',
+              'Notificaciones en tiempo real a tu móvil',
+              'Monitoreo remoto por nuestros técnicos',
+              'Respaldo de baterías durante apagones',
+              'Mantenimiento programado sin costo extra',
+              'Soporte técnico continuo',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <div class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-segumax-accent/10">
+                  <Check class="h-3 w-3 text-segumax-accent" stroke-width={3} />
+                </div>
+                <span class="text-segumax-text">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="font-display text-3xl font-bold lg:text-4xl">
+          Agenda una visita gratuita para tu hogar
+        </h2>
+        <p class="mt-3 text-white/70">
+          Evaluamos tu propiedad sin compromiso y te proponemos la solución
+          adecuada.
+        </p>
+        <a
+          href="/contacto"
+          class="font-display mt-6 inline-flex items-center gap-2 rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+        >
+          Solicitar visita
+          <ArrowRight class="h-5 w-5" />
+        </a>
+      </div>
+    </Container>
+  </section>
+</Layout>

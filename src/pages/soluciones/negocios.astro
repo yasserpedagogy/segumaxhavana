@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Container from '../../components/Container.astro';
+import { Building2, Cable, Flame, Camera, ShieldCheck, Wrench, ArrowRight, Check } from '@lucide/astro';
+
+const pilares = [
+  {
+    icon: Cable,
+    title: 'Alarmas cableadas',
+    description: 'Sistemas DSC NEO y Honeywell para máxima robustez.',
+  },
+  {
+    icon: Flame,
+    title: 'Sistemas contra incendios',
+    description: 'Detección temprana AJAX Fire para proteger vidas y bienes.',
+  },
+  {
+    icon: Camera,
+    title: 'Videovigilancia multi-cámara',
+    description: 'Grabación 24/7 en múltiples puntos con acceso remoto.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Control de acceso',
+    description: 'Videoporteros y cerraduras eléctricas para personal autorizado.',
+  },
+  {
+    icon: Wrench,
+    title: 'Automatización',
+    description: 'Control de luces, portones y procesos de tu instalación.',
+  },
+  {
+    icon: Building2,
+    title: 'Solución escalable',
+    description: 'Sistemas que crecen contigo, sin reinstalaciones costosas.',
+  },
+];
+---
+
+<Layout
+  title="Soluciones Comerciales | Segumax"
+  description="Soluciones de seguridad para negocios, comercios, oficinas e industrias en La Habana. Alarmas, videovigilancia, control de acceso y más."
+>
+  <!-- Hero -->
+  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl">
+        <div class="flex items-center gap-3">
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-segumax-accent/20">
+            <Building2 class="h-7 w-7 text-segumax-accent" />
+          </div>
+          <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+            SOLUCIONES COMERCIALES
+          </span>
+        </div>
+        <h1 class="font-display mt-6 text-4xl font-bold tracking-tight lg:text-5xl">
+          Seguridad escalable para tu negocio
+        </h1>
+        <p class="mt-4 text-lg text-white/70">
+          Escalamos soluciones acorde a cada necesidad: comercios, oficinas,
+          industrias y más. Tu inversión crece con tu negocio.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Pilares -->
+  <section class="bg-segumax-bg py-16 lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+          QUÉ INCLUYE
+        </span>
+        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
+          Sistemas para tu instalación comercial
+        </h2>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {pilares.map((pilar) => (
+          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-primary/10">
+              <pilar.icon class="h-6 w-6 text-segumax-primary" />
+            </div>
+            <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
+              {pilar.title}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-segumax-text-soft">
+              {pilar.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Por qué elegirnos para negocios -->
+  <section class="bg-segumax-bg-alt py-16 lg:py-20">
+    <Container>
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <div>
+          <h2 class="font-display text-4xl font-bold tracking-tight text-segumax-primary">
+            Protegemos tu inversión 24/7
+          </h2>
+          <p class="mt-4 text-lg text-segumax-text-soft">
+            Tu negocio no puede parar. Nuestros sistemas están diseñados para
+            operar sin interrupciones, incluso durante apagones, con respaldo
+            energético y monitoreo remoto.
+          </p>
+          <ul class="mt-8 space-y-4">
+            {[
+              'Instalación fuera del horario comercial si lo necesitas',
+              'Cumplimiento de normativas de seguridad',
+              'Monitoreo remoto por nuestra central',
+              'Soporte técnico prioritario',
+              'Mantenimiento programado sin parar tu operación',
+              'Documentación técnica completa de cada instalación',
+            ].map((item) => (
+              <li class="flex items-start gap-3">
+                <div class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-segumax-accent/10">
+                  <Check class="h-3 w-3 text-segumax-accent" stroke-width={3} />
+                </div>
+                <span class="text-segumax-text">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div>
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl border border-segumax-border bg-white shadow-card">
+            <div class="flex h-full flex-col items-center justify-center gap-3 text-center">
+              <Building2 class="h-20 w-20 text-segumax-primary/20" stroke-width={1.5} />
+              <span class="font-display text-sm font-semibold tracking-wider text-segumax-text-soft">
+                FOTO DE INSTALACIÓN COMERCIAL
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="font-display text-3xl font-bold lg:text-4xl">
+          Solicita una evaluación para tu negocio
+        </h2>
+        <p class="mt-3 text-white/70">
+          Analizamos tus vulnerabilidades y te proponemos un sistema escalable
+          según tu presupuesto.
+        </p>
+        <a
+          href="/contacto"
+          class="font-display mt-6 inline-flex items-center gap-2 rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+        >
+          Solicitar evaluación
+          <ArrowRight class="h-5 w-5" />
+        </a>
+      </div>
+    </Container>
+  </section>
+</Layout>
