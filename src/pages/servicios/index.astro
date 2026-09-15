@@ -1,0 +1,89 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Container from '../../components/Container.astro';
+import { getCollection } from 'astro:content';
+import {
+  BellRing, Cable, Flame, Camera, DoorOpen, Lightbulb, Sun, ArrowRight,
+} from '@lucide/astro';
+
+const iconMap = { BellRing, Cable, Flame, Camera, DoorOpen, Lightbulb, Sun };
+
+const servicios = (await getCollection('servicios')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Layout
+  title="Servicios | Segumax"
+  description="Alarmas AJAX, videovigilancia, sistemas contra incendios, automatización y energía solar en La Habana. Soluciones integrales de seguridad."
+>
+  <!-- Hero -->
+  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+          SERVICIOS
+        </span>
+        <h1 class="font-display mt-4 text-4xl font-bold tracking-tight lg:text-5xl">
+          Soluciones integrales de seguridad
+        </h1>
+        <p class="mt-4 text-lg text-white/70">
+          Un sistema completo, escalable y adaptado a tu presupuesto. Nunca
+          comprometemos la seguridad.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Grid de servicios -->
+  <section class="bg-segumax-bg py-16 lg:py-20">
+    <Container>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {servicios.map((servicio) => {
+          const Icon = iconMap[servicio.data.icon as keyof typeof iconMap];
+          return (
+            <a
+              href={`/servicios/${servicio.id}`}
+              class="group flex flex-col rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-segumax-accent/30 hover:shadow-card-hover"
+            >
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-segumax-primary/10 transition group-hover:bg-segumax-accent/10">
+                <Icon class="h-6 w-6 text-segumax-primary transition group-hover:text-segumax-accent" />
+              </div>
+              <h2 class="font-display mt-5 text-xl font-bold text-segumax-primary">
+                {servicio.data.title}
+              </h2>
+              <p class="mt-2 flex-1 text-sm leading-relaxed text-segumax-text-soft">
+                {servicio.data.description}
+              </p>
+              <div class="mt-4 flex items-center gap-2 text-sm font-semibold text-segumax-accent">
+                <span>Ver más</span>
+                <ArrowRight class="h-4 w-4 transition group-hover:translate-x-1" />
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA final -->
+  <section class="bg-segumax-bg-alt py-16">
+    <Container>
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="font-display text-3xl font-bold text-segumax-primary">
+          ¿No sabes qué necesitas?
+        </h2>
+        <p class="mt-3 text-segumax-text-soft">
+          Hacemos una visita gratuita sin compromiso y te proponemos la mejor
+          solución para tu caso.
+        </p>
+        <a
+          href="/contacto"
+          class="font-display mt-6 inline-block rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+        >
+          Solicitar visita gratuita
+        </a>
+      </div>
+    </Container>
+  </section>
+</Layout>

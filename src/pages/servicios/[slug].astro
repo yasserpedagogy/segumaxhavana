@@ -1,0 +1,127 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Container from '../../components/Container.astro';
+import { getCollection } from 'astro:content';
+import {
+  BellRing, Cable, Flame, Camera, DoorOpen, Lightbulb, Sun, Check, ArrowRight,
+} from '@lucide/astro';
+
+const iconMap = { BellRing, Cable, Flame, Camera, DoorOpen, Lightbulb, Sun };
+
+export async function getStaticPaths() {
+  const servicios = await getCollection('servicios');
+  return servicios.map((servicio) => ({
+    params: { slug: servicio.id },
+    props: { servicio },
+  }));
+}
+
+const { servicio } = Astro.props;
+const { Content } = await servicio.render();
+const Icon = iconMap[servicio.data.icon as keyof typeof iconMap];
+
+const serviciosRelacionados = (await getCollection('servicios'))
+  .filter((s) => s.id !== servicio.id)
+  .slice(0, 3);
+---
+
+<Layout title={`${servicio.data.title} | Segumax`} description={servicio.data.metaDescription}>
+  <!-- Hero -->
+  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl">
+        <div class="flex items-center gap-3">
+          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-segumax-accent/20">
+            <Icon class="h-7 w-7 text-segumax-accent" />
+          </div>
+          <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+            SERVICIO
+          </span>
+        </div>
+        <h1 class="font-display mt-6 text-4xl font-bold tracking-tight lg:text-5xl">
+          {servicio.data.title}
+        </h1>
+        <p class="mt-4 text-lg text-white/70">{servicio.data.description}</p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Contenido -->
+  <section class="bg-segumax-bg py-16 lg:py-20">
+    <Container>
+      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr]">
+        <!-- Contenido markdown -->
+        <div class="prose prose-lg max-w-none">
+          <Content />
+        </div>
+
+        <!-- Sidebar con features + CTA -->
+        <aside class="space-y-6">
+          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card">
+            <h2 class="font-display text-xl font-bold text-segumax-primary">
+              Qué incluye
+            </h2>
+            <ul class="mt-4 space-y-3">
+              {servicio.data.features.map((feature) => (
+                <li class="flex items-start gap-3">
+                  <div class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-segumax-accent/10">
+                    <Check class="h-3 w-3 text-segumax-accent" stroke-width={3} />
+                  </div>
+                  <span class="text-sm text-segumax-text">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="rounded-2xl bg-segumax-primary p-6 text-white shadow-card">
+            <h2 class="font-display text-xl font-bold">Visita gratuita</h2>
+            <p class="mt-2 text-sm text-white/80">
+              Evaluamos tu propiedad sin costo ni compromiso y te proponemos la
+              mejor solución.
+            </p>
+            <a
+              href="/contacto"
+              class="font-display mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-segumax-accent px-4 py-3 text-sm font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+            >
+              Solicitar ahora
+            </a>
+          </div>
+        </aside>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Servicios relacionados -->
+  <section class="bg-segumax-bg-alt py-16">
+    <Container>
+      <h2 class="font-display text-3xl font-bold text-segumax-primary">
+        Otros servicios
+      </h2>
+      <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {serviciosRelacionados.map((rel) => {
+          const RelIcon = iconMap[rel.data.icon as keyof typeof iconMap];
+          return (
+            <a
+              href={`/servicios/${rel.id}`}
+              class="group flex flex-col rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover"
+            >
+              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-segumax-primary/10">
+                <RelIcon class="h-6 w-6 text-segumax-primary" />
+              </div>
+              <h3 class="font-display mt-4 text-lg font-bold text-segumax-primary">
+                {rel.data.title}
+              </h3>
+              <p class="mt-2 flex-1 text-sm text-segumax-text-soft">
+                {rel.data.description}
+              </p>
+              <div class="mt-4 flex items-center gap-2 text-sm font-semibold text-segumax-accent">
+                <span>Ver más</span>
+                <ArrowRight class="h-4 w-4 transition group-hover:translate-x-1" />
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </Container>
+  </section>
+</Layout>
