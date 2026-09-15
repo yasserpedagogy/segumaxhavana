@@ -1,4 +1,8 @@
 ---
+import '@fontsource/rajdhani/500.css';
+import '@fontsource/rajdhani/700.css';
+import '@fontsource/work-sans/400.css';
+import '@fontsource/work-sans/500.css';
 import '../styles/global.css';
 
 interface Props {
@@ -21,7 +25,7 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
-  <body>
+  <body class="bg-segumax-bg font-sans text-segumax-text antialiased">
     <slot />
   </body>
 </html>
