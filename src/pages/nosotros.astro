@@ -1,0 +1,210 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Container from '../components/Container.astro';
+import { Award, Users, MapPin, ShieldCheck, Wrench, Headphones } from '@lucide/astro';
+
+const valores = [
+  {
+    icon: ShieldCheck,
+    title: 'Seguridad primero',
+    description:
+      'Nunca comprometemos la seguridad. Cada decisión técnica prioriza tu protección.',
+  },
+  {
+    icon: Users,
+    title: 'Trabajo en equipo',
+    description:
+      'Técnicos e ingenieros con más de 12 años de experiencia combinada en el rubro.',
+  },
+  {
+    icon: Wrench,
+    title: 'Soluciones a medida',
+    description:
+      'No vendemos equipos genéricos. Diseñamos sistemas según tu caso y presupuesto.',
+  },
+  {
+    icon: Headphones,
+    title: 'Soporte continuo',
+    description:
+      'Monitoreo remoto y acompañamiento técnico después de cada instalación.',
+  },
+];
+
+const hitos = [
+  { year: '2013', title: 'Primeros proyectos', description: 'Inicio de operaciones individuales de cada miembro del equipo.' },
+  { year: '2018', title: 'Unión del equipo', description: 'Los técnicos e ingenieros deciden unir fuerzas y crear Segumax.' },
+  { year: '2021', title: 'Expansión de servicios', description: 'Incorporación de energía solar y automatización al portafolio.' },
+  { year: '2024', title: 'Consolidación', description: 'Más de 500 hogares y 150 negocios protegidos en toda Cuba.' },
+];
+---
+
+<Layout
+  title="Nosotros | Segumax"
+  description="Conoce al equipo de Segumax: técnicos e ingenieros con más de 12 años protegiendo hogares y negocios en La Habana."
+>
+  <!-- Hero -->
+  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+          NOSOTROS
+        </span>
+        <h1 class="font-display mt-4 text-4xl font-bold tracking-tight lg:text-5xl">
+          Técnicos e ingenieros al servicio de tu seguridad
+        </h1>
+        <p class="mt-4 text-lg text-white/70">
+          Un grupo de profesionales que decidió unir experiencia y pasión para
+          proteger lo que más importa.
+        </p>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Historia + imagen -->
+  <section class="bg-segumax-bg py-16 lg:py-20">
+    <Container>
+      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
+        <!-- Imagen placeholder -->
+        <div class="relative">
+          <div class="aspect-[4/3] overflow-hidden rounded-2xl border border-segumax-border bg-segumax-bg-alt shadow-card">
+            <div class="flex h-full flex-col items-center justify-center gap-3 text-center">
+              <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-segumax-primary/10">
+                <Users class="h-10 w-10 text-segumax-primary" />
+              </div>
+              <span class="font-display text-sm font-semibold tracking-wider text-segumax-text-soft">
+                FOTO DEL EQUIPO SEGUMAX
+              </span>
+            </div>
+          </div>
+          <!-- Badge flotante -->
+          <div class="absolute -bottom-6 -right-6 hidden rounded-2xl bg-segumax-accent p-6 shadow-card-hover lg:block">
+            <div class="flex items-center gap-4">
+              <Award class="h-10 w-10 text-white" />
+              <div>
+                <div class="font-display text-3xl font-bold text-white">12+</div>
+                <div class="text-sm text-white/90">años de experiencia</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto -->
+        <div>
+          <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+            NUESTRA HISTORIA
+          </span>
+          <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary">
+            ¿Cómo surge Segumax?
+          </h2>
+
+          <div class="mt-6 space-y-4 text-lg leading-relaxed text-segumax-text-soft">
+            <p>
+              Un grupo de técnicos e ingenieros que trabajábamos por separado
+              decidimos hacer un proyecto en común, cada uno aportando su
+              experiencia. Sumado, abarcamos más de <strong class="text-segumax-primary">12 años</strong>
+              en el rubro.
+            </p>
+            <p>
+              Nos radicamos en La Habana, pero estamos disponibles para todo el
+              país previa negociación. De común acuerdo con el cliente,
+              proponemos un sistema integral escalable que prioriza sus
+              vulnerabilidades.
+            </p>
+            <p>
+              Nuestro propósito es claro: <strong class="text-segumax-primary">no vendemos equipos, proponemos soluciones</strong>.
+              Trabajamos con las marcas líderes del sector (AJAX Systems, DSC
+              NEO, Honeywell) y diseñamos según cada presupuesto, sin
+              comprometer nunca la seguridad.
+            </p>
+          </div>
+
+          <div class="mt-8 flex items-center gap-3 text-segumax-text">
+            <MapPin class="h-5 w-5 text-segumax-accent" />
+            <span class="font-medium">La Habana, Cuba · Cobertura nacional</span>
+          </div>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <!-- Valores -->
+  <section class="bg-segumax-bg-alt py-16 lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+          NUESTROS VALORES
+        </span>
+        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
+          Lo que nos define
+        </h2>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {valores.map((valor) => (
+          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
+            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-accent/10">
+              <valor.icon class="h-6 w-6 text-segumax-accent" />
+            </div>
+            <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
+              {valor.title}
+            </h3>
+            <p class="mt-2 text-sm leading-relaxed text-segumax-text-soft">
+              {valor.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- Timeline -->
+  <section class="bg-segumax-bg py-16 lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-3xl text-center">
+        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
+          NUESTRO RECORRIDO
+        </span>
+        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
+          Más de una década protegiendo Cuba
+        </h2>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {hitos.map((hito) => (
+          <div class="relative rounded-2xl border border-segumax-border bg-white p-6 shadow-card">
+            <div class="font-display text-5xl font-bold text-segumax-accent">
+              {hito.year}
+            </div>
+            <h3 class="font-display mt-4 text-lg font-bold text-segumax-primary">
+              {hito.title}
+            </h3>
+            <p class="mt-2 text-sm text-segumax-text-soft">
+              {hito.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <!-- CTA final -->
+  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+    <Container>
+      <div class="mx-auto max-w-2xl text-center">
+        <h2 class="font-display text-3xl font-bold lg:text-4xl">
+          ¿Listo para trabajar con nosotros?
+        </h2>
+        <p class="mt-3 text-white/70">
+          Solicita una visita gratuita sin compromiso y descubre cómo podemos
+          proteger tu propiedad.
+        </p>
+        <a
+          href="/contacto"
+          class="font-display mt-6 inline-block rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+        >
+          Solicitar visita gratuita
+        </a>
+      </div>
+    </Container>
+  </section>
+</Layout>
