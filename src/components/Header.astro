@@ -1,5 +1,5 @@
 ---
-import { Shield, Menu, Phone } from '@lucide/astro';
+import { Shield, Menu, X, Phone } from '@lucide/astro';
 import Container from './Container.astro';
 
 const navLinks = [
@@ -7,8 +7,16 @@ const navLinks = [
   { label: 'Servicios', href: '/servicios' },
   { label: 'Soluciones', href: '/soluciones' },
   { label: 'Nosotros', href: '/nosotros' },
+  { label: 'Galería', href: '/galeria' },
   { label: 'Contacto', href: '/contacto' },
 ];
+
+const currentPath = Astro.url.pathname;
+
+const isActive = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+};
 ---
 
 <header class="sticky top-0 z-50 border-b border-segumax-border bg-segumax-bg/95 backdrop-blur">
@@ -27,7 +35,10 @@ const navLinks = [
         {navLinks.map((link) => (
           <a
             href={link.href}
-            class="font-display text-base font-medium tracking-wide text-segumax-text transition hover:text-segumax-accent"
+            class:list={[
+              'font-display text-base font-medium tracking-wide transition hover:text-segumax-accent',
+              isActive(link.href) ? 'text-segumax-accent' : 'text-segumax-text',
+            ]}
           >
             {link.label}
           </a>
@@ -46,11 +57,73 @@ const navLinks = [
       <!-- Botón menú móvil -->
       <button
         type="button"
+        id="mobile-menu-toggle"
         class="rounded-lg p-2 text-segumax-primary transition hover:bg-segumax-bg-alt lg:hidden"
         aria-label="Abrir menú"
+        aria-expanded="false"
       >
-        <Menu class="h-6 w-6" />
+        <Menu class="h-6 w-6" id="icon-menu" />
+        <X class="hidden h-6 w-6" id="icon-close" />
       </button>
+    </div>
+
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden border-t border-segumax-border pb-6 pt-4 lg:hidden">
+      <nav class="flex flex-col gap-1">
+        {navLinks.map((link) => (
+          <a
+            href={link.href}
+            class:list={[
+              'font-display rounded-lg px-4 py-3 text-lg font-medium tracking-wide transition',
+              isActive(link.href)
+                ? 'bg-segumax-accent/10 text-segumax-accent'
+                : 'text-segumax-text hover:bg-segumax-bg-alt hover:text-segumax-accent',
+            ]}
+          >
+            {link.label}
+          </a>
+        ))}
+        <a
+          href="tel:+5355555555"
+          class="font-display mt-3 flex items-center justify-center gap-2 rounded-lg bg-segumax-accent px-5 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+        >
+          <Phone class="h-5 w-5" />
+          Llamar ahora
+        </a>
+      </nav>
     </div>
   </Container>
 </header>
+
+<script is:inline>
+  (function () {
+    function init() {
+      var toggle = document.getElementById('mobile-menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      var iconMenu = document.getElementById('icon-menu');
+      var iconClose = document.getElementById('icon-close');
+
+      if (!toggle || !menu || !iconMenu || !iconClose) {
+        console.warn('Mobile menu: elementos no encontrados');
+        return;
+      }
+
+      if (toggle.dataset.bound === '1') return;
+      toggle.dataset.bound = '1';
+
+      toggle.addEventListener('click', function () {
+        var isOpen = !menu.classList.contains('hidden');
+        menu.classList.toggle('hidden');
+        iconMenu.classList.toggle('hidden');
+        iconClose.classList.toggle('hidden');
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
