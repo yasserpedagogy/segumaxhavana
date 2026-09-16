@@ -41,7 +41,7 @@ import { ArrowUpRight } from '@lucide/astro';
         </div>
       </div>
 
-      <!-- Bloque de Imagen: Render Técnico del Objeto en Caja de Catálogo -->
+      <!-- Bloque de Imagen Real: Ficha del Objeto Fotovoltaico en Caja de Catálogo -->
       <div class="relative group">
         <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
           <!-- Número de inventario simulado -->
@@ -53,17 +53,20 @@ import { ArrowUpRight } from '@lucide/astro';
             <span class="text-mostaza-600 font-semibold tracking-tighter">EFF // 22.8%</span>
           </div>
 
-          <!-- Cuadro contenedor del producto fotovoltaico -->
-          <div class="relative aspect-[4/4] w-full overflow-hidden bg-gris-100 border border-gris-200 flex items-center justify-center p-8">
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-25"></div>
+          <!-- Cuadro contenedor de la imagen fotovoltaica real -->
+          <div class="relative aspect-[4/4] w-full overflow-hidden bg-gris-100 border border-gris-200 flex items-center justify-center p-0">
+            <!-- Rejilla milimétrica técnica encima de la foto -->
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-25 z-10 pointer-events-none"></div>
             
-            <div class="text-center z-10 space-y-2">
-              <span class="block kicker text-gris-400">PLANO FOTOVOLTAICO MODULAR</span>
-              <span class="font-mono text-[10px] text-gris-400 font-light">[ Celda Monocristalina / Absorción Pasiva ]</span>
-            </div>
+            <!-- Carga de la imagen real sin filtros de blanco y negro -->
+            <img 
+              src="/images/solar-module.jpg" 
+              alt="Matriz Fotovoltaica Monocristalina Segumax" 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
 
             <!-- Detalle Mostaza de Conexión Técnica en Esquina -->
-            <div class="absolute bottom-0 left-0 h-1 w-16 bg-mostaza-500 transition-all duration-300 group-hover:h-3"></div>
+            <div class="absolute bottom-0 left-0 h-1 w-16 bg-mostaza-500 transition-all duration-300 group-hover:h-3 z-20"></div>
           </div>
 
           <!-- Pie de Ficha Industrial -->
@@ -77,3 +80,6 @@ import { ArrowUpRight } from '@lucide/astro';
     </div>
   </Container>
 </section>
+
+<!-- Regla horizontal milimétrica de separación limpia -->
+<div class="editorial-rule"></div>

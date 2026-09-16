@@ -3,95 +3,77 @@ import Container from './Container.astro';
 import { ArrowUpRight } from '@lucide/astro';
 ---
 
-<section class="bg-gris-50 pt-20 pb-24 lg:pt-28 lg:pb-36 overflow-hidden">
+<section class="bg-gris-50 pt-20 pb-0 overflow-hidden">
   <Container>
-    <!-- Kicker superior con formato de metadato técnico -->
-    <div class="flex items-center justify-between border-b border-gris-200 pb-4">
+    <!-- Encabezado con formato de metadato técnico -->
+    <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-12">
       <div class="kicker flex items-center gap-3">
         <span class="inline-block h-1.5 w-1.5 bg-marino-500 rounded-full animate-pulse"></span>
         <span>INFRAESTRUCTURA ACTIVA // LA HABANA</span>
       </div>
-      <span class="font-mono text-[10px] text-gris-400 tracking-widest">SYS_REF: 2026-HZ</span>
+      <span class="font-mono text-[10px] text-gris-400 tracking-widest">SYS_REF: 2026-HZ // APERTURA</span>
+    </div>
+  </Container>
+
+  <!-- IMAGEN PANORÁMICA MASIVA DE BORDE A BORDE (Filtros cromáticos eliminados) -->
+  <div class="w-full border-t border-b border-gris-200 bg-white relative group overflow-hidden">
+    <!-- Metadatos técnicos superpuestos estilo catálogo industrial -->
+    <div class="absolute top-4 left-6 z-20 font-mono text-[9px] text-gris-400 bg-white/80 backdrop-blur-sm px-2 py-1 border border-gris-200 select-none">
+      [ PLANO_VISUAL // CAMPO_AMPLIO_01 ]
+    </div>
+    <div class="absolute top-4 right-6 z-20 font-mono text-[9px] text-gris-400 bg-white/80 backdrop-blur-sm px-2 py-1 border border-gris-200 select-none">
+      ART. N° 904.811.02
     </div>
 
-    <!-- Título Editorial Masivo Comprimido -->
-    <h1 class="display-xl mt-12 max-w-6xl text-[clamp(2.5rem,7.5vw,6rem)] text-gris-900 tracking-tighter">
-      PROTECCIÓN <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">AUTÓNOMA</span>. <br />
-      ALIMENTADA POR <span class="text-mostaza-500">EL SOL</span>.
-    </h1>
+    <!-- Contenedor con altura panorámica estricta controlada -->
+    <div class="w-full aspect-[21/9] min-h-[350px] md:min-h-[450px] lg:min-h-[550px] bg-gris-100 relative">
+      <!-- Rejilla milimétrica encima de la foto para mantener el look técnico de plano -->
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:3rem_3rem] opacity-25 z-10 pointer-events-none"></div>
+      
+      <!-- Carga de tu imagen camera3.jpg mostrando sus colores naturales -->
+      <img 
+        src="/images/camera3.jpg" 
+        alt="Infraestructura de Protección Óptica Neural Masiva" 
+        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.02]"
+      />
 
-    <!-- Grid Asimétrico -->
-    <div class="mt-16 grid grid-cols-1 gap-12 lg:mt-20 lg:grid-cols-[1.3fr_1fr] lg:gap-20 items-end">
-      <!-- Texto e información -->
-      <div class="space-y-10">
-        <p class="max-w-xl text-xl leading-relaxed text-gris-600 font-light">
-          Diseñamos arquitectura de seguridad electrónica blindada. Fusionamos
-          sistemas de alarma avanzados y circuitos cerrados de CCTV de alta
-          resolución con matrices fotovoltaicas independientes. Protección
-          ininterrumpida, inmune a fallos de red.
-        </p>
+      <!-- Bloque de acento mostaza en la esquina inferior derecha -->
+      <div class="absolute bottom-0 right-0 h-16 w-16 bg-mostaza-500 transition-transform duration-500 group-hover:scale-110 z-20"></div>
+    </div>
 
-        <!-- Botones de acción modulares -->
-        <div class="flex flex-wrap items-center gap-4 font-mono text-xs">
-          <a
-            href="/contacto"
-            class="group inline-flex items-center gap-3 bg-gris-900 text-white px-8 py-4 uppercase tracking-wider transition-colors duration-300 hover:bg-mostaza-500 hover:text-gris-900 shadow-sm"
-          >
-            Solicitar inspección técnica
-            <ArrowUpRight
-              class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-              stroke-width={2}
-            />
-          </a>
+    <!-- Ficha técnica inferior de la imagen panorámica -->
+    <div class="max-w-[1400px] mx-auto px-6 md:px-12 py-4 flex items-center justify-between font-mono text-xs text-gris-400">
+      <span class="kicker text-gris-900 font-semibold tracking-wider">MÓDULO ÓPTICO INTEGRADO // ARQUITECTURA DE SEGURIDAD</span>
+      <span class="hidden sm:inline">ED_2026 // COBERTURA_TOTAL</span>
+    </div>
+  </div>
 
-          <a
-            href="/servicios"
-            class="border border-gris-200 bg-white px-8 py-4 uppercase tracking-wider text-gris-700 transition-colors duration-300 hover:border-gris-900 hover:text-gris-900"
-          >
-            [ Catálogo de Dispositivos ]
-          </a>
-        </div>
-      </div>
+  <Container>
+    <!-- Bloque de Texto y Acciones (Ubicado debajo de la gran foto panorámica) -->
+    <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-[1.5fr_1fr] lg:gap-20 items-start pb-20">
+      <p class="text-xl lg:text-2xl leading-relaxed text-gris-600 font-light max-w-3xl">
+        Diseñamos arquitectura de seguridad electrónica blindada. Fusionamos sistemas de alarma avanzados y circuitos cerrados de CCTV de alta resolución con matrices fotovoltaicas independientes. Protección ininterrumpida, inmune a fallos de red.
+      </p>
 
-      <!-- Contenedor del objeto de diseño -->
-      <div class="relative group">
-        <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
-          <!-- Número de artículo -->
-          <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">
-            ART. N° 904.811.02
-          </span>
-
-          <!-- Estado técnico -->
-          <div class="font-mono text-[11px] text-gris-400 mb-6 flex items-center gap-2">
-            <span>[ FIG_01 // NÚCLEO_INTEGRADO ]</span>
-          </div>
-
-          <!-- Cuadro de visualización del producto -->
-          <div class="relative aspect-square w-full overflow-hidden bg-gris-100 border border-gris-200 flex items-center justify-center p-0">
-            <!-- Rejilla técnica de fondo -->
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-25 z-10 pointer-events-none"></div>
-
-            <!-- Imagen real -->
-            <img
-              src="/images/hero-cctv.jpg"
-              alt="Módulo de Protección Óptica"
-              class="w-full h-full object-cover filter grayscale contrast-115 brightness-105 transition-transform duration-700 group-hover:scale-105"
-            />
-
-            <!-- Acento mostaza en esquina -->
-            <div class="absolute bottom-0 right-0 h-12 w-12 bg-mostaza-500 transition-transform duration-500 group-hover:scale-110 z-20"></div>
-          </div>
-
-          <!-- Especificaciones inferiores -->
-          <div class="mt-6 flex items-center justify-between text-xs border-t border-gris-200 pt-4 font-mono">
-            <span class="kicker text-gris-900 font-semibold">MÓDULO AUTÓNOMO DE PROTECCIÓN</span>
-            <span class="text-gris-400">ED_01 // 12</span>
-          </div>
-        </div>
+      <!-- Botones Modulares alineados estilo Ficha Técnica -->
+      <div class="flex flex-wrap lg:justify-end items-center gap-4 font-mono text-xs w-full lg:pt-2">
+        <a
+          href="/contacto"
+          class="group inline-flex items-center gap-3 bg-gris-900 text-white px-8 py-4 uppercase tracking-wider transition-colors duration-300 hover:bg-mostaza-500 hover:text-gris-900 shadow-sm"
+        >
+          Solicitar inspección técnica
+          <ArrowUpRight class="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width={2} />
+        </a>
+        <a
+          href="/servicios"
+          class="border border-gris-200 bg-white px-8 py-4 uppercase tracking-wider text-gris-700 transition-colors duration-300 hover:border-gris-900 hover:text-gris-900"
+        >
+          [ Catálogo ]
+        </a>
       </div>
     </div>
   </Container>
 </section>
 
-<!-- Regla horizontal de separación -->
+<!-- Regla horizontal milimétrica de separación limpia -->
 <div class="editorial-rule"></div>
