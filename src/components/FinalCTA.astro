@@ -1,43 +1,77 @@
 ---
-import { Phone, MessageCircle, MapPin } from '@lucide/astro';
 import Container from './Container.astro';
+import { ArrowUpRight } from '@lucide/astro';
 ---
 
-<section class="bg-segumax-primary-dark text-white">
-  <Container class="py-20">
-    <div class="mx-auto max-w-3xl text-center">
-      <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-        CONTÁCTANOS
-      </span>
-      <h2 class="font-display mt-4 text-4xl font-bold tracking-tight lg:text-5xl">
-        ¿Listo para proteger lo que más te importa?
-      </h2>
-      <p class="mt-4 text-lg text-white/70">
-        Nos radicamos en La Habana y llevamos más de 12 años en el rubro. Tenemos
-        experiencia en todo tipo de situaciones y requerimientos.
-      </p>
+<section class="bg-gris-50 py-24 lg:py-36 border-b border-gris-200 overflow-hidden">
+  <Container>
+    <!-- Technical Specification Link Header -->
+    <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-16">
+      <div class="kicker flex items-center gap-3">
+        <span class="inline-block h-1.5 w-1.5 bg-marino-500 rounded-full animate-pulse"></span>
+        <span>NODO DE CONVERSIÓN // TERMINAL DE CONTACTO</span>
+      </div>
+      <span class="font-mono text-[10px] text-gris-400 tracking-widest">GATE_READY_04</span>
+    </div>
 
-      <div class="mt-10 flex flex-wrap justify-center gap-4">
-        <a
-          href="tel:+5355555555"
-          class="font-display inline-flex items-center gap-2 rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
-        >
-          <Phone class="h-5 w-5" />
-          Llamar ahora
-        </a>
-        <a
-          href="https://wa.me/5355555555"
-          class="font-display inline-flex items-center gap-2 rounded-lg border border-white/20 bg-white/5 px-6 py-3 text-lg font-semibold tracking-wide text-white backdrop-blur transition hover:bg-white/10"
-        >
-          <MessageCircle class="h-5 w-5" />
-          WhatsApp
-        </a>
+    <!-- Main Layout Content Grid -->
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_1fr] lg:gap-20 items-start">
+      
+      <!-- Left Column: Final Conversion Directive -->
+      <div class="space-y-8">
+        <span class="font-mono text-xs text-mostaza-500 block tracking-wider">// DESACOPLE INMEDIATO DE RED PUBLIC_A</span>
+        <h2 class="display-lg text-4xl lg:text-6xl text-gris-900 uppercase tracking-tight leading-none">
+          Inicie el diseño <br />
+          de su infraestructura <br />
+          <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">autónoma</span>.
+        </h2>
+        <p class="max-w-xl text-base lg:text-lg leading-relaxed text-gris-500 font-light">
+          Centralice su sistema perimetral de seguridad y matriz fotovoltaica bajo la dirección de especialistas titulados. Respuestas de ingeniería coordinadas desde nuestro centro logístico en La Habana.
+        </p>
       </div>
 
-      <div class="mt-10 inline-flex items-center gap-2 text-white/60">
-        <MapPin class="h-4 w-4" />
-        <span>La Habana, Cuba</span>
+      <!-- Right Column: Technical Communication Hub Layout -->
+      <div class="w-full grid grid-cols-1 gap-px bg-gris-200 border border-gris-200">
+        
+        <!-- Primary Action: Direct Line -->
+        <a 
+          href="tel:+5355555555" 
+          class="bg-white p-6 flex flex-col justify-between group transition-colors duration-300 hover:bg-gris-900 hover:text-white relative"
+        >
+          <span class="font-mono text-[9px] text-gris-400 group-hover:text-mostaza-500 tracking-widest block mb-4">[ CANAL // TELÉFONO ]</span>
+          <div class="flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tight font-mono">+53 5555 5555</span>
+            <div class="w-7 h-7 rounded-full bg-gris-50 border border-gris-200 flex items-center justify-center group-hover:bg-mostaza-500 group-hover:border-mostaza-500 group-hover:text-gris-900 transition-colors">
+              <ArrowUpRight class="h-3.5 w-3.5 stroke-[1.5]" />
+            </div>
+          </div>
+        </a>
+
+        <!-- Secondary Action: Secure Messaging (WhatsApp) -->
+        <a 
+          href="https://wa.me/5355555555" 
+          class="bg-white p-6 flex flex-col justify-between group transition-colors duration-300 hover:bg-gris-900 hover:text-white relative"
+        >
+          <span class="font-mono text-[9px] text-gris-400 group-hover:text-mostaza-500 tracking-widest block mb-4">[ EMERGENCIAS // WHATSAPP ]</span>
+          <div class="flex items-center justify-between">
+            <span class="text-xl font-bold tracking-tight font-mono">CONEXIÓN DIGITAL</span>
+            <div class="w-7 h-7 rounded-full bg-gris-50 border border-gris-200 flex items-center justify-center group-hover:bg-mostaza-500 group-hover:border-mostaza-500 group-hover:text-gris-900 transition-colors">
+              <ArrowUpRight class="h-3.5 w-3.5 stroke-[1.5]" />
+            </div>
+          </div>
+        </a>
+
+        <!-- Informational Metric Block: Fixed Location Coordinate -->
+        <div class="bg-white p-6 flex flex-col justify-between relative">
+          <span class="font-mono text-[9px] text-gris-400 tracking-widest block mb-4">[ LOGÍSTICA // MATRIZ ]</span>
+          <div class="flex justify-between items-baseline font-mono">
+            <span class="text-sm font-semibold text-gris-900 uppercase">LA HABANA, CUBA</span>
+            <span class="text-[10px] text-gris-400 tracking-tighter">[ 23.1136° N, 82.3666° W ]</span>
+          </div>
+        </div>
+
       </div>
+
     </div>
   </Container>
 </section>

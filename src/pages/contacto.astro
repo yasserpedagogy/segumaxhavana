@@ -1,260 +1,238 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Container.astro';
-import { Phone, MessageCircle, Mail, MapPin, Clock } from '@lucide/astro';
+import { Phone, MessageCircle, Mail, MapPin } from '@lucide/astro';
 
 const contactChannels = [
   {
     icon: Phone,
-    title: 'Teléfono',
+    title: 'CANAL TELEFÓNICO',
     value: '+53 5555 5555',
     href: 'tel:+5355555555',
-    description: 'Lun-Vie de 8:00 a 18:00',
+    description: 'LUN-VIE // 08:00 - 18:00',
   },
   {
     icon: MessageCircle,
-    title: 'WhatsApp',
+    title: 'WHATSAPP EN LÍNEA',
     value: '+53 5555 5555',
-    href: 'https://wa.me/5355555555',
-    description: 'Respuesta rápida',
+    href: 'https://wa.me',
+    description: 'RESPUESTA ASISTIDA CRÍTICA',
   },
   {
     icon: Mail,
-    title: 'Email',
+    title: 'CORREO ELECTRÓNICO',
     value: 'info@segumaxhavana.com',
     href: 'mailto:info@segumaxhavana.com',
-    description: 'Respuesta en 24h',
+    description: 'TIEMPO DE RESPUESTA < 24H',
   },
   {
     icon: MapPin,
-    title: 'Ubicación',
-    value: 'La Habana, Cuba',
+    title: 'CENTRO LOGÍSTICO',
+    value: 'LA HABANA, CUBA',
     href: null,
-    description: 'Cobertura nacional',
+    description: 'COBERTURA EN TODO EL PAÍS',
   },
 ];
 ---
 
 <Layout
-  title="Contacto | Segumax"
-  description="Contáctanos para una visita gratuita sin compromiso. Alarmas, videovigilancia, energía solar en La Habana."
+  title="Terminal de Contacto | SEGUMAX"
+  description="Solicite una inspección perimetral y auditoría estructural fotovoltaica sin compromiso en La Habana."
 >
-  <!-- Hero corto -->
-  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+  <!-- Minimalist Structural Section Entry Hero -->
+  <section class="bg-gris-50 pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-          CONTACTO
-        </span>
-        <h1 class="font-display mt-4 text-4xl font-bold tracking-tight lg:text-5xl">
-          Hablemos de tu seguridad
+      <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-12">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-marino-500 rounded-full animate-pulse"></span>
+          <span>NODO CENTRAL // SOLICITUD DE ASISTENCIA</span>
+        </div>
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest">FORM_SYS_V4</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 items-end">
+        <h1 class="display-xl text-5xl md:text-7xl lg:text-8xl text-gris-900 tracking-tighter uppercase">
+          CONECTAR <br />
+          CON <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">ESTUDIO</span>.
         </h1>
-        <p class="mt-4 text-lg text-white/70">
-          Visita de diagnóstico gratuita, sin compromiso. Te ayudamos a pensar
-          con seguridad.
+        <p class="text-base lg:text-lg text-gris-500 font-light leading-relaxed max-w-md">
+          Programe el dimensionamiento en sitio de matrices de CCTV e ingeniería fotovoltaica de respaldo. Inspecciones estructurales libres de coste operativo.
         </p>
       </div>
     </Container>
   </section>
 
-  <!-- Canales de contacto -->
-  <section class="bg-segumax-bg py-16 lg:py-20">
+  <!-- 1px Metric Communication Channels Layout Grid -->
+  <section class="bg-gris-100 py-12 lg:py-16 border-b border-gris-200">
     <Container>
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="grid grid-cols-1 gap-px bg-gris-200 border border-gris-200 sm:grid-cols-2 lg:grid-cols-4">
         {contactChannels.map((channel) => {
           const CardWrapper = channel.href ? 'a' : 'div';
+          const Icon = channel.icon; // Correct way to pass the Astro factory
           return (
             <CardWrapper
               href={channel.href}
-              class="group flex flex-col rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-segumax-accent/30 hover:shadow-card-hover"
+              class="ikea-box bg-white p-6 flex flex-col justify-between aspect-square group relative"
             >
-              <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-primary/10 transition group-hover:bg-segumax-accent/10">
-                <channel.icon class="h-6 w-6 text-segumax-primary transition group-hover:text-segumax-accent" />
+              <div class="font-mono text-[9px] text-gris-400 tracking-widest select-none flex justify-between items-center mb-4">
+                <span>[ {channel.title} ]</span>
+                <div class="text-gris-400 group-hover:text-mostaza-500 transition-colors duration-300">
+                  <Icon class="h-4 w-4 stroke-[1.5]" />
+                </div>
               </div>
-              <h3 class="font-display mt-4 text-lg font-bold text-segumax-primary">
-                {channel.title}
-              </h3>
-              <p class="mt-1 font-medium text-segumax-text">{channel.value}</p>
-              <p class="mt-1 text-sm text-segumax-text-soft">{channel.description}</p>
+
+              <div class="space-y-2 mt-auto">
+                <p class="text-xl font-bold tracking-tight text-gris-900 font-mono break-all">{channel.value}</p>
+                <p class="font-mono text-[10px] tracking-wider text-gris-400 uppercase">{channel.description}</p>
+              </div>
             </CardWrapper>
           );
         })}
       </div>
     </Container>
   </section>
-
-  <!-- Formulario + Info adicional -->
-  <section class="bg-segumax-bg-alt py-16 lg:py-20">
+  <!-- Main System Intake Form Frame -->
+  <section class="bg-white py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr]">
-        <!-- Formulario -->
-        <div class="rounded-2xl border border-segumax-border bg-white p-8 shadow-card lg:p-10">
-          <h2 class="font-display text-3xl font-bold text-segumax-primary">
-            Solicita tu visita gratuita
-          </h2>
-          <p class="mt-2 text-segumax-text-soft">
-            Cuéntanos qué necesitas y te contactamos a la brevedad.
-          </p>
+      <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1.8fr_1fr] items-start">
+        
+        <!-- Left Column Form Component -->
+        <div class="space-y-10">
+          <div class="space-y-2 border-b border-gris-200 pb-6">
+            <span class="font-mono text-xs text-mostaza-500 block tracking-wider uppercase">// REGISTRO DE AUDITORÍA</span>
+            <h2 class="text-3xl font-bold tracking-tight text-gris-900 font-sans uppercase">
+              Formulario de Requerimiento Técnico
+            </h2>
+          </div>
 
           <form
-            action="https://api.web3forms.com/submit"
+            action="https://web3forms.com"
             method="POST"
-            class="mt-8 space-y-5"
+            class="space-y-6"
           >
-            <!-- Reemplazar con tu clave de Web3Forms -->
             <input type="hidden" name="access_key" value="TU_ACCESS_KEY_AQUI" />
             <input type="hidden" name="subject" value="Nuevo contacto desde Segumax" />
             <input type="hidden" name="from_name" value="Web Segumax" />
 
-            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2">
-              <div>
-                <label for="name" class="font-display text-sm font-semibold text-segumax-primary">
-                  Nombre *
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+              <div class="space-y-2">
+                <label for="name" class="font-mono text-[11px] font-semibold text-gris-700 tracking-wider uppercase">
+                  01 // Nombre Completo o Entidad *
                 </label>
                 <input
                   type="text"
                   id="name"
                   name="name"
                   required
-                  class="mt-2 w-full rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
-                  placeholder="Tu nombre completo"
+                  class="w-full bg-gris-50 border border-gris-200 p-4 font-sans text-sm text-gris-900 rounded-none transition-colors focus:border-mostaza-500 focus:bg-white focus:outline-none"
+                  placeholder="Ej. Estudio Arquitectura / Residencia"
                 />
               </div>
 
-              <div>
-                <label for="phone" class="font-display text-sm font-semibold text-segumax-primary">
-                  Teléfono *
+              <div class="space-y-2">
+                <label for="phone" class="font-mono text-[11px] font-semibold text-gris-700 tracking-wider uppercase">
+                  02 // Terminal de Teléfono *
                 </label>
                 <input
                   type="tel"
                   id="phone"
                   name="phone"
                   required
-                  class="mt-2 w-full rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
+                  class="w-full bg-gris-50 border border-gris-200 p-4 font-mono text-sm text-gris-900 rounded-none transition-colors focus:border-mostaza-500 focus:bg-white focus:outline-none"
                   placeholder="+53 5 555 5555"
                 />
               </div>
             </div>
 
-            <div>
-              <label for="email" class="font-display text-sm font-semibold text-segumax-primary">
-                Email
+            <div class="space-y-2">
+              <label for="email" class="font-mono text-[11px] font-semibold text-gris-700 tracking-wider uppercase">
+                03 // Dirección de Correo Electrónico
               </label>
               <input
                 type="email"
                 id="email"
                 name="email"
-                class="mt-2 w-full rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
-                placeholder="tu@email.com"
+                class="w-full bg-gris-50 border border-gris-200 p-4 font-mono text-sm text-gris-900 rounded-none transition-colors focus:border-mostaza-500 focus:bg-white focus:outline-none"
+                placeholder="nombre@dominio.com"
               />
             </div>
 
-            <div>
-              <label for="service" class="font-display text-sm font-semibold text-segumax-primary">
-                Servicio de interés *
+            <div class="space-y-2">
+              <label for="service" class="font-mono text-[11px] font-semibold text-gris-700 tracking-wider uppercase">
+                04 // Configuración Modular Requerida *
               </label>
               <select
                 id="service"
                 name="service"
                 required
-                class="mt-2 w-full rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
+                class="w-full bg-gris-50 border border-gris-200 p-4 font-mono text-xs text-gris-900 rounded-none tracking-wide transition-colors focus:border-mostaza-500 focus:bg-white focus:outline-none appearance-none cursor-pointer"
               >
-                <option value="">Selecciona un servicio</option>
-                <option value="alarmas-ajax">Alarmas AJAX inalámbricas</option>
-                <option value="alarmas-cableadas">Alarmas cableadas (DSC NEO / Honeywell)</option>
-                <option value="incendio">Sistema contra incendios</option>
-                <option value="videovigilancia">Videovigilancia</option>
-                <option value="videoporteros">Videoporteros</option>
-                <option value="automatizacion">Automatización</option>
-                <option value="energia-solar">Energía solar</option>
-                <option value="integral">Solución integral</option>
+                <option value="" class="font-mono">SELECCIONE SUBSISTEMA DE INTERÉS</option>
+                <option value="alarmas-ajax">01 // ALARMAS AJAX INALÁMBRICAS</option>
+                <option value="alarmas-cableadas">02 // INFRAESTRUCTURA CABLEADA ROBUSTA</option>
+                <option value="incendio">03 // MATRIZ CONTRA INCENDIOS TERMO-SENSENCIAL</option>
+                <option value="videovigilancia">04 // CIRCUITOS DE CCTV ANALÍTICO 4K</option>
+                <option value="videoporteros">05 // SISTEMAS DE CONTROL BIOMÉTRICO</option>
+                <option value="automatizacion">06 // DETECTORES DOMÓTICOS DE RELÉ</option>
+                <option value="energia-solar">07 // RESPALDO ENERGÉTICO FOTOVOLTAICO</option>
+                <option value="integral">08 // ARQUITECTURA INTEGRAL RESILIENTE</option>
               </select>
             </div>
 
-            <div>
-              <label for="message" class="font-display text-sm font-semibold text-segumax-primary">
-                Mensaje *
+            <div class="space-y-2">
+              <label for="message" class="font-mono text-[11px] font-semibold text-gris-700 tracking-wider uppercase">
+                05 // Descripción de Estructura Perimetral *
               </label>
               <textarea
                 id="message"
                 name="message"
                 rows="5"
                 required
-                class="mt-2 w-full resize-none rounded-lg border border-segumax-border bg-white px-4 py-3 text-segumax-text transition focus:border-segumax-accent focus:outline-none focus:ring-2 focus:ring-segumax-accent/20"
-                placeholder="Cuéntanos sobre tu propiedad y qué necesitas proteger..."
+                class="w-full resize-none bg-gris-50 border border-gris-200 p-4 font-sans text-sm text-gris-900 rounded-none transition-colors focus:border-mostaza-500 focus:bg-white focus:outline-none"
+                placeholder="Especifique dimensiones físicas de la propiedad y vulnerabilidades críticas..."
               ></textarea>
             </div>
 
-            <button
-              type="submit"
-              class="font-display w-full rounded-lg bg-segumax-accent px-6 py-4 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
-            >
-              Enviar solicitud
-            </button>
+            <div class="pt-4">
+              <button
+                type="submit"
+                class="w-full bg-gris-900 text-white font-mono text-xs uppercase tracking-widest py-5 transition-colors duration-300 hover:bg-mostaza-500 hover:text-gris-900 cursor-pointer shadow-sm"
+              >
+                Transmitir Solicitud Técnica _
+              </button>
+            </div>
 
-            <p class="text-center text-xs text-segumax-text-soft">
-              Al enviar aceptas ser contactado por nuestro equipo. Sin spam.
+            <p class="text-center font-mono text-[10px] text-gris-400 tracking-wide uppercase select-none">
+              Procesamiento de datos cifrado de extremo a extremo. Cero publicidad.
             </p>
           </form>
         </div>
 
-        <!-- Info adicional -->
-        <div class="space-y-6">
-          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-accent/10">
-              <Clock class="h-6 w-6 text-segumax-accent" />
+        <!-- Right Side Frame: Quality Guidelines -->
+        <aside class="space-y-6 lg:sticky lg:top-28">
+          <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
+            <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">GUIDE_04</span>
+            <h2 class="font-mono text-[11px] text-gris-900 font-semibold tracking-wider uppercase mb-6">
+              [ DIRECTRICES // ANÁLISIS ]
+            </h2>
+            <div class="text-xs text-gris-500 font-light leading-relaxed space-y-4 font-sans">
+              <p>
+                1. Asegúrese de que el número telefónico provee prefijos válidos para agilizar la asignación logística.
+              </p>
+              <p>
+                2. Las visitas se coordinan en tramos horarios de control estricto para evitar interrupciones de seguridad.
+              </p>
+              <p>
+                3. Los planos de red generados por nuestros ingenieros son de carácter confidencial de alta seguridad.
+              </p>
             </div>
-            <h3 class="font-display mt-4 text-xl font-bold text-segumax-primary">
-              Horario de atención
-            </h3>
-            <ul class="mt-4 space-y-2 text-sm text-segumax-text-soft">
-              <li class="flex justify-between">
-                <span>Lunes a Viernes</span>
-                <span class="font-medium text-segumax-text">8:00 - 18:00</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Sábado</span>
-                <span class="font-medium text-segumax-text">9:00 - 14:00</span>
-              </li>
-              <li class="flex justify-between">
-                <span>Domingo</span>
-                <span class="font-medium text-segumax-text">Solo emergencias</span>
-              </li>
-            </ul>
+            <div class="mt-8 pt-4 border-t border-gris-100 font-mono text-[9px] text-gris-400 flex justify-between items-center">
+              <span>SOPORTE SEGUMAX HQ</span>
+              <div class="h-2 w-2 bg-mostaza-500 rounded-full"></div>
+            </div>
           </div>
+        </aside>
 
-          <div class="rounded-2xl bg-segumax-primary p-6 text-white shadow-card">
-            <h3 class="font-display text-xl font-bold">Visita gratuita</h3>
-            <p class="mt-2 text-sm text-white/80">
-              Nos trasladamos a tu propiedad sin costo y sin compromiso de
-              contratación. Evaluamos y te proponemos la mejor solución.
-            </p>
-            <a
-              href="https://wa.me/5355555555"
-              class="font-display mt-4 inline-flex items-center gap-2 text-sm font-semibold tracking-wide text-segumax-accent transition hover:gap-3"
-            >
-              <MessageCircle class="h-4 w-4" />
-              Agendar por WhatsApp
-            </a>
-          </div>
-        </div>
-      </div>
-    </Container>
-  </section>
-
-  <!-- Mapa placeholder -->
-  <section class="bg-segumax-bg pb-20">
-    <Container>
-      <div class="aspect-[16/9] w-full overflow-hidden rounded-2xl border border-segumax-border bg-segumax-bg-alt shadow-card">
-        <div class="flex h-full flex-col items-center justify-center gap-3 text-center">
-          <MapPin class="h-16 w-16 text-segumax-primary/30" stroke-width={1.5} />
-          <span class="font-display text-lg font-semibold tracking-wider text-segumax-text-soft">
-            MAPA — LA HABANA, CUBA
-          </span>
-          <span class="text-sm text-segumax-text-soft">
-            Aquí irá el mapa de Google Maps embebido
-          </span>
-        </div>
       </div>
     </Container>
   </section>

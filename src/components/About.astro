@@ -1,80 +1,91 @@
 ---
-import { Users, Award } from '@lucide/astro';
 import Container from './Container.astro';
 ---
 
-<section class="bg-segumax-bg-alt py-20">
+<section class="bg-gris-50 py-24 lg:py-36 border-b border-gris-200 overflow-hidden">
   <Container>
-    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-      <!-- Imagen placeholder -->
-      <div class="relative order-2 lg:order-1">
-        <div class="aspect-[4/3] rounded-2xl border border-segumax-border bg-white p-8 shadow-card">
-          <div class="flex h-full flex-col items-center justify-center gap-4 text-center">
-            <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-segumax-primary/10">
-              <Users class="h-10 w-10 text-segumax-primary" />
-            </div>
-            <span class="font-display text-sm font-semibold tracking-wider text-segumax-text-soft">
-              EQUIPO SEGUMAX
-            </span>
-          </div>
-        </div>
-        <!-- Badge flotante -->
-        <div class="absolute -bottom-6 -right-6 hidden rounded-2xl bg-segumax-primary p-6 shadow-card-hover lg:block">
-          <div class="flex items-center gap-4">
-            <Award class="h-10 w-10 text-segumax-accent" />
-            <div>
-              <div class="font-display text-3xl font-bold text-white">12+</div>
-              <div class="text-sm text-white/70">años de experiencia</div>
-            </div>
-          </div>
-        </div>
+    <!-- Technical Blueprint Section Header -->
+    <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-16">
+      <div class="kicker flex items-center gap-3">
+        <span class="inline-block h-1.5 w-1.5 bg-mostaza-500 rounded-full"></span>
+        <span>MANIFIESTO CORPORATIVO // ORIGEN Y CAPACIDAD</span>
       </div>
+      <span class="font-mono text-[10px] text-gris-400 tracking-widest">ESTUDIO_ENGINEERING</span>
+    </div>
 
-      <!-- Contenido -->
-      <div class="order-1 lg:order-2">
-        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-          NUESTRA HISTORIA
-        </span>
-        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
-          ¿Cómo surge Segumax?
+    <!-- Main Layout Grid -->
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1.3fr_1fr] lg:gap-24 items-start">
+      
+      <!-- Left Column: The Philosophy and Structural Metrics -->
+      <div class="space-y-12">
+        <h2 class="display-lg text-4xl lg:text-6xl text-gris-900 uppercase tracking-tight">
+          INGENIERÍA <br />
+          <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">CONVERGENTE</span> <br />
+          DESDE LA HABANA.
         </h2>
 
-        <div class="mt-6 space-y-4 text-lg leading-relaxed text-segumax-text-soft">
+        <div class="max-w-2xl space-y-6 text-base lg:text-lg leading-relaxed text-gris-600 font-light">
           <p>
-            Un grupo de técnicos e ingenieros que trabajábamos por separado
-            decidimos unir fuerzas para crear un proyecto en común.
+            Segumax nace como una alianza estratégica de ingenieros y especialistas de infraestructura independiente. Consolidamos disciplinas de seguridad por radiofrecuencia, analítica digital avanzada y electrotecnia solar bajo una única firma técnica.
           </p>
           <p>
-            Cada uno aportando su experiencia, sumamos más de <strong class="text-segumax-primary">12 años</strong>
-            de trabajo en el rubro. Nos radicamos en La Habana, pero estamos
-            disponibles para todo el país previa negociación.
+            Con un recorrido conjunto de más de <strong class="font-medium text-gris-900 font-mono">[12+ años]</strong> en el sector, centralizamos nuestras operaciones de diseño perimetral en La Habana, ampliando nuestra cobertura técnica a todo el territorio nacional bajo requerimientos específicos de proyecto.
           </p>
           <p>
-            Nuestro propósito es claro: <strong class="text-segumax-primary">no vendemos equipos, proponemos soluciones</strong>.
-            Diseñamos sistemas escalables priorizando tus vulnerabilidades y
-            ajustados a tu presupuesto.
+            Nuestra premisa desplaza el comercio genérico de hardware: aportamos soluciones integrales de diseño modular y resiliencia energética permanente.
           </p>
         </div>
 
-        <div class="mt-8 grid grid-cols-2 gap-6">
-          <div class="border-l-4 border-segumax-accent pl-4">
-            <div class="font-display text-2xl font-bold text-segumax-primary">
-              Técnicos e ingenieros
-            </div>
-            <div class="mt-1 text-sm text-segumax-text-soft">
-              Equipo especializado certificado
+        <!-- Technical Parameters Subgrid -->
+        <div class="grid grid-cols-1 gap-px bg-gris-200 border border-gris-200 sm:grid-cols-2 mt-12">
+          <div class="bg-white p-6 flex flex-col justify-between">
+            <span class="kicker text-gris-400 font-mono text-[9px] block mb-4">[ GRUPO // OPERACIONES ]</span>
+            <div class="text-xl font-bold tracking-tight text-gris-900 font-sans">
+              Ingenieros & Especialistas Certificados
             </div>
           </div>
-          <div class="border-l-4 border-segumax-accent pl-4">
-            <div class="font-display text-2xl font-bold text-segumax-primary">
-              Cobertura nacional
-            </div>
-            <div class="mt-1 text-sm text-segumax-text-soft">
-              La Habana y toda Cuba
+          <div class="bg-white p-6 flex flex-col justify-between">
+            <span class="kicker text-gris-400 font-mono text-[9px] block mb-4">[ ÁREA // LOGÍSTICA ]</span>
+            <div class="text-xl font-bold tracking-tight text-gris-900 font-sans">
+              Havana Hub · Despliegue Nacional
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Right Column: Visual Blueprint Window (IKEA Blueprint Box) -->
+      <div class="relative group">
+        <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
+          <!-- Catalog Item Reference number -->
+          <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">REG. EST_2013</span>
+          
+          <div class="font-mono text-[11px] text-gris-400 mb-6 flex items-center gap-2">
+            <span>[ ARCHIVO_VISUAL // COBERTURA ]</span>
+          </div>
+
+          <!-- Product / Team Placeholder Panel -->
+          <div class="relative aspect-[4/5] w-full overflow-hidden bg-gris-100 border border-gris-200 flex flex-col justify-between p-6">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-20"></div>
+            
+            <span class="font-mono text-[9px] text-gris-400 block tracking-widest">// COD_MATRIX_HQ</span>
+            
+            <div class="text-center z-10 space-y-1">
+              <span class="block kicker text-gris-400">IMAGEN DEL ESTUDIO TÉCNICO</span>
+              <span class="font-mono text-[10px] text-gris-400 font-light">[ Luz Difusa / Ángulo Recto ]</span>
+            </div>
+
+            <!-- Absolute cyber mustard block highlight in corner -->
+            <div class="absolute bottom-0 right-0 h-12 w-12 bg-mostaza-500 transition-transform duration-300 group-hover:scale-105"></div>
+          </div>
+
+          <!-- Component Caption Information -->
+          <div class="mt-6 flex items-center justify-between text-xs border-t border-gris-200 pt-4 font-mono">
+            <span class="kicker text-gris-900 font-semibold">TRAYECTORIA DE OPERACIÓN</span>
+            <span class="text-gris-400">REF // 12_AÑOS</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </Container>
 </section>

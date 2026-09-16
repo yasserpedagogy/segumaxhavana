@@ -12,15 +12,39 @@ import WhyUs from '../components/WhyUs.astro';
 import FinalCTA from '../components/FinalCTA.astro';
 ---
 
-<Layout title="Segumax | Máxima Protección">
-  <Hero />
-  <TrustBar />
-  <HowItWorks />
-  <Services />
-  <SolarSection />
-  <Solutions />
-  <FreeVisitCTA />
-  <About />
-  <WhyUs />
-  <FinalCTA />
+<Layout title="SEGUMAX | Infraestructura de Seguridad & Energía Solar">
+  <!-- Envoltorio principal con retícula técnica milimétrica lateral -->
+  <div class="w-full max-w-[1400px] mx-auto min-h-screen border-x border-gris-200 bg-gris-50 flex flex-col">
+    
+    <!-- Bloque 01: Impacto & Validación Primaria -->
+    <Hero />
+    <TrustBar />
+    
+    <!-- Bloque 02: Núcleo de Ingeniería (Servicios y Flujo) -->
+    <div class="space-y-[var(--spacing-section)] md:space-y-[var(--spacing-section-lg)] py-[var(--spacing-section)]">
+      <HowItWorks />
+      
+      <div class="editorial-rule"></div>
+      <Services />
+      
+      <div class="editorial-rule"></div>
+      <SolarSection />
+    </div>
+
+    <!-- Bloque 03: Arquitectura de Soluciones & CTA de Conversión -->
+    <div class="bg-white border-t border-gris-200 py-[var(--spacing-section)] space-y-[var(--spacing-section)]">
+      <Solutions />
+      <FreeVisitCTA />
+    </div>
+
+    <!-- Bloque 04: Filosofía de Estudio & Cierre -->
+    <div class="space-y-[var(--spacing-section)] py-[var(--spacing-section)] border-t border-gris-200">
+      <About />
+      <WhyUs />
+      
+      <div class="editorial-rule"></div>
+      <FinalCTA />
+    </div>
+
+  </div>
 </Layout>

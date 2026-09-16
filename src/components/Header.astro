@@ -1,5 +1,5 @@
 ---
-import { Shield, Menu, X, Phone } from '@lucide/astro';
+import { Menu, X, Phone } from '@lucide/astro';
 import Container from './Container.astro';
 
 const navLinks = [
@@ -19,76 +19,84 @@ const isActive = (href: string) => {
 };
 ---
 
-<header class="sticky top-0 z-50 border-b border-segumax-border bg-segumax-bg/95 backdrop-blur">
+<header class="sticky top-0 z-50 border-b border-gris-200 bg-gris-50/80 backdrop-blur-md">
   <Container>
     <div class="flex h-16 items-center justify-between gap-4 lg:h-20">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2">
-        <Shield class="h-8 w-8 text-segumax-accent" stroke-width={2.5} />
-        <span class="font-display text-2xl font-bold tracking-wider text-segumax-primary">
-          SEGUMAX
+      
+      <!-- Logo Minimalista Estilo Diseño Industrial -->
+      <a href="/" class="flex items-center gap-3 group">
+        <span class="font-mono text-xs text-gris-400 select-none tracking-widest">[ SEC // SYS ]</span>
+        <span class="text-xl font-black tracking-tighter text-gris-900 uppercase">
+          SEGUMAX<span class="text-marino-500 font-normal">_</span>
         </span>
       </a>
 
-      <!-- Nav desktop -->
+      <!-- Navegación de Escritorio Estilo Catálogo Editorial -->
       <nav class="hidden items-center gap-8 lg:flex">
-        {navLinks.map((link) => (
+        {navLinks.map((link, index) => (
           <a
             href={link.href}
             class:list={[
-              'font-display text-base font-medium tracking-wide transition hover:text-segumax-accent',
-              isActive(link.href) ? 'text-segumax-accent' : 'text-segumax-text',
+              'font-mono text-xs tracking-wider transition-colors duration-300 flex items-center gap-1.5 py-2',
+              isActive(link.href)
+                ? 'text-gris-900 font-semibold border-b border-gris-900'
+                : 'text-gris-500 hover:text-gris-900',
             ]}
           >
-            {link.label}
+            <span class:list={[
+              'text-[9px] select-none',
+              isActive(link.href) ? 'text-mostaza-500' : 'text-gris-300'
+            ]}>0{index + 1}.</span>
+            {link.label.toUpperCase()}
           </a>
         ))}
       </nav>
 
-      <!-- CTA desktop -->
+      <!-- CTA de Escritorio: Módulo de Enlace Técnico -->
       <a
         href="tel:+5355555555"
-        class="font-display hidden items-center gap-2 rounded-lg bg-segumax-accent px-5 py-2.5 text-base font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover lg:flex"
+        class="hidden items-center gap-2.5 bg-white border border-gris-200 px-5 py-2.5 font-mono text-xs uppercase text-gris-900 transition-colors duration-300 hover:border-gris-900 hover:bg-gris-50 lg:flex"
       >
-        <Phone class="h-4 w-4" />
-        Llamar ahora
+        <Phone class="h-3.5 w-3.5 text-mostaza-500" stroke-width={2} />
+        +53 5555 5555
       </a>
 
-      <!-- Botón menú móvil -->
+      <!-- Botón de Menú Móvil Limpio -->
       <button
         type="button"
         id="mobile-menu-toggle"
-        class="rounded-lg p-2 text-segumax-primary transition hover:bg-segumax-bg-alt lg:hidden"
+        class="p-2 text-gris-900 hover:text-mostaza-500 transition-colors lg:hidden"
         aria-label="Abrir menú"
         aria-expanded="false"
       >
-        <Menu class="h-6 w-6" id="icon-menu" />
-        <X class="hidden h-6 w-6" id="icon-close" />
+        <Menu class="h-6 w-6" id="icon-menu" stroke-width={1.5} />
+        <X class="hidden h-6 w-6" id="icon-close" stroke-width={1.5} />
       </button>
     </div>
 
-    <!-- Menú móvil -->
-    <div id="mobile-menu" class="hidden border-t border-segumax-border pb-6 pt-4 lg:hidden">
+    <!-- Menú Móvil Desplegable Estilo Panel de Control -->
+    <div id="mobile-menu" class="hidden border-t border-gris-200 pb-8 pt-4 lg:hidden">
       <nav class="flex flex-col gap-1">
-        {navLinks.map((link) => (
+        {navLinks.map((link, index) => (
           <a
             href={link.href}
             class:list={[
-              'font-display rounded-lg px-4 py-3 text-lg font-medium tracking-wide transition',
+              'font-mono text-xs tracking-wider py-3 border-b border-gris-100 flex items-center gap-2 transition-colors',
               isActive(link.href)
-                ? 'bg-segumax-accent/10 text-segumax-accent'
-                : 'text-segumax-text hover:bg-segumax-bg-alt hover:text-segumax-accent',
+                ? 'text-gris-900 font-semibold pl-2 border-l-2 border-l-mostaza-500'
+                : 'text-gris-500 hover:text-gris-900',
             ]}
           >
-            {link.label}
+            <span class="text-[9px] text-gris-400">0{index + 1}//</span>
+            {link.label.toUpperCase()}
           </a>
         ))}
         <a
           href="tel:+5355555555"
-          class="font-display mt-3 flex items-center justify-center gap-2 rounded-lg bg-segumax-accent px-5 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+          class="mt-6 flex items-center justify-center gap-2 bg-gris-900 text-white font-mono text-xs uppercase py-4 tracking-widest hover:bg-mostaza-500 hover:text-gris-900 transition-colors"
         >
-          <Phone class="h-5 w-5" />
-          Llamar ahora
+          <Phone class="h-4 w-4" stroke-width={1.5} />
+          +53 5555 5555
         </a>
       </nav>
     </div>
@@ -103,11 +111,7 @@ const isActive = (href: string) => {
       var iconMenu = document.getElementById('icon-menu');
       var iconClose = document.getElementById('icon-close');
 
-      if (!toggle || !menu || !iconMenu || !iconClose) {
-        console.warn('Mobile menu: elementos no encontrados');
-        return;
-      }
-
+      if (!toggle || !menu || !iconMenu || !iconClose) return;
       if (toggle.dataset.bound === '1') return;
       toggle.dataset.bound = '1';
 

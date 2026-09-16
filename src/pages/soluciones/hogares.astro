@@ -1,158 +1,197 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Container from '../../components/Container.astro';
-import { Home, BellRing, Camera, Lightbulb, DoorOpen, Sun, ArrowRight, Check } from '@lucide/astro';
+import { Home, BellRing, Camera, Lightbulb, DoorOpen, Sun, ArrowUpRight, Check } from '@lucide/astro';
 
 const pilares = [
   {
     icon: BellRing,
-    title: 'Alarmas AJAX',
-    description: 'Detección inalámbrica por radio frecuencia con respaldo de baterías.',
+    title: 'ALARMAS AJAX',
+    description: 'Detección volumétrica inalámbrica por radiofrecuencia con blindaje contra inhibidores y respaldo por batería pasiva.',
   },
   {
     icon: Camera,
-    title: 'Videovigilancia',
-    description: 'Cámaras con visión nocturna y acceso remoto desde tu móvil.',
+    title: 'CIRCUITOS CCTV',
+    description: 'Ópticas de alta definición con analítica de patrones, visión nocturna optimizada y enlace cifrado remoto.',
   },
   {
     icon: DoorOpen,
-    title: 'Videoporteros',
-    description: 'Control de acceso con audio y video antes de abrir la puerta.',
+    title: 'VIDEOPORTEROS',
+    description: 'Módulos digitales de verificación biométrica y control de acceso previo a la apertura perimetral.',
   },
   {
     icon: Lightbulb,
-    title: 'Automatización',
-    description: 'Controla luces, portones y dispositivos desde tu teléfono.',
+    title: 'AUTOMATIZACIÓN',
+    description: 'Relés domóticos integrados para la gestión remota automatizada de accesos, portones y luminarias.',
   },
   {
     icon: Sun,
-    title: 'Energía solar',
-    description: 'Respaldo energético para mantener tu hogar protegido en apagones.',
+    title: 'ENERGÍA SOLAR',
+    description: 'Matrices fotovoltaicas independientes de celdas monocristalinas para el desacople completo de la red pública.',
   },
   {
     icon: Home,
-    title: 'Solución integral',
-    description: 'Combinamos todos los sistemas en una sola plataforma unificada.',
+    title: 'ARQUITECTURA UNIFICADA',
+    description: 'Convergencia de todos los subsistemas de ingeniería bajo una terminal de control única y transparente.',
   },
 ];
 ---
 
 <Layout
-  title="Seguridad para Hogares | Segumax"
-  description="Soluciones de seguridad residencial en La Habana: alarmas AJAX, videovigilancia, videoporteros y respaldo energético para tu hogar."
+  title="Infraestructura Residencial | SEGUMAX"
+  description="Diseño e ingeniería de seguridad electrónica perimetral y matrices de energía solar autónomas para hogares en La Habana."
 >
-  <!-- Hero -->
-  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+  <!-- Architectural Directory Entry Hero -->
+  <section class="bg-gris-50 pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl">
-        <div class="flex items-center gap-3">
-          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-segumax-accent/20">
-            <Home class="h-7 w-7 text-segumax-accent" />
-          </div>
-          <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-            PARA HOGARES
-          </span>
+      <div class="flex flex-col border-b border-gris-200 pb-4 mb-12">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-marino-500 rounded-full"></span>
+          <span>ESTUDIO // SUBSISTEMAS DE PROTECCIÓN DOMÉSTICA</span>
         </div>
-        <h1 class="font-display mt-6 text-4xl font-bold tracking-tight lg:text-5xl">
-          Protección pensada para tu familia
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest mt-1">RES_SOLUTIONS_V26</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 items-end">
+        <h1 class="display-xl text-5xl md:text-7xl lg:text-8xl text-gris-900 tracking-tighter">
+          ARQUITECTURA <br />
+          <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">RESIDENCIAL</span>.
         </h1>
-        <p class="mt-4 text-lg text-white/70">
-          Soluciones de respaldo y protección para tu hogar, adaptadas a tu
-          presupuesto y a las necesidades reales de tu familia.
+        <p class="text-base lg:text-lg text-gris-500 font-light leading-relaxed max-w-md">
+          Modelamos celdas perimetrales y redes energéticas de respaldo adaptadas de forma milimétrica a la estructura física de su vivienda.
         </p>
       </div>
     </Container>
   </section>
 
-  <!-- Pilares -->
-  <section class="bg-segumax-bg py-16 lg:py-20">
+  <!-- Modular Pillars Matrix Layout Grid -->
+  <section class="bg-gris-100 py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-          QUÉ INCLUYE
-        </span>
-        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
-          Sistemas disponibles para tu hogar
-        </h2>
+      <div class="flex flex-col border-b border-gris-200 pb-4 mb-16">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-mostaza-500 rounded-full"></span>
+          <span>ÍNDICE DE COMPONENTES DISPONIBLES</span>
+        </div>
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest mt-1">MATRIX_CELLS</span>
       </div>
 
-      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {pilares.map((pilar) => (
-          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-primary/10">
-              <pilar.icon class="h-6 w-6 text-segumax-primary" />
+      <!-- Aligned catalog layout separating cells with crisp 1px lines -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gris-200 border border-gris-200">
+        {pilares.map((pilar, index) => {
+          const PilarIcon = pilar.icon;
+          return (
+            <div class="ikea-box bg-white p-8 flex flex-col justify-between aspect-square h-full relative group">
+              <div class="font-mono text-[9px] text-gris-400 tracking-widest select-none flex justify-between items-center mb-6">
+                <span>[ COMP_ID // 0{index + 1} ]</span>
+                <div class="text-gris-400 group-hover:text-mostaza-500 transition-colors duration-300">
+                  <PilarIcon class="h-5 w-5 stroke-[1.5]" />
+                </div>
+              </div>
+
+              <div class="space-y-3 mt-auto">
+                <h3 class="text-xl font-bold tracking-tight text-gris-900 font-sans uppercase">
+                  {pilar.title}
+                </h3>
+                <p class="text-xs leading-relaxed text-gris-500 font-light">
+                  {pilar.description}
+                </p>
+              </div>
             </div>
-            <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
-              {pilar.title}
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-segumax-text-soft">
-              {pilar.description}
-            </p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </Container>
   </section>
-
-  <!-- Por qué elegirnos para hogares -->
-  <section class="bg-segumax-bg-alt py-16 lg:py-20">
+  <!-- Technical Features & Specifications Blueprint Split Panel -->
+  <section class="bg-white py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <div class="order-2 lg:order-1">
-          <div class="aspect-[4/3] overflow-hidden rounded-2xl border border-segumax-border bg-white shadow-card">
-            <div class="flex h-full flex-col items-center justify-center gap-3 text-center">
-              <Home class="h-20 w-20 text-segumax-primary/20" stroke-width={1.5} />
-              <span class="font-display text-sm font-semibold tracking-wider text-segumax-text-soft">
-                FOTO DE INSTALACIÓN RESIDENCIAL
-              </span>
+      <div class="grid grid-cols-1 gap-16 lg:grid-cols-12 items-center">
+        
+        <!-- Left Column: Visual Placement Blueprint Box -->
+        <div class="lg:col-span-5 relative group order-2 lg:order-1">
+          <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
+            <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">REG. PL_DOM_2026</span>
+            
+            <div class="font-mono text-[11px] text-gris-400 mb-6 flex items-center gap-2">
+              <span>[ ESQUEMA VISUAL // MONTAJE ]</span>
+            </div>
+
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-gris-100 border border-gris-200 flex flex-col justify-between p-6">
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-20"></div>
+              
+              <span class="font-mono text-[9px] text-gris-400 block tracking-widest">// DEPLOY_RES_HQ</span>
+              
+              <div class="text-center z-10 space-y-1">
+                <span class="block kicker text-gris-400 font-medium">RENDER DE INSTALACIÓN RESIDENCIAL</span>
+                <span class="font-mono text-[10px] text-gris-400 font-light">[ Fachada Limpia / Integración Domótica ]</span>
+              </div>
+
+              <div class="absolute bottom-0 left-0 h-1 w-16 bg-mostaza-500 transition-all duration-300 group-hover:h-2"></div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-between text-xs border-t border-gris-200 pt-4 font-mono">
+              <span class="kicker text-gris-900 font-semibold">TIPO DE INSTALACIÓN</span>
+              <span class="text-gris-400 uppercase">[ DISCRETA / EMPOTRADA ]</span>
             </div>
           </div>
         </div>
 
-        <div class="order-1 lg:order-2">
-          <h2 class="font-display text-4xl font-bold tracking-tight text-segumax-primary">
-            Seguridad que se adapta a tu familia
+        <!-- Right Column: Verification List Specifications -->
+        <div class="lg:col-span-7 space-y-8 order-1 lg:order-2">
+          <span class="font-mono text-xs text-mostaza-500 block tracking-wider uppercase">// COMPATIBILIDAD FAMILIAR</span>
+          <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-gris-900 font-sans uppercase">
+            Ingeniería adaptada al espacio doméstico.
           </h2>
-          <ul class="mt-8 space-y-4">
+          
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 font-sans">
             {[
-              'Instalación limpia y discreta en tu hogar',
-              'Notificaciones en tiempo real a tu móvil',
-              'Monitoreo remoto por nuestros técnicos',
-              'Respaldo de baterías durante apagones',
-              'Mantenimiento programado sin costo extra',
-              'Soporte técnico continuo',
+              'Ejecución limpia sin impacto estético visual',
+              'Notificaciones push en tiempo real vía app móvil',
+              'Supervisión técnica y calibración remota',
+              'Respaldo por acumulador modular en apagones',
+              'Ciclos de mantenimiento preventivo estricto',
+              'Asistencia y soporte por contrato técnico',
             ].map((item) => (
-              <li class="flex items-start gap-3">
-                <div class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-segumax-accent/10">
-                  <Check class="h-3 w-3 text-segumax-accent" stroke-width={3} />
+              <li class="flex items-start gap-3 border-b border-gris-100 pb-3 last:border-0 last:pb-0">
+                <div class="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center text-mostaza-500">
+                  <Check class="h-4 w-4 stroke-[2.5]" />
                 </div>
-                <span class="text-segumax-text">{item}</span>
+                <span class="text-xs text-gris-600 font-light uppercase tracking-wide leading-tight">{item}</span>
               </li>
             ))}
           </ul>
         </div>
+
       </div>
     </Container>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+  <!-- Technical Audit Closing Zone (Inverted Technical Layout Block) -->
+  <section class="bg-gris-900 text-white py-20 lg:py-28 border-b border-gris-900 overflow-hidden">
     <Container>
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="font-display text-3xl font-bold lg:text-4xl">
-          Agenda una visita gratuita para tu hogar
-        </h2>
-        <p class="mt-3 text-white/70">
-          Evaluamos tu propiedad sin compromiso y te proponemos la solución
-          adecuada.
-        </p>
-        <a
-          href="/contacto"
-          class="font-display mt-6 inline-flex items-center gap-2 rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
-        >
-          Solicitar visita
-          <ArrowRight class="h-5 w-5" />
-        </a>
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-20 items-center">
+        
+        <div class="space-y-4">
+          <div class="font-mono text-xs text-mostaza-500 block tracking-wider uppercase">// RESERVA DE TICKET OPERATIVO</div>
+          <h2 class="display-lg text-3xl lg:text-5xl text-white uppercase tracking-tight">
+            Planifique la <br />
+            auditoría de <span class="text-mostaza-500">su residencia</span>.
+          </h2>
+          <p class="text-sm leading-relaxed text-gris-300 font-light max-w-xl">
+            Asignamos un ingeniero certificado para evaluar los perímetros estructurales y la exposición lumínica fotovoltaica de su propiedad en La Habana de forma gratuita y sin compromiso contractual.
+          </p>
+        </div>
+
+        <div class="lg:justify-self-end w-full sm:w-auto">
+          <a
+            href="/contacto"
+            class="group inline-flex w-full sm:w-auto items-center justify-between gap-8 bg-white border border-white px-8 py-5 font-mono text-xs uppercase tracking-wider text-gris-900 transition-colors duration-300 hover:bg-mostaza-500 hover:text-gris-900 hover:border-mostaza-500 shadow-sm"
+          >
+            <span>Solicitar Inspección Residencial _</span>
+            <ArrowUpRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width={2} />
+          </a>
+        </div>
+
       </div>
     </Container>
   </section>

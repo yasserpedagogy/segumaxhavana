@@ -1,107 +1,116 @@
 ---
-import {
-  BellRing,
-  Cable,
-  Flame,
-  Camera,
-  DoorOpen,
-  Lightbulb,
-  Sun,
-  ArrowRight,
-} from '@lucide/astro';
 import Container from './Container.astro';
+import { ArrowUpRight } from '@lucide/astro';
 
 const services = [
-  {
-    icon: BellRing,
-    title: 'Alarmas AJAX inalámbricas',
-    description:
-      'Sistemas por radio frecuencia con respaldo interno de baterías y monitoreo remoto.',
-    href: '/servicios/alarmas-ajax',
-  },
-  {
-    icon: Cable,
-    title: 'Alarmas cableadas',
-    description:
-      'Sistemas DSC NEO y Honeywell para instalaciones que requieren máxima robustez.',
-    href: '/servicios/alarmas-cableadas',
-  },
-  {
-    icon: Flame,
-    title: 'Sistemas contra incendios',
-    description:
-      'Detección temprana AJAX Fire para proteger vidas y bienes en tu propiedad.',
-    href: '/servicios/incendio',
-  },
-  {
-    icon: Camera,
-    title: 'Videovigilancia',
-    description:
-      'Cámaras de alta definición con grabación 24/7 y acceso remoto desde tu móvil.',
-    href: '/servicios/videovigilancia',
-  },
-  {
-    icon: DoorOpen,
-    title: 'Videoporteros',
-    description:
-      'Sistemas analógicos y digitales para controlar el acceso a tu hogar o negocio.',
-    href: '/servicios/videoporteros',
-  },
-  {
-    icon: Lightbulb,
-    title: 'Automatización',
-    description:
-      'Controla luces, portones y más desde tu teléfono con domótica inteligente.',
-    href: '/servicios/automatizacion',
-  },
-  {
-    icon: Sun,
-    title: 'Energía solar',
-    description:
-      'Paneles solares e inversores para mantener tu propiedad protegida durante apagones.',
-    href: '/servicios/energia-solar',
-  },
+  { title: 'Alarmas AJAX Inalámbricas', description: 'Sistemas certificados por radiofrecuencia con respaldo de baterías y cifrado militar contra inhibidores.', href: '/servicios/alarmas-ajax' },
+  { title: 'Alarmas Cableadas de Alta Densidad', description: 'Infraestructura robusta DSC NEO y Honeywell para perímetros complejos e instalaciones comerciales.', href: '/servicios/alarmas-cableadas' },
+  { title: 'Sistemas Contra Incendios Póliza AJAX', description: 'Módulos avanzados de detección térmica y de monóxido para la preservación absoluta de bienes.', href: '/servicios/incendio' },
+  { title: 'Circuitos Cerrados de CCTV', description: 'Ópticas de ultra alta definición con analítica de patrones, grabación local 24/7 y acceso cifrado.', href: '/servicios/videovigilancia' },
+  { title: 'Sistemas de Control & Videoporteros', description: 'Control de acceso biométrico y digitalizado para una gestión perimetral transparente.', href: '/servicios/videoporteros' },
+  { title: 'Automatización & Domótica Activa', description: 'Módulos de relés integrados para el control remoto de iluminación, accesos y portones mecánicos.', href: '/servicios/automatizacion' },
 ];
 ---
 
-<section class="bg-segumax-bg py-20">
+<section class="bg-gris-50 py-24 lg:py-36 border-b border-gris-200">
   <Container>
-    <div class="mx-auto max-w-3xl text-center">
-      <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-        NUESTROS SERVICIOS
-      </span>
-      <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
-        Soluciones integrales de seguridad
-      </h2>
-      <p class="mt-4 text-lg text-segumax-text-soft">
-        Un sistema completo, escalable y adaptado a tu presupuesto. Nunca
-        comprometemos la seguridad.
-      </p>
+    <!-- Encabezado de Sección Estilo Registro Industrial -->
+    <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-12">
+      <div class="kicker flex items-center gap-3">
+        <span class="inline-block h-1.5 w-1.5 bg-mostaza-500 rounded-full"></span>
+        <span>CATÁLOGO DE INGENIERÍA // SERVICIOS</span>
+      </div>
+      <a href="/servicios" class="font-mono text-xs uppercase tracking-wider text-gris-500 hover:text-gris-900 transition-colors">
+        [ Ver índice completo ]
+      </a>
     </div>
 
-    <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      {services.map((service) => (
-        <a
-          href={service.href}
-          class="group relative flex flex-col rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:border-segumax-accent/30 hover:shadow-card-hover"
-        >
-          <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-segumax-primary/10 transition group-hover:bg-segumax-accent/10">
-            <service.icon class="h-6 w-6 text-segumax-primary transition group-hover:text-segumax-accent" />
+    <!-- Título de Sección -->
+    <div class="max-w-4xl space-y-4 mb-20">
+      <h2 class="display-lg text-4xl lg:text-6xl text-gris-900 uppercase">
+        Sistemas Modulares <br />
+        de <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">Protección Integral</span>.
+      </h2>
+    </div>
+
+    <!-- Grid Asimétrico: Catálogo de Servicios Secuenciales + Destacado de Energía Solar -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Bloque Izquierdo: Listado Técnico Limpio -->
+      <div class="lg:col-span-7 border-t border-gris-200 split-list">
+        {services.map((service, i) => (
+          <a
+            href={service.href}
+            class="group block border-b border-gris-200 py-6 lg:py-8 transition-colors duration-300 hover:bg-white pl-4 relative"
+          >
+            <div class="grid grid-cols-1 lg:grid-cols-[40px_1fr_40px] gap-4 items-center">
+              <!-- Índice numérico modular -->
+              <span class="font-mono text-xs text-gris-400 group-hover:text-mostaza-500 transition-colors">
+                0{i + 1}
+              </span>
+              
+              <!-- Información Técnica -->
+              <div class="space-y-1.5">
+                <h3 class="text-xl font-bold tracking-tight text-gris-900 font-sans">
+                  {service.title}
+                </h3>
+                <p class="text-sm leading-relaxed text-gris-500 font-light max-w-xl">
+                  {service.description}
+                </p>
+              </div>
+
+              <!-- Indicador de Enlace Editorial -->
+              <div class="flex justify-end">
+                <ArrowUpRight
+                  class="h-5 w-5 text-gris-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-gris-900"
+                  stroke-width={1.5}
+                />
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <!-- Bloque Derecho: Caja de Destacado de Energía Solar (Look Invertido Premium) -->
+      <div class="lg:col-span-5 lg:sticky lg:top-28">
+        <div class="bg-gris-900 text-white p-8 border border-gris-900 relative overflow-hidden group">
+          <!-- Sutil brillo técnico de fondo en mostaza -->
+          <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-mostaza-500/10 rounded-full blur-3xl transition-transform duration-500 group-hover:scale-120"></div>
+          
+          <div class="flex justify-between items-start border-b border-gris-800 pb-4 mb-8">
+            <span class="font-mono text-[10px] text-mostaza-500 tracking-widest uppercase">// NÚCLEO AUTÓNOMO ADICIONAL</span>
+            <span class="font-mono text-[9px] text-gris-400">ART. N° 505.212.01</span>
           </div>
 
-          <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
-            {service.title}
-          </h3>
-          <p class="mt-2 flex-1 text-sm leading-relaxed text-segumax-text-soft">
-            {service.description}
-          </p>
+          <div class="space-y-6">
+            <h3 class="display-lg text-3xl text-white uppercase tracking-tight">
+              Sistemas de <br />
+              <span class="text-mostaza-500">Energía Solar</span> <br />
+              Integrados.
+            </h3>
+            
+            <p class="text-sm text-gris-300 font-light leading-relaxed">
+              No dependas de la red eléctrica de La Habana. Diseñamos matrices fotovoltaicas acopladas directamente a tus circuitos de CCTV y alarmas. Respaldo absoluto e ininterrumpido mediante inversores híbridos de última generación.
+            </p>
 
-          <div class="mt-4 flex items-center gap-2 text-sm font-semibold text-segumax-accent opacity-0 transition group-hover:opacity-100">
-            <span>Ver más</span>
-            <ArrowRight class="h-4 w-4 transition group-hover:translate-x-1" />
+            <div class="pt-4">
+              <a
+                href="/servicios/energia-solar"
+                class="group inline-flex w-full items-center justify-between border border-gris-700 bg-gris-800 px-5 py-4 font-mono text-xs uppercase tracking-wider text-white transition-all duration-300 hover:bg-mostaza-500 hover:text-gris-900 hover:border-mostaza-500"
+              >
+                <span>Configurar Respaldo Solar</span>
+                <ArrowUpRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width={2} />
+              </a>
+            </div>
           </div>
-        </a>
-      ))}
+
+          <div class="mt-8 pt-4 border-t border-gris-800 flex justify-between font-mono text-[10px] text-gris-400">
+            <span>SISTEMA DE AUTONOMÍA 24/7</span>
+            <span class="text-mostaza-500">[ 0% EMISIONES ]</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </Container>
 </section>

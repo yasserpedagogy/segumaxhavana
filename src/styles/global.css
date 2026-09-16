@@ -1,33 +1,108 @@
 @import "tailwindcss";
-@import "tailwindcss";
-@plugin "@tailwindcss/typography";
 
 @theme {
-  /* ===== Paleta Segumax ===== */
-  /* Marca */
-  --color-segumax-primary: #0A2A4E;
-  --color-segumax-primary-light: #1B4B7A;
-  --color-segumax-primary-dark: #061A33;
+  /* ========== GRISES INDUSTRIALES / IKEA (95%) ========== */
+  /* Limpios, arquitectónicos y con mucho contraste en luz natural */
+  --color-gris-50: #F9FAFB;   /* Fondo general ultra-limpio */
+  --color-gris-100: #F3F4F6;  /* Fondo de contenedores / bloques */
+  --color-gris-200: #E5E7EB;  /* Bordes de un solo píxel (estilo catálogo) */
+  --color-gris-300: #D1D5DB;  /* Líneas divisorias / reglas editoriales */
+  --color-gris-400: #9CA3AF;  /* Textos secundarios mudos */
+  --color-gris-500: #6B7280;  /* Subtítulos informativos */
+  --color-gris-600: #4B5563;  /* Texto de lectura de alta fidelidad */
+  --color-gris-700: #374151;  /* Elementos secundarios oscuros */
+  --color-gris-800: #1F2937;  /* Contrastes profundos */
+  --color-gris-900: #111827;  /* Negro técnico puro para tipografías principales */
 
-  /* Acento (CTAs) */
-  --color-segumax-accent: #FF6B00;
-  --color-segumax-accent-hover: #E55A00;
+  /* ========== AMARILLO MOSTAZA INDUSTRIAL (4%) ========== */
+  /* Inspirado exactamente en las bolsas y señalética de IKEA, tirando a ocre/cibernético */
+  --color-mostaza-50: #FFFDF0;
+  --color-mostaza-100: #FEF3C7;
+  --color-mostaza-300: #F5D061;
+  --color-mostaza-500: #DFAC10; /* El tono mostaza perfecto para paneles solares y acentos */
+  --color-mostaza-600: #C49208;
+  --color-mostaza-700: #9A7102;
 
-  /* Secundario (Energía Solar) */
-  --color-segumax-success: #10B981;
-  --color-segumax-success-soft: #F0FDF4;
+  /* ========== AZUL QUIRÚRGICO DIGITAL (1%) ========== */
+  /* Reemplaza el marino tradicional por un azul de laboratorio futurista para indicar "Sistema Activo" o "Online" */
+  --color-marino-500: #0052CC;
+  --color-marino-700: #0747A6;
+  --color-marino-900: #091E42;
 
-  /* Neutros */
-  --color-segumax-bg: #FFFFFF;
-  --color-segumax-bg-alt: #F5F7FA;
-  --color-segumax-text: #1F2937;
-  --color-segumax-text-soft: #6B7280;
-  --color-segumax-border: #E5E7EB;
+  /* ========== Tipografía Escandinava / Industrial ========== */
+  /* Mantenemos Archivo que es genial, pero agregamos una opción Mono para datos duros */
+  --font-sans: "Archivo", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  /* ===== Tipografía ===== */
-  --font-sans: "Atkinson Hyperlegible", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  /* ========== Espaciado editorial (Respiración masiva) ========== */
+  --spacing-section: 8rem;
+  --spacing-section-lg: 12rem;
+}
 
-  /* ===== Sombras ===== */
-  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.08);
-  --shadow-card-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-gris-50);
+    color: var(--color-gris-900);
+  }
+
+  body {
+    font-feature-settings: "ss01", "cv01", "cv02", "tnum"; /* 'tnum' para que los números técnicos se alineen perfectamente */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-mostaza-500);
+    color: var(--color-gris-900);
+  }
+}
+
+@layer utilities {
+  /* Etiquetas editoriales: kickers de sistemas, números de catálogo de IKEA */
+  .kicker {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.7rem;
+    line-height: 1;
+    color: var(--color-gris-500);
+  }
+
+  /* Regla horizontal fina editorial (Crucial para separar secciones como planos técnicos) */
+  .editorial-rule {
+    height: 1px;
+    background-color: var(--color-gris-200);
+    width: 100%;
+  }
+
+  /* Titular enorme editorial (Look limpio, aplastado y minimalista) */
+  .display-xl {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    line-height: 0.90;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+  }
+
+  .display-lg {
+    font-family: var(--font-sans);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+  }
+  
+  /* Utilidad para simular el encajonado de productos de catálogo */
+  .ikea-box {
+    background-color: #FFFFFF;
+    border: 1px solid var(--color-gris-200);
+    padding: 2.5rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  
+  .ikea-box:hover {
+    border-color: var(--color-mostaza-300);
+    box-shadow: 0 20px 40px -15px rgba(0,0,0,0.03);
+  }
 }

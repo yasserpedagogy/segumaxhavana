@@ -3,7 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Container from '../../components/Container.astro';
 import { getCollection, render } from 'astro:content';
 import {
-  BellRing, Cable, Flame, Camera, DoorOpen, Lightbulb, Sun, Check, ArrowRight,
+  BellRing, Cable, Flame, Camera, DoorOpen, Lightbulb, Sun, Check, ArrowUpRight,
 } from '@lucide/astro';
 
 const iconMap = { BellRing, Cable, Flame, Camera, DoorOpen, Lightbulb, Sun };
@@ -18,105 +18,152 @@ export async function getStaticPaths() {
 
 const { servicio } = Astro.props;
 const { Content } = await render(servicio);
-const Icon = iconMap[servicio.data.icon as keyof typeof iconMap];
+
+// SAFE FACTORY ASSIGNMENT: Resolves InvalidComponentArgs crashes
+const rawIcon = iconMap[servicio.data.icon as keyof typeof iconMap];
+const TargetIcon = rawIcon || Camera;
 
 const serviciosRelacionados = (await getCollection('servicios'))
   .filter((s) => s.id !== servicio.id)
   .slice(0, 3);
 ---
 
-<Layout title={`${servicio.data.title} | Segumax`} description={servicio.data.metaDescription}>
-  <!-- Hero -->
-  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+<Layout title={`${servicio.data.title} | SEGUMAX`} description={servicio.data.metaDescription}>
+  <!-- Minimalist Architectural Layout Entry Hero -->
+  <section class="bg-gris-50 pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl">
+      <!-- Technical Reference Index Tag Row -->
+      <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-12">
         <div class="flex items-center gap-3">
-          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-segumax-accent/20">
-            <Icon class="h-7 w-7 text-segumax-accent" />
+          <div class="text-gris-900">
+            <TargetIcon class="h-5 w-5 stroke-[1.5]" />
           </div>
-          <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-            SERVICIO
-          </span>
+          <span class="kicker text-[11px] font-semibold tracking-wider">// INFRAESTRUCTURA DE SEGURIDAD MODULAR</span>
         </div>
-        <h1 class="font-display mt-6 text-4xl font-bold tracking-tight lg:text-5xl">
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest uppercase">SYS_ID // {servicio.id.toUpperCase()}</span>
+      </div>
+
+      <!-- Main Headline Dynamic Field Structure -->
+      <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 items-end">
+        <h1 class="display-xl text-4xl md:text-6xl lg:text-7xl text-gris-900 tracking-tighter uppercase">
           {servicio.data.title}
         </h1>
-        <p class="mt-4 text-lg text-white/70">{servicio.data.description}</p>
+        <p class="text-base text-gris-500 font-light leading-relaxed max-w-md">
+          {servicio.data.description}
+        </p>
       </div>
     </Container>
   </section>
-
-  <!-- Contenido -->
-  <section class="bg-segumax-bg py-16 lg:py-20">
+  <!-- Core Content & Technical Parameters Section -->
+  <section class="bg-white py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <div class="grid grid-cols-1 gap-12 lg:grid-cols-[2fr_1fr]">
-        <!-- Contenido markdown -->
-        <div class="prose prose-lg max-w-none">
+      <div class="grid grid-cols-1 gap-16 lg:grid-cols-[2fr_1fr] items-start">
+        
+        <!-- Left Side: Editorial Markdown Render Output Content -->
+        <div class="prose prose-gris max-w-none 
+          prose-headings:font-sans prose-headings:uppercase prose-headings:tracking-tight prose-headings:text-gris-900 prose-headings:font-bold
+          prose-h2:text-2xl prose-h3:text-xl
+          prose-p:text-sm prose-p:leading-relaxed prose-p:text-gris-600 prose-p:font-light
+          prose-li:text-sm prose-li:text-gris-600 prose-li:font-light
+          prose-strong:text-gris-900 prose-strong:font-medium
+          prose-hr:border-gris-200">
           <Content />
         </div>
 
-        <!-- Sidebar con features + CTA -->
-        <aside class="space-y-6">
-          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card">
-            <h2 class="font-display text-xl font-bold text-segumax-primary">
-              Qué incluye
+        <!-- Right Side: Sidebar Modular Blueprint Block Components -->
+        <aside class="space-y-8 lg:sticky lg:top-28">
+          
+          <!-- Box 01: System Included Technical Inventory -->
+          <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
+            <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">SPEC_LIST_01</span>
+            <h2 class="font-mono text-[11px] text-gris-900 font-semibold tracking-wider uppercase mb-6">
+              [ PARÁMETROS // INCLUIDOS ]
             </h2>
-            <ul class="mt-4 space-y-3">
+            <ul class="space-y-4">
               {servicio.data.features.map((feature) => (
-                <li class="flex items-start gap-3">
-                  <div class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-segumax-accent/10">
-                    <Check class="h-3 w-3 text-segumax-accent" stroke-width={3} />
+                <li class="flex items-start gap-3 border-b border-gris-100 pb-3 last:border-0 last:pb-0">
+                  <div class="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center text-mostaza-500">
+                    <Check class="h-4 w-4 stroke-[2.5]" />
                   </div>
-                  <span class="text-sm text-segumax-text">{feature}</span>
+                  <span class="text-xs text-gris-600 font-light leading-tight font-sans uppercase tracking-wide">{feature}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div class="rounded-2xl bg-segumax-primary p-6 text-white shadow-card">
-            <h2 class="font-display text-xl font-bold">Visita gratuita</h2>
-            <p class="mt-2 text-sm text-white/80">
-              Evaluamos tu propiedad sin costo ni compromiso y te proponemos la
-              mejor solución.
+          <!-- Box 02: Verification Action Block Call (Inverted Technical Shell) -->
+          <div class="bg-gris-900 text-white p-6 md:p-8 border border-gris-900 relative overflow-hidden group">
+            <div class="absolute -right-12 -bottom-12 w-32 h-32 bg-mostaza-500/10 rounded-full blur-2xl"></div>
+            
+            <div class="flex justify-between items-center border-b border-gris-800 pb-4 mb-6">
+              <h2 class="font-mono text-[10px] text-mostaza-500 font-semibold tracking-widest uppercase">
+                // AUDITORÍA ESTRUCTURAL
+              </h2>
+              <span class="font-mono text-[9px] text-gris-500">REQ_CODE_00</span>
+            </div>
+
+            <p class="text-xs text-gris-300 font-light leading-relaxed mb-6">
+              Evaluamos los perímetros físicos de su propiedad en La Habana. Emitimos planos técnicos modulares y cálculos de dimensionamiento solar de forma gratuita.
             </p>
+            
             <a
               href="/contacto"
-              class="font-display mt-4 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-segumax-accent px-4 py-3 text-sm font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
+              class="group inline-flex w-full items-center justify-between bg-gris-800 border border-gris-700 px-4 py-3.5 font-mono text-xs uppercase tracking-wider text-white transition-all duration-300 hover:bg-mostaza-500 hover:text-gris-900 hover:border-mostaza-500"
             >
-              Solicitar ahora
+              <span>Solicitar Planos _</span>
+              <ArrowUpRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width={2} />
             </a>
           </div>
+
         </aside>
       </div>
     </Container>
   </section>
 
-  <!-- Servicios relacionados -->
-  <section class="bg-segumax-bg-alt py-16">
+  <!-- Cross-Linked Related System Modules Section -->
+  <section class="bg-gris-100 py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <h2 class="font-display text-3xl font-bold text-segumax-primary">
-        Otros servicios
-      </h2>
-      <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {serviciosRelacionados.map((rel) => {
-          const RelIcon = iconMap[rel.data.icon as keyof typeof iconMap];
+      <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-12">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-gris-400 rounded-full"></span>
+          <span>MÓDULOS DE INFRAESTRUCTURA COMPATIBLES</span>
+        </div>
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest select-none">[ ALTERNATE_GRID ]</span>
+      </div>
+
+      <div class="grid grid-cols-1 gap-px bg-gris-200 border border-gris-200 sm:grid-cols-2 lg:grid-cols-3">
+        {serviciosRelacionados.map((rel, index) => {
+          // SAFE FACTORY ASSIGNMENT: Resolves looping component errors cleanly
+          const rawRelIcon = iconMap[rel.data.icon as keyof typeof iconMap];
+          const TargetRelIcon = rawRelIcon || Camera;
+          
           return (
             <a
               href={`/servicios/${rel.id}`}
-              class="group flex flex-col rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover"
+              class="ikea-box bg-white p-8 flex flex-col justify-between aspect-[4/4] group h-full relative"
             >
-              <div class="flex h-12 w-12 items-center justify-center rounded-lg bg-segumax-primary/10">
-                <RelIcon class="h-6 w-6 text-segumax-primary" />
+              <div class="font-mono text-[9px] text-gris-400 tracking-widest select-none flex justify-between items-center mb-6">
+                <span>[ MODULE_REF // 0{index + 1} ]</span>
+                <span class="text-gris-300 font-mono group-hover:text-mostaza-500 transition-colors">// ACC_SYS</span>
               </div>
-              <h3 class="font-display mt-4 text-lg font-bold text-segumax-primary">
-                {rel.data.title}
-              </h3>
-              <p class="mt-2 flex-1 text-sm text-segumax-text-soft">
-                {rel.data.description}
-              </p>
-              <div class="mt-4 flex items-center gap-2 text-sm font-semibold text-segumax-accent">
-                <span>Ver más</span>
-                <ArrowRight class="h-4 w-4 transition group-hover:translate-x-1" />
+
+              <div class="space-y-4">
+                <div class="text-gris-400 group-hover:text-mostaza-500 transition-colors duration-300">
+                  <TargetRelIcon class="h-6 w-6 stroke-[1.2]" />
+                </div>
+                <h3 class="text-xl font-bold tracking-tight text-gris-900 font-sans uppercase pt-1">
+                  {rel.data.title}
+                </h3>
+                <p class="text-sm leading-relaxed text-gris-500 font-light line-clamp-2">
+                  {rel.data.description}
+                </p>
+              </div>
+
+              <div class="mt-8 pt-4 border-t border-gris-100 flex items-center justify-between font-mono text-xs text-gris-400 group-hover:text-gris-900 transition-colors">
+                <span class="kicker text-[10px] tracking-wider">Ver Ficha</span>
+                <span class="w-7 h-7 rounded-full bg-gris-50 border border-gris-200 flex items-center justify-center group-hover:bg-mostaza-500 group-hover:text-gris-900 group-hover:border-mostaza-500 transition-all duration-300">
+                  <ArrowUpRight class="h-3.5 w-3.5 stroke-[1.5]" />
+                </span>
               </div>
             </a>
           );

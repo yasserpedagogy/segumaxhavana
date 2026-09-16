@@ -1,63 +1,104 @@
 ---
-import { Search, FileCheck, Wrench } from '@lucide/astro';
 import Container from './Container.astro';
 
 const steps = [
   {
-    icon: Search,
     number: '01',
-    title: 'Diagnóstico gratuito',
+    title: 'AUDITORÍA PERIMETRAL PASIVA',
     description:
-      'Visitamos tu propiedad sin compromiso y evaluamos tus vulnerabilidades y necesidades reales.',
+      'Evaluación técnica en sitio sin coste operativo. Mapeamos vectores de vulnerabilidad física y exposición lumínica para la integración fotovoltaica.',
   },
   {
-    icon: FileCheck,
     number: '02',
-    title: 'Propuesta a tu medida',
+    title: 'ARQUITECTURA DE PLANOS A MEDIDA',
     description:
-      'Diseñamos un sistema integral escalable, ajustado a tu presupuesto y priorizando lo más crítico.',
+      'Modelado de un ecosistema escalable. Dimensionamos la carga de baterías de respaldo y la ubicación milimétrica de sensores y ópticas CCTV.',
   },
   {
-    icon: Wrench,
     number: '03',
-    title: 'Instalación y soporte',
+    title: 'DESPLIEGUE TÉCNICO Y DESACOPLE',
     description:
-      'Instalamos, configuramos y monitoreamos remotamente. Te acompañamos con soporte técnico continuo.',
+      'Instalación física, calibración de analíticas neuronales y conmutación al sistema solar modular. Soporte y auditorías cíclicas garantizadas.',
   },
 ];
 ---
 
-<section class="bg-segumax-bg py-20">
+<section class="bg-gris-50 py-24 lg:py-36 border-b border-gris-200">
   <Container>
-    <div class="mx-auto max-w-3xl text-center">
-      <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-        CÓMO FUNCIONAMOS
-      </span>
-      <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
-        Un proceso claro, sin sorpresas
-      </h2>
-      <p class="mt-4 text-lg text-segumax-text-soft">
-        No vendemos equipos. Proponemos soluciones pensadas para ti.
-      </p>
+    <!-- Encabezado de Sección como Protocolo Estándar -->
+    <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-16">
+      <div class="kicker flex items-center gap-3">
+        <span class="inline-block h-1.5 w-1.5 bg-marino-500 rounded-full"></span>
+        <span>PROTOCOLO OPERATIVO // METODOLOGÍA SEC_SYS</span>
+      </div>
+      <span class="font-mono text-[10px] text-gris-400 tracking-widest">FASE: DEPLOY_01</span>
     </div>
 
-    <div class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-      {steps.map((step) => (
-        <div class="group relative rounded-2xl border border-segumax-border bg-white p-8 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
-          <div class="flex items-center justify-between">
-            <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-segumax-primary/10 transition group-hover:bg-segumax-accent/10">
-              <step.icon class="h-7 w-7 text-segumax-primary transition group-hover:text-segumax-accent" />
-            </div>
-            <span class="font-display text-5xl font-bold text-segumax-border">
-              {step.number}
-            </span>
+    <!-- Título de la sección -->
+    <h2 class="display-lg text-4xl lg:text-6xl text-gris-900 uppercase tracking-tight mb-20">
+      Ingeniería en tres <br />
+      etapas <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">transparentes</span>.
+    </h2>
+
+    <!-- Grid Asimétrico Modular -->
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.5fr] lg:gap-24 items-start">
+      
+      <!-- Columna Izquierda: Ficha Técnica del Protocolo en Caja de Catálogo -->
+      <div class="relative group">
+        <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
+          <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">DOC. ID // 400.12B</span>
+          
+          <div class="font-mono text-[11px] text-gris-400 mb-6 flex items-center gap-2">
+            <span>[ MANUAL_DE_CALIDAD ]</span>
           </div>
-          <h3 class="font-display mt-6 text-2xl font-bold text-segumax-primary">
-            {step.title}
-          </h3>
-          <p class="mt-3 text-segumax-text-soft">{step.description}</p>
+
+          <!-- Bloque gráfico del manual -->
+          <div class="relative aspect-[4/4] w-full bg-gris-100 border border-gris-200 flex flex-col justify-between p-6">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:1rem_1rem] opacity-20"></div>
+            
+            <span class="font-mono text-[10px] text-gris-400 block">// DIAGRAMA_FLUJO_V4</span>
+            
+            <div class="space-y-1 z-10">
+              <span class="block text-2xl font-black text-gris-900 font-mono tracking-tighter">SEGUMAX_</span>
+              <span class="block font-mono text-[10px] text-gris-400">Estándar de Control Escandinavo</span>
+            </div>
+
+            <!-- Pequeña alerta mostaza de sistema -->
+            <div class="h-2 w-2 bg-mostaza-500 rounded-full self-end"></div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-gris-200 text-[11px] text-gris-500 font-mono leading-relaxed">
+            Cada despliegue perimetral sigue estrictos controles de certificación europea y aislamiento de red pública.
+          </div>
         </div>
-      ))}
+      </div>
+
+      <!-- Columna Derecha: Bloques Secuenciales del Proceso Técnico -->
+      <div class="flex flex-col border-t border-gris-200">
+        {steps.map((step) => (
+          <div class="border-b border-gris-200 py-8 group transition-colors duration-300 hover:bg-white lg:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-[60px_1fr] gap-4 md:gap-8 items-start">
+              
+              <!-- Número Técnico del Paso -->
+              <span class="font-mono text-lg font-black tracking-tight text-mostaza-500 block">
+                [{step.number}]
+              </span>
+              
+              <!-- Contenido Técnico Editorial -->
+              <div class="space-y-3">
+                <h3 class="text-xl font-bold tracking-tight text-gris-900 font-sans">
+                  {step.title}
+                </h3>
+                <p class="text-sm leading-relaxed text-gris-500 font-light max-w-xl">
+                  {step.description}
+                </p>
+              </div>
+
+            </div>
+          </div>
+        ))}
+      </div>
+
     </div>
   </Container>
 </section>

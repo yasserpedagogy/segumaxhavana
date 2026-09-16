@@ -1,81 +1,108 @@
 ---
-import { Home, Building2, ArrowRight } from '@lucide/astro';
 import Container from './Container.astro';
-
-const solutions = [
-  {
-    icon: Home,
-    title: 'Para Hogares',
-    description:
-      'Ofrecemos soluciones de respaldo y protección para tu hogar, adaptadas a tu presupuesto y a las necesidades de tu familia.',
-    features: [
-      'Alarmas AJAX inalámbricas',
-      'Videovigilancia residencial',
-      'Automatización de luces y portones',
-      'Respaldo energético con paneles solares',
-    ],
-    href: '/soluciones/hogares',
-  },
-  {
-    icon: Building2,
-    title: 'Soluciones Comerciales',
-    description:
-      'Escalamos soluciones de seguridad acorde a cada necesidad: negocios, comercios, oficinas e industrias.',
-    features: [
-      'Alarmas cableadas DSC NEO y Honeywell',
-      'Sistemas contra incendios AJAX Fire',
-      'Videovigilancia multi-cámara',
-      'Automatización integral',
-    ],
-    href: '/soluciones/negocios',
-  },
-];
+import { ArrowUpRight } from '@lucide/astro';
 ---
 
-<section class="bg-segumax-bg-alt py-20">
+<section class="bg-gris-50 py-24 lg:py-36 border-b border-gris-200 overflow-hidden">
   <Container>
-    <div class="mx-auto max-w-3xl text-center">
-      <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-        SOLUCIONES
-      </span>
-      <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
-        Protegemos lo que más te importa
-      </h2>
-      <p class="mt-4 text-lg text-segumax-text-soft">
-        Cada propiedad es diferente. Diseñamos soluciones a la medida.
-      </p>
+    <!-- Section Header designed as an Architectural Index -->
+    <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-16">
+      <div class="kicker flex items-center gap-3">
+        <span class="inline-block h-1.5 w-1.5 bg-mostaza-500 rounded-full"></span>
+        <span>SEGMENTACIÓN DE ENTORNOS // SOLUCIONES</span>
+      </div>
+      <span class="font-mono text-[10px] text-gris-400 tracking-widest">SISTEMAS MÓDULO_B</span>
     </div>
 
-    <div class="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
-      {solutions.map((solution) => (
-        <div class="group flex flex-col rounded-2xl border border-segumax-border bg-white p-8 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover lg:p-10">
-          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-segumax-primary transition group-hover:bg-segumax-accent">
-            <solution.icon class="h-7 w-7 text-white" />
+    <!-- Section Title -->
+    <h2 class="display-lg text-4xl lg:text-6xl text-gris-900 uppercase tracking-tight mb-20">
+      Arquitectura de <br />
+      infraestructura <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">por sector</span>.
+    </h2>
+
+    <!-- Balanced Dual Grid imitating Bauhaus / IKEA Catalog Layout -->
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+      
+      <!-- Option 01: Residential Architecture -->
+      <a href="/soluciones/hogares" class="group block">
+        <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative flex flex-col justify-between h-full">
+          <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">REF. RES_H-26</span>
+          
+          <div>
+            <span class="font-mono text-[11px] text-gris-400 block mb-6">[ ENTORNO // RESIDENCIAL ]</span>
+            
+            <!-- Technical Canvas Placeholder -->
+            <div class="relative aspect-[16/10] w-full overflow-hidden bg-gris-100 border border-gris-200 flex items-center justify-center p-6 mb-8">
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-25"></div>
+              <div class="text-center space-y-1">
+                <span class="block kicker text-gris-400">PLANOS RESIDENCIALES DE PROTECCIÓN</span>
+                <span class="font-mono text-[9px] text-gris-400 font-light">[ Mapeo Perimetral Doméstico / Integración Solar ]</span>
+              </div>
+            </div>
+
+            <!-- Content Block -->
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-bold tracking-tight text-gris-900 font-sans">
+                  Sistemas para Residencias
+                </h3>
+              </div>
+              <p class="text-sm leading-relaxed text-gris-500 font-light max-w-md">
+                Blindaje electrónico integrado para casas y apartamentos de alta densidad. Diseños limpios sin impacto visual en fachadas, respaldados por micro-infraestructura fotovoltaica autónoma.
+              </p>
+            </div>
           </div>
 
-          <h3 class="font-display mt-6 text-3xl font-bold text-segumax-primary">
-            {solution.title}
-          </h3>
-          <p class="mt-3 text-segumax-text-soft">{solution.description}</p>
-
-          <ul class="mt-6 flex-1 space-y-3">
-            {solution.features.map((feature) => (
-              <li class="flex items-start gap-3">
-                <div class="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-segumax-accent" />
-                <span class="text-sm text-segumax-text">{feature}</span>
-              </li>
-            ))}
-          </ul>
-
-          <a
-            href={solution.href}
-            class="font-display mt-8 inline-flex items-center gap-2 text-lg font-semibold tracking-wide text-segumax-accent transition hover:gap-3"
-          >
-            Ver soluciones
-            <ArrowRight class="h-5 w-5" />
-          </a>
+          <!-- Bottom Footer Area -->
+          <div class="mt-8 pt-4 border-t border-gris-200 flex items-center justify-between font-mono text-xs">
+            <span class="kicker text-mostaza-600">01 // ESCALA INDIVIDUAL</span>
+            <span class="w-8 h-8 rounded-full bg-gris-100 border border-gris-200 flex items-center justify-center group-hover:bg-mostaza-500 group-hover:text-gris-900 group-hover:border-mostaza-500 transition-colors">
+              <ArrowUpRight class="h-4 w-4 stroke-[1.5]" />
+            </span>
+          </div>
         </div>
-      ))}
+      </a>
+
+      <!-- Option 02: Commercial Infrastructure -->
+      <a href="/soluciones/negocios" class="group block">
+        <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative flex flex-col justify-between h-full">
+          <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">REF. COM_B-26</span>
+          
+          <div>
+            <span class="font-mono text-[11px] text-gris-400 block mb-6">[ INFRAESTRUCTURA // COMERCIAL ]</span>
+            
+            <!-- Technical Canvas Placeholder -->
+            <div class="relative aspect-[16/10] w-full overflow-hidden bg-gris-100 border border-gris-200 flex items-center justify-center p-6 mb-8">
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-25"></div>
+              <div class="text-center space-y-1">
+                <span class="block kicker text-gris-400">MATRIZ INDUSTRIAL DE SEGURIDAD</span>
+                <span class="font-mono text-[9px] text-gris-400 font-light">[ CCTV Corporativo / Servidores de Respaldo ]</span>
+              </div>
+            </div>
+
+            <!-- Content Block -->
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <h3 class="text-2xl font-bold tracking-tight text-gris-900 font-sans">
+                  Sistemas Comerciales
+                </h3>
+              </div>
+              <p class="text-sm leading-relaxed text-gris-500 font-light max-w-md">
+                Ingeniería corporativa escalable para oficinas, comercios privados e instalaciones industriales. Centralización de CCTV masivo, controles biométricos de acceso y sistemas híbridos solares de gran capacidad.
+              </p>
+            </div>
+          </div>
+
+          <!-- Bottom Footer Area -->
+          <div class="mt-8 pt-4 border-t border-gris-200 flex items-center justify-between font-mono text-xs">
+            <span class="kicker text-mostaza-600">02 // MULTI-MODULAR CORPORATIVO</span>
+            <span class="w-8 h-8 rounded-full bg-gris-100 border border-gris-200 flex items-center justify-center group-hover:bg-mostaza-500 group-hover:text-gris-900 group-hover:border-mostaza-500 transition-colors">
+              <ArrowUpRight class="h-4 w-4 stroke-[1.5]" />
+            </span>
+          </div>
+        </div>
+      </a>
+
     </div>
   </Container>
 </section>

@@ -1,47 +1,58 @@
 ---
-import { Shield, MapPin, Phone, Mail, MessageCircle } from '@lucide/astro';
 import Container from './Container.astro';
 
 const year = new Date().getFullYear();
 
 const servicios = [
-  { label: 'Alarmas AJAX', href: '/servicios/alarmas' },
-  { label: 'Videovigilancia', href: '/servicios/videovigilancia' },
-  { label: 'Sistema contra incendios', href: '/servicios/incendio' },
-  { label: 'Automatización', href: '/servicios/automatizacion' },
-  { label: 'Energía solar', href: '/servicios/energia-solar' },
+  { label: 'ALARMAS AJAX', href: '/servicios/alarmas-ajax' },
+  { label: 'VIDEOVIGILANCIA CCTV', href: '/servicios/videovigilancia' },
+  { label: 'DETECCIÓN INCENDIO', href: '/servicios/incendio' },
+  { label: 'AUTOMATIZACIÓN DOMÓTICA', href: '/servicios/automatizacion' },
+  { label: 'RESPALDO ENERGÍA SOLAR', href: '/servicios/energia-solar' },
 ];
 
 const empresa = [
-  { label: 'Nosotros', href: '/nosotros' },
-  { label: 'Soluciones', href: '/soluciones' },
-  { label: 'Galería', href: '/galeria' },
-  { label: 'Contacto', href: '/contacto' },
+  { label: 'MANIFIESTO / NOSOTROS', href: '/nosotros' },
+  { label: 'SOLUCIONES POR SECTOR', href: '/soluciones' },
+  { label: 'ARCHIVO / GALERÍA', href: '/galeria' },
+  { label: 'OFICINA / CONTACTO', href: '/contacto' },
+];
+
+const contacto = [
+  { label: '+53 5555 5555', href: 'tel:+5355555555' },
+  { label: 'CANAL WHATSAPP', href: 'https://wa.me/5355555555' },
+  { label: 'INFO@SEGUMAXHAVANA.COM', href: 'mailto:info@segumaxhavana.com' },
 ];
 ---
 
-<footer class="bg-segumax-primary-dark text-white">
-  <Container class="py-16">
-    <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
-      <!-- Columna 1: Marca -->
-      <div>
-        <div class="flex items-center gap-2">
-          <Shield class="h-8 w-8 text-segumax-accent" stroke-width={2.5} />
-          <span class="font-display text-2xl font-bold tracking-wider">SEGUMAX</span>
+<footer class="bg-gris-50 border-t border-gris-200 overflow-hidden">
+  <Container>
+    <!-- Top Branding & Abstract Description Block -->
+    <div class="border-b border-gris-200 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-8 items-start">
+      <div class="space-y-2">
+        <div class="flex items-center gap-3">
+          <span class="font-mono text-xs text-gris-400 select-none tracking-widest">[ SYSTEM_END ]</span>
+          <span class="text-2xl font-black tracking-tighter text-gris-900 uppercase">
+            SEGUMAX<span class="text-marino-500 font-normal">_</span>
+          </span>
         </div>
-        <p class="mt-4 text-sm leading-relaxed text-white/70">
-          Más de 12 años protegiendo hogares y negocios en La Habana con soluciones de
-          seguridad electrónica y respaldo energético.
-        </p>
+        <div class="font-mono text-[10px] text-gris-400 tracking-wider">ESTÁNDAR NÓRDICO // INFRAESTRUCTURA DE ALTA FIDELIDAD</div>
       </div>
+      <p class="text-sm leading-relaxed text-gris-500 font-light max-w-xl lg:justify-self-end">
+        Ingeniería integrada de protección perimetral, analítica digital y redes de soporte fotovoltaico desacopladas. Diseñado de forma limpia y transparente para optimizar infraestructuras residenciales y corporativas en La Habana.
+      </p>
+    </div>
 
-      <!-- Columna 2: Servicios -->
-      <div>
-        <h3 class="font-display text-lg font-semibold tracking-wide">Servicios</h3>
-        <ul class="mt-4 space-y-3">
+    <!-- Structured Index Grid -->
+    <div class="grid grid-cols-2 gap-x-8 gap-y-12 py-16 lg:grid-cols-4 lg:gap-16 border-b border-gris-200">
+      
+      <!-- Services Index Column -->
+      <div class="space-y-6">
+        <div class="kicker text-gris-900 font-semibold tracking-wider">[ 01 // SERVICIOS ]</div>
+        <ul class="space-y-3 font-mono text-[11px] tracking-wide">
           {servicios.map((item) => (
             <li>
-              <a href={item.href} class="text-sm text-white/70 transition hover:text-segumax-accent">
+              <a href={item.href} class="text-gris-500 transition-colors duration-300 hover:text-mostaza-600">
                 {item.label}
               </a>
             </li>
@@ -49,13 +60,13 @@ const empresa = [
         </ul>
       </div>
 
-      <!-- Columna 3: Empresa -->
-      <div>
-        <h3 class="font-display text-lg font-semibold tracking-wide">Empresa</h3>
-        <ul class="mt-4 space-y-3">
+      <!-- Studio Index Column -->
+      <div class="space-y-6">
+        <div class="kicker text-gris-900 font-semibold tracking-wider">[ 02 // EMPRESA ]</div>
+        <ul class="space-y-3 font-mono text-[11px] tracking-wide">
           {empresa.map((item) => (
             <li>
-              <a href={item.href} class="text-sm text-white/70 transition hover:text-segumax-accent">
+              <a href={item.href} class="text-gris-500 transition-colors duration-300 hover:text-mostaza-600">
                 {item.label}
               </a>
             </li>
@@ -63,41 +74,41 @@ const empresa = [
         </ul>
       </div>
 
-      <!-- Columna 4: Contacto -->
-      <div>
-        <h3 class="font-display text-lg font-semibold tracking-wide">Contacto</h3>
-        <ul class="mt-4 space-y-3 text-sm text-white/70">
-          <li class="flex items-start gap-3">
-            <MapPin class="mt-0.5 h-4 w-4 flex-shrink-0 text-segumax-accent" />
-            <span>La Habana, Cuba</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <Phone class="mt-0.5 h-4 w-4 flex-shrink-0 text-segumax-accent" />
-            <a href="tel:+5355555555" class="transition hover:text-segumax-accent">
-              +53 5555 5555
-            </a>
-          </li>
-          <li class="flex items-start gap-3">
-            <MessageCircle class="mt-0.5 h-4 w-4 flex-shrink-0 text-segumax-accent" />
-            <a href="https://wa.me/5355555555" class="transition hover:text-segumax-accent">
-              WhatsApp
-            </a>
-          </li>
-          <li class="flex items-start gap-3">
-            <Mail class="mt-0.5 h-4 w-4 flex-shrink-0 text-segumax-accent" />
-            <a href="mailto:info@segumaxhavana.com" class="transition hover:text-segumax-accent">
-              info@segumaxhavana.com
-            </a>
-          </li>
+      <!-- Terminal Communications Column -->
+      <div class="space-y-6">
+        <div class="kicker text-gris-900 font-semibold tracking-wider">[ 03 // CONTACTO ]</div>
+        <ul class="space-y-3 font-mono text-[11px] tracking-wide">
+          {contacto.map((item) => (
+            <li>
+              <a href={item.href} class="text-gris-500 transition-colors duration-300 hover:text-mostaza-600">
+                {item.label}
+              </a>
+            </li>
+          ))}
         </ul>
+      </div>
+
+      <!-- Physical Logistical Placement Area -->
+      <div class="space-y-6">
+        <div class="kicker text-gris-900 font-semibold tracking-wider">[ 04 // LOGÍSTICA ]</div>
+        <div class="space-y-2 text-sm text-gris-500 font-light leading-relaxed">
+          <p class="font-sans font-medium text-gris-900">LA HABANA · CUBA</p>
+          <p class="font-mono text-[11px] text-gris-400">Despliegue operativo perimetral e ingeniería a nivel nacional.</p>
+        </div>
       </div>
     </div>
 
-    <!-- Línea inferior -->
-    <div class="mt-12 border-t border-white/10 pt-8">
-      <p class="text-center text-sm text-white/50">
-        © {year} Segumax. Todos los derechos reservados.
-      </p>
+    <!-- Technical System Bottom Credits Footer -->
+    <div class="py-8 flex flex-col sm:flex-row justify-between items-center gap-4 font-mono text-[10px] text-gris-400 tracking-wider">
+      <div>
+        © {year} SEGUMAX INC. TODOS LOS DERECHOS REGISTRADOS.
+      </div>
+      <div class="flex items-center gap-4 select-none">
+        <span>[ FILTRADO_CERRADO: OK ]</span>
+        <span class="flex items-center gap-1.5 text-marino-500 font-medium">
+          <span class="w-1.5 h-1.5 rounded-full bg-marino-500 animate-pulse"></span> SYS_ACTIVE
+        </span>
+      </div>
     </div>
   </Container>
 </footer>

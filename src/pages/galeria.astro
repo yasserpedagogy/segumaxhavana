@@ -1,9 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Container.astro';
-import { Camera, ImageIcon } from '@lucide/astro';
+import { Camera, ArrowUpRight } from '@lucide/astro';
 
-// Placeholder: cuando tengas fotos reales, esto vendrá de una colección
 const categorias = ['Todas', 'Alarmas', 'Videovigilancia', 'Energía Solar', 'Automatización'];
 
 const proyectos = [
@@ -20,70 +19,100 @@ const proyectos = [
 ---
 
 <Layout
-  title="Galería | Segumax"
-  description="Galería de proyectos realizados por Segumax en La Habana: alarmas, videovigilancia, energía solar y automatización."
+  title="Archivo de Proyectos | SEGUMAX"
+  description="Registro visual de infraestructura perimetral, circuitos de CCTV y matrices fotovoltaicas instaladas en La Habana."
 >
-  <!-- Hero -->
-  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+  <!-- Architectural Directory Entry Hero -->
+  <section class="bg-gris-50 pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-          GALERÍA
-        </span>
-        <h1 class="font-display mt-4 text-4xl font-bold tracking-tight lg:text-5xl">
-          Proyectos que hablan por nosotros
+      <div class="flex flex-col border-b border-gris-200 pb-4 mb-12">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-marino-500 rounded-full"></span>
+          <span>ESTUDIO // REGISTRO VISUAL DE INFRAESTRUCTURA ENTREGADA</span>
+        </div>
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest mt-1">ARCH_REF_V26</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 items-end">
+        <h1 class="display-xl text-5xl md:text-7xl lg:text-8xl text-gris-900 tracking-tighter">
+          PORTAFOLIO DE <br />
+          DESPLIEGUES <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">REALES</span>.
         </h1>
-        <p class="mt-4 text-lg text-white/70">
-          Algunos de los trabajos realizados en hogares, comercios e industrias
-          de La Habana.
+        <p class="text-base lg:text-lg text-gris-500 font-light leading-relaxed max-w-md">
+          Índice cronológico de proyectos residenciales, comerciales e industriales ejecutados bajo estándares técnicos europeos.
         </p>
       </div>
     </Container>
   </section>
 
-  <!-- Filtros + Grid -->
-  <section class="bg-segumax-bg py-16 lg:py-20">
+  <!-- Filter Sub-Navigation Bar -->
+  <section class="bg-white border-b border-gris-200 py-6 sticky top-16 lg:top-20 z-40 backdrop-blur-md bg-white/90">
     <Container>
-      <!-- Filtros (estáticos por ahora, sin JS) -->
-      <div class="flex flex-wrap justify-center gap-2">
+      <div class="flex flex-wrap items-center justify-start gap-3">
+        <span class="font-mono text-[10px] text-gris-400 mr-4 tracking-wider select-none">[ FILTRAR_POR ]</span>
         {categorias.map((cat, i) => (
           <button
             type="button"
             class:list={[
-              'font-display rounded-full px-5 py-2 text-sm font-semibold tracking-wide transition',
+              'font-mono text-xs tracking-wider uppercase px-4 py-2 border transition-all duration-300 cursor-pointer',
               i === 0
-                ? 'bg-segumax-primary text-white'
-                : 'border border-segumax-border bg-white text-segumax-text hover:border-segumax-accent hover:text-segumax-accent',
+                ? 'bg-gris-900 text-white border-gris-900 font-medium pl-3 border-l-4 border-l-mostaza-500'
+                : 'border-gris-200 bg-gris-50 text-gris-600 hover:border-gris-900 hover:text-gris-900',
             ]}
           >
             {cat}
           </button>
         ))}
       </div>
+    </Container>
+  </section>
 
-      <!-- Grid de proyectos -->
-      <div class="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+  <!-- Technical Blueprint Portfolio Grid -->
+  <section class="bg-gris-100 py-16 lg:py-24 border-b border-gris-200">
+    <Container>
+      <!-- Perfectly aligned portfolio matrix with 1px gray line separators -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gris-200 border border-gris-200">
         {proyectos.map((proyecto) => (
-          <article class="group overflow-hidden rounded-2xl border border-segumax-border bg-white shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
-            <!-- Imagen placeholder -->
-            <div class="relative aspect-[4/3] overflow-hidden bg-segumax-bg-alt">
-              <div class="flex h-full items-center justify-center">
-                <ImageIcon class="h-16 w-16 text-segumax-primary/20" stroke-width={1.5} />
+          <article class="ikea-box bg-white p-6 flex flex-col justify-between group h-full relative">
+            <div>
+              <!-- Technical Catalog Item Metadata -->
+              <div class="font-mono text-[9px] text-gris-400 tracking-widest select-none flex justify-between items-center mb-4">
+                <span>[ REG_ID // 0{proyecto.id} ]</span>
+                <span class="text-mostaza-600 font-mono font-medium">// {proyecto.category.toUpperCase()}</span>
               </div>
-              <!-- Badge categoría -->
-              <span class="font-display absolute left-4 top-4 rounded-full bg-segumax-primary/90 px-3 py-1 text-xs font-semibold tracking-wider text-white backdrop-blur">
-                {proyecto.category}
-              </span>
+
+              <!-- Product / Deployment Visual Canvas -->
+              <div class="relative aspect-[4/3] w-full overflow-hidden bg-gris-100 border border-gris-200 flex flex-col justify-between p-4 mb-6">
+                <!-- Camera lens alignment crosshairs backdrop matrix pattern -->
+                <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-25"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 border border-dashed border-gris-300 rounded-full opacity-40"></div>
+                
+                <span class="font-mono text-[8px] text-gris-400 block tracking-widest">// RAW_IMAGE_RENDER</span>
+                
+                <div class="text-center z-10 space-y-1">
+                  <span class="block kicker text-gris-400 font-medium">VISUALIZACIÓN DE CAMPO</span>
+                  <span class="font-mono text-[9px] text-gris-400 font-light">[ Módulo Inst_alado // {proyecto.category} ]</span>
+                </div>
+
+                <!-- Small technical color check box in corner -->
+                <div class="h-1.5 w-1.5 bg-gris-200 group-hover:bg-mostaza-500 transition-colors self-end"></div>
+              </div>
+
+              <!-- Information Block Area -->
+              <div class="space-y-1.5">
+                <h3 class="text-lg font-bold tracking-tight text-gris-900 font-sans uppercase">
+                  {proyecto.title}
+                </h3>
+                <p class="text-xs leading-relaxed text-gris-500 font-light">
+                  {proyecto.description}
+                </p>
+              </div>
             </div>
 
-            <!-- Info -->
-            <div class="p-6">
-              <h3 class="font-display text-lg font-bold text-segumax-primary">
-                {proyecto.title}
-              </h3>
-              <p class="mt-2 text-sm text-segumax-text-soft">
-                {proyecto.description}
-              </p>
+            <!-- Operational System State Line -->
+            <div class="mt-6 pt-3 border-t border-gris-100 flex items-center justify-between font-mono text-[10px] text-gris-400">
+              <span>ESTADO // VERIFICADO</span>
+              <span class="text-gris-300 select-none">// SEC_OK</span>
             </div>
           </article>
         ))}
@@ -91,26 +120,35 @@ const proyectos = [
     </Container>
   </section>
 
-  <!-- CTA final -->
-  <section class="bg-segumax-bg-alt py-16">
+  <!-- Bottom CTA Conversion Zone -->
+  <section class="bg-white py-20 lg:py-28 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-2xl text-center">
-        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-segumax-accent/10">
-          <Camera class="h-8 w-8 text-segumax-accent" />
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-20 items-center">
+        
+        <div class="space-y-4">
+          <div class="w-10 h-10 border border-gris-200 bg-gris-50 flex items-center justify-center text-mostaza-500 mb-2">
+            <Camera class="h-5 w-5 stroke-[1.5]" />
+          </div>
+          <span class="font-mono text-xs text-mostaza-500 block tracking-wider uppercase">// PROGRAMACIÓN DE PROYECTO ADICIONAL</span>
+          <h2 class="display-lg text-3xl lg:text-5xl text-gris-900 uppercase tracking-tight">
+            ¿Iniciamos la <br />
+            auditoría de <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">su espacio</span>?
+          </h2>
+          <p class="text-sm lg:text-base leading-relaxed text-gris-500 font-light max-w-xl">
+            Modelamos diagramas de red unificados adaptados a las dimensiones exactas de su residencia o establecimiento comercial de forma completamente gratuita.
+          </p>
         </div>
-        <h2 class="font-display mt-6 text-3xl font-bold text-segumax-primary lg:text-4xl">
-          ¿Quieres ser nuestro próximo proyecto?
-        </h2>
-        <p class="mt-3 text-segumax-text-soft">
-          Solicita una visita gratuita y te mostramos cómo podemos proteger tu
-          propiedad.
-        </p>
-        <a
-          href="/contacto"
-          class="font-display mt-6 inline-block rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
-        >
-          Solicitar visita gratuita
-        </a>
+
+        <div class="lg:justify-self-end w-full sm:w-auto">
+          <a
+            href="/contacto"
+            class="group inline-flex w-full sm:w-auto items-center justify-between gap-8 bg-gris-900 text-white font-mono text-xs uppercase tracking-wider px-8 py-5 transition-colors duration-300 hover:bg-mostaza-500 hover:text-gris-900 shadow-sm"
+          >
+            <span>Agendar Revisión Técnica _</span>
+            <ArrowUpRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width={2} />
+          </a>
+        </div>
+
       </div>
     </Container>
   </section>

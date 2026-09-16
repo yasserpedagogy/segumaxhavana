@@ -1,66 +1,79 @@
 ---
-import { Sun, Battery, Zap, CheckCircle2 } from '@lucide/astro';
 import Container from './Container.astro';
-
-const benefits = [
-  'Paneles solares de alta eficiencia',
-  'Inversores dimensionados a tu consumo',
-  'Respaldo energético durante apagones',
-  'Integración con tu sistema de alarma',
-];
+import { ArrowUpRight } from '@lucide/astro';
 ---
 
-<section class="bg-segumax-primary text-white">
-  <Container class="py-20">
-    <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-      <!-- Contenido -->
-      <div>
-        <div class="inline-flex items-center gap-2 rounded-full border border-segumax-success/30 bg-segumax-success/10 px-4 py-1.5 backdrop-blur">
-          <Sun class="h-4 w-4 text-segumax-success" />
-          <span class="font-display text-sm font-medium tracking-wider text-segumax-success">
-            RESPALDO ENERGÉTICO
-          </span>
-        </div>
+<section class="bg-gris-50 py-24 lg:py-36 border-b border-gris-200 overflow-hidden">
+  <Container>
+    <!-- Encabezado con formato de especificación técnica -->
+    <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-16">
+      <div class="kicker flex items-center gap-3">
+        <span class="inline-block h-1.5 w-1.5 bg-mostaza-500 rounded-full"></span>
+        <span>INFRAESTRUCTURA ENERGÉTICA // AUTONOMÍA TRIPLE</span>
+      </div>
+      <span class="font-mono text-[10px] text-gris-400 tracking-widest">REF: SOLAR_SYS_2026</span>
+    </div>
 
-        <h2 class="font-display mt-6 text-4xl font-bold leading-tight tracking-tight lg:text-5xl">
-          Luz y seguridad, incluso en medio del <span class="text-segumax-accent">apagón</span>
+    <!-- Grid simétrico de catálogo industrial -->
+    <div class="grid grid-cols-1 gap-16 lg:grid-cols-[1.2fr_1fr] lg:gap-24 items-center">
+      
+      <!-- Bloque de Texto: Ingeniería de Respaldo Absoluto -->
+      <div class="space-y-8">
+        <h2 class="display-lg text-4xl lg:text-6xl text-gris-900 uppercase tracking-tight">
+          PROTECCIÓN <br />
+          <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">ININTERRUMPIDA</span> <br />
+          SIN RED ELÉCTRICA.
         </h2>
 
-        <p class="mt-6 max-w-xl text-lg text-white/80">
-          Cuando te agobie la falta de corriente y la inseguridad, Segumax te
-          trae la luz hasta tu hogar con paneles solares y el inversor adecuado.
-          Protegemos tu propiedad las 24 horas.
+        <p class="max-w-xl text-lg lg:text-xl leading-relaxed text-gris-600 font-light">
+          Diseñamos matrices de celdas monocristalinas y sistemas de inversión híbrida optimizados para La Habana. Al desacoplar la alimentación de sus circuitos cerrados y alarmas de la red pública, garantizamos un blindaje perimetral absoluto que opera con total normalidad de forma indefinida.
         </p>
 
-        <ul class="mt-8 space-y-3">
-          {benefits.map((item) => (
-            <li class="flex items-center gap-3">
-              <CheckCircle2 class="h-5 w-5 flex-shrink-0 text-segumax-success" />
-              <span class="text-white/90">{item}</span>
-            </li>
-          ))}
-        </ul>
-
-        <a
-          href="/servicios/energia-solar"
-          class="font-display mt-10 inline-flex items-center gap-2 rounded-lg bg-segumax-success px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:brightness-110"
-        >
-          Conocer más
-        </a>
-      </div>
-
-      <!-- Imagen/cards placeholder -->
-      <div class="grid grid-cols-2 gap-4">
-        <div class="flex aspect-square items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
-          <Sun class="h-16 w-16 text-segumax-success/40" stroke-width={1.5} />
-        </div>
-        <div class="flex aspect-square items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
-          <Battery class="h-16 w-16 text-segumax-success/40" stroke-width={1.5} />
-        </div>
-        <div class="col-span-2 flex aspect-[2/1] items-center justify-center rounded-2xl border border-white/10 bg-white/5 backdrop-blur">
-          <Zap class="h-16 w-16 text-segumax-success/40" stroke-width={1.5} />
+        <!-- Botón modular tipo bloque técnico -->
+        <div class="pt-4">
+          <a
+            href="/servicios/energia-solar"
+            class="group inline-flex items-center gap-3 bg-white border border-gris-200 px-8 py-4 font-mono text-xs uppercase tracking-wider text-gris-900 transition-colors duration-300 hover:border-gris-900 hover:bg-gris-50 shadow-sm"
+          >
+            Especificaciones del Sistema
+            <ArrowUpRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width={2} />
+          </a>
         </div>
       </div>
+
+      <!-- Bloque de Imagen: Render Técnico del Objeto en Caja de Catálogo -->
+      <div class="relative group">
+        <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
+          <!-- Número de inventario simulado -->
+          <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">ART. N° 302.511.90</span>
+          
+          <!-- Estado y Datos de Carga en números tabulares -->
+          <div class="font-mono text-[11px] text-gris-400 mb-6 flex justify-between items-center">
+            <span>[ COMPONENTE_03 // MATRIZ_SOLAR ]</span>
+            <span class="text-mostaza-600 font-semibold tracking-tighter">EFF // 22.8%</span>
+          </div>
+
+          <!-- Cuadro contenedor del producto fotovoltaico -->
+          <div class="relative aspect-[4/4] w-full overflow-hidden bg-gris-100 border border-gris-200 flex items-center justify-center p-8">
+            <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:2rem_2rem] opacity-25"></div>
+            
+            <div class="text-center z-10 space-y-2">
+              <span class="block kicker text-gris-400">PLANO FOTOVOLTAICO MODULAR</span>
+              <span class="font-mono text-[10px] text-gris-400 font-light">[ Celda Monocristalina / Absorción Pasiva ]</span>
+            </div>
+
+            <!-- Detalle Mostaza de Conexión Técnica en Esquina -->
+            <div class="absolute bottom-0 left-0 h-1 w-16 bg-mostaza-500 transition-all duration-300 group-hover:h-3"></div>
+          </div>
+
+          <!-- Pie de Ficha Industrial -->
+          <div class="mt-6 flex items-center justify-between text-xs border-t border-gris-200 pt-4 font-mono">
+            <span class="kicker text-gris-900 font-semibold">RESPALDO FOTOVOLTAICO AUTÓNOMO</span>
+            <span class="text-gris-400">03 / 12</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </Container>
 </section>

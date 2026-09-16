@@ -1,61 +1,73 @@
 ---
-import { ShieldCheck, Clock, Wallet, Headphones } from '@lucide/astro';
 import Container from './Container.astro';
 
 const reasons = [
-  {
-    icon: ShieldCheck,
-    title: 'Seguridad garantizada',
-    description:
-      'Nunca comprometemos la seguridad. Priorizamos tus vulnerabilidades y proponemos la solución más sólida.',
+  { 
+    number: '01', 
+    title: 'INGENIERÍA SIN CONCESIONES', 
+    description: 'Aislamos de forma estricta los puntos críticos de vulnerabilidad perimetral. No adaptamos su seguridad a plantillas comerciales fijas; modelamos hardware físico basado en un diagnóstico estructural real.' 
   },
-  {
-    icon: Clock,
-    title: 'Monitoreo 24/7',
-    description:
-      'Supervisión remota constante de nuestros técnicos. Tu sistema siempre bajo control.',
+  { 
+    number: '02', 
+    title: 'AUTONOMÍA ENERGÉTI_CA REFORZADA', 
+    description: 'Nuestras matrices integradas de celdas fotovoltaicas y acumuladores modulares blindan el CCTV y las alarmas ante caídas masivas del suministro público. Supervisión analítica transparente permanente.' 
   },
-  {
-    icon: Wallet,
-    title: 'Ajustado a tu presupuesto',
-    description:
-      'Diseñamos soluciones escalables según tu presupuesto, sin sacrificar calidad ni protección.',
+  { 
+    number: '03', 
+    title: 'ESCALABILIDAD MODULAR PRECISA', 
+    description: 'Diseñamos sistemas bajo presupuestos racionales mediante fases de despliegue ordenadas. Amplíe sus capacidades perimetrales, ópticas o domóticas en el futuro sin sustituir el núcleo central instalado.' 
   },
-  {
-    icon: Headphones,
-    title: 'Soporte técnico continuo',
-    description:
-      'Acompañamiento permanente. No estarás solo después de la instalación.',
+  { 
+    number: '04', 
+    title: 'AUDITORÍA SÓLIDA POST-DESPLIEGUE', 
+    description: 'Soporte y optimizaciones de firmware cíclicas garantizadas por contrato técnico. Mantenemos comunicación directa con nuestros clientes para calibrar analíticas neuronales y patrones de sensores.' 
   },
 ];
 ---
 
-<section class="bg-segumax-bg py-20">
+<section class="bg-gris-50 py-24 lg:py-36 border-b border-gris-200 overflow-hidden">
   <Container>
-    <div class="mx-auto max-w-3xl text-center">
-      <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-        POR QUÉ ELEGIRNOS
-      </span>
-      <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
-        La diferencia Segumax
-      </h2>
-      <p class="mt-4 text-lg text-segumax-text-soft">
-        Más que un proveedor, un aliado en la protección de tu propiedad.
-      </p>
+    <!-- Architectural Specification Link Header -->
+    <div class="flex items-center justify-between border-b border-gris-200 pb-4 mb-16">
+      <div class="kicker flex items-center gap-3">
+        <span class="inline-block h-1.5 w-1.5 bg-mostaza-500 rounded-full"></span>
+        <span>MÉTRICAS DE RENDIMIENTO // PARÁMETROS TÉCNICOS</span>
+      </div>
+      <span class="font-mono text-[10px] text-gris-400 tracking-widest">ESTÁNDAR_SEGUMAX</span>
     </div>
 
-    <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {reasons.map((reason) => (
-        <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
-          <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-accent/10">
-            <reason.icon class="h-6 w-6 text-segumax-accent" />
+    <!-- Section Title -->
+    <h2 class="display-lg text-4xl lg:text-6xl text-gris-900 uppercase tracking-tight mb-20">
+      Criterios de <br />
+      ingeniería y <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">confianza</span>.
+    </h2>
+
+    <!-- Strict 2x2 Matrix Catalog Layout -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-px bg-gris-200 border border-gris-200">
+      {reasons.map((reason, i) => (
+        <div class="bg-white p-8 lg:p-12 flex flex-col justify-between group transition-colors duration-300 hover:bg-gris-50 relative">
+          
+          <!-- Metadato de catálogo individual -->
+          <div class="font-mono text-[9px] text-gris-400 mb-8 tracking-widest select-none flex justify-between items-center">
+            <span>[ ST_PARAM // 0{i + 1} ]</span>
+            <span class="text-mostaza-500 font-bold font-mono">[{reason.number}]</span>
           </div>
-          <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
-            {reason.title}
-          </h3>
-          <p class="mt-2 text-sm leading-relaxed text-segumax-text-soft">
-            {reason.description}
-          </p>
+
+          <!-- Content block -->
+          <div class="space-y-4">
+            <h3 class="text-xl lg:text-2xl font-bold tracking-tight text-gris-900 font-sans uppercase">
+              {reason.title}
+            </h3>
+            <p class="text-sm leading-relaxed text-gris-500 font-light max-w-xl">
+              {reason.description}
+            </p>
+          </div>
+
+          <!-- Subtle alignment node anchor in the bottom-right corner -->
+          <div class="mt-8 pt-4 border-t border-gris-100 flex justify-between items-center font-mono text-[10px] text-gris-400">
+            <span>CERTIFICADO // OK</span>
+            <div class="h-1.5 w-1.5 bg-gris-200 group-hover:bg-mostaza-500 transition-colors"></div>
+          </div>
         </div>
       ))}
     </div>

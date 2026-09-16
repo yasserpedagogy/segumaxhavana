@@ -1,163 +1,200 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Container from '../../components/Container.astro';
-import { Building2, Cable, Flame, Camera, ShieldCheck, Wrench, ArrowRight, Check } from '@lucide/astro';
+import { Building2, Cable, Flame, Camera, ShieldCheck, Wrench, ArrowUpRight, Check } from '@lucide/astro';
 
 const pilares = [
   {
     icon: Cable,
-    title: 'Alarmas cableadas',
-    description: 'Sistemas DSC NEO y Honeywell para máxima robustez.',
+    title: 'ALARMAS CABLEADAS',
+    description: 'Sistemas robustos DSC NEO y Honeywell con topología en bus blindada para perímetros complejos de alta densidad.',
   },
   {
     icon: Flame,
-    title: 'Sistemas contra incendios',
-    description: 'Detección temprana AJAX Fire para proteger vidas y bienes.',
+    title: 'CONTRA INCENDIOS',
+    description: 'Matrices térmicas y de humo avanzadas AJAX Fire para la detección temprana certificada y salvaguarda de activos.',
   },
   {
     icon: Camera,
-    title: 'Videovigilancia multi-cámara',
-    description: 'Grabación 24/7 en múltiples puntos con acceso remoto.',
+    title: 'CCTV MASIVO 4K',
+    description: 'Circuitos cerrados multi-óptica con analíticas neuronales avanzadas y grabación cíclica local ininterrumpida.',
   },
   {
     icon: ShieldCheck,
-    title: 'Control de acceso',
-    description: 'Videoporteros y cerraduras eléctricas para personal autorizado.',
+    title: 'CONTROL DE ACCESO',
+    description: 'Videoporteros industriales, cerraduras magnéticas y autenticación biométrica centralizada para áreas restringidas.',
   },
   {
     icon: Wrench,
-    title: 'Automatización',
-    description: 'Control de luces, portones y procesos de tu instalación.',
+    title: 'AUTOMATIZACIÓN EN LÍNEA',
+    description: 'Control de relés modulares para programar escenas de iluminación, portones mecánicos y desconexión de plantas.',
   },
   {
     icon: Building2,
-    title: 'Solución escalable',
-    description: 'Sistemas que crecen contigo, sin reinstalaciones costosas.',
+    title: 'MATRIZ ESCALABLE',
+    description: 'Infraestructura de control expandible por módulos cíclicos sin incurrir en modificaciones estructurales costosas.',
   },
 ];
 ---
 
 <Layout
-  title="Soluciones Comerciales | Segumax"
-  description="Soluciones de seguridad para negocios, comercios, oficinas e industrias en La Habana. Alarmas, videovigilancia, control de acceso y más."
+  title="Soluciones Corporativas y Comerciales | SEGUMAX"
+  description="Ingeniería y diseño de seguridad perimetral, control de accesos biométricos y CCTV avanzado para comercios, oficinas e industrias en La Habana."
 >
-  <!-- Hero -->
-  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+  <!-- Architectural Directory Entry Hero -->
+  <section class="bg-gris-50 pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl">
-        <div class="flex items-center gap-3">
-          <div class="flex h-14 w-14 items-center justify-center rounded-xl bg-segumax-accent/20">
-            <Building2 class="h-7 w-7 text-segumax-accent" />
-          </div>
-          <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-            SOLUCIONES COMERCIALES
-          </span>
+      <div class="flex flex-col border-b border-gris-200 pb-4 mb-12">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-marino-500 rounded-full"></span>
+          <span>ESTUDIO // ARQUITECTURA DE SEGURIDAD COMERCIAL</span>
         </div>
-        <h1 class="font-display mt-6 text-4xl font-bold tracking-tight lg:text-5xl">
-          Seguridad escalable para tu negocio
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest mt-1">COM_SOLUTIONS_V26</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 items-end">
+        <h1 class="display-xl text-5xl md:text-7xl lg:text-8xl text-gris-900 tracking-tighter">
+          INFRAESTRUCTURA <br />
+          <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">CORPORATIVA</span>.
         </h1>
-        <p class="mt-4 text-lg text-white/70">
-          Escalamos soluciones acorde a cada necesidad: comercios, oficinas,
-          industrias y más. Tu inversión crece con tu negocio.
+        <p class="text-base lg:text-lg text-gris-500 font-light leading-relaxed max-w-md">
+          Modelamos celdas perimetrales, controles de tránsito y redes redundantes para blindar las operaciones de establecimientos empresariales.
         </p>
       </div>
     </Container>
   </section>
 
-  <!-- Pilares -->
-  <section class="bg-segumax-bg py-16 lg:py-20">
+  <!-- Modular Pillars Matrix Layout Grid -->
+  <section class="bg-gris-100 py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-          QUÉ INCLUYE
-        </span>
-        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
-          Sistemas para tu instalación comercial
-        </h2>
+      <div class="flex flex-col border-b border-gris-200 pb-4 mb-16">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-mostaza-500 rounded-full"></span>
+          <span>MÓDULOS DE INTEGRACIÓN INDUSTRIAL COMPATIBLES</span>
+        </div>
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest mt-1">CORP_CELLS</span>
       </div>
 
-      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {pilares.map((pilar) => (
-          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-primary/10">
-              <pilar.icon class="h-6 w-6 text-segumax-primary" />
+      <!-- Aligned catalog layout separating cells with crisp 1px lines -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gris-200 border border-gris-200">
+        {pilares.map((pilar, index) => {
+          const PilarIcon = pilar.icon;
+          return (
+            <div class="ikea-box bg-white p-8 flex flex-col justify-between aspect-square h-full relative group">
+              <div class="font-mono text-[9px] text-gris-400 tracking-widest select-none flex justify-between items-center mb-6">
+                <span>[ COMP_ID // 0{index + 1} ]</span>
+                <div class="text-gris-400 group-hover:text-mostaza-500 transition-colors duration-300">
+                  <PilarIcon class="h-5 w-5 stroke-[1.5]" />
+                </div>
+              </div>
+
+              <div class="space-y-3 mt-auto">
+                <h3 class="text-xl font-bold tracking-tight text-gris-900 font-sans uppercase">
+                  {pilar.title}
+                </h3>
+                <p class="text-xs leading-relaxed text-gris-500 font-light">
+                  {pilar.description}
+                </p>
+              </div>
             </div>
-            <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
-              {pilar.title}
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-segumax-text-soft">
-              {pilar.description}
-            </p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </Container>
   </section>
-
-  <!-- Por qué elegirnos para negocios -->
-  <section class="bg-segumax-bg-alt py-16 lg:py-20">
+  <!-- Technical Features & Specifications Blueprint Split Panel -->
+  <section class="bg-white py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <div>
-          <h2 class="font-display text-4xl font-bold tracking-tight text-segumax-primary">
-            Protegemos tu inversión 24/7
+      <div class="grid grid-cols-1 gap-16 lg:grid-cols-12 items-center">
+        
+        <!-- Left Column: Verification List Specifications -->
+        <div class="lg:col-span-7 space-y-8">
+          <span class="font-mono text-xs text-mostaza-500 block tracking-wider uppercase">// CONTINUIDAD DE OPERACIONES</span>
+          <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-gris-900 font-sans uppercase">
+            Protección de activos con respaldo energético redundante.
           </h2>
-          <p class="mt-4 text-lg text-segumax-text-soft">
-            Tu negocio no puede parar. Nuestros sistemas están diseñados para
-            operar sin interrupciones, incluso durante apagones, con respaldo
-            energético y monitoreo remoto.
+          <p class="text-sm leading-relaxed text-gris-500 font-light max-w-xl">
+            Su firma corporativa no puede detener su ritmo. Nuestros diseños perimetrales incorporan sistemas híbridos solares y almacenamiento asistido para operar bajo contingencias masivas en La Habana.
           </p>
-          <ul class="mt-8 space-y-4">
+          
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 font-sans">
             {[
-              'Instalación fuera del horario comercial si lo necesitas',
-              'Cumplimiento de normativas de seguridad',
-              'Monitoreo remoto por nuestra central',
-              'Soporte técnico prioritario',
-              'Mantenimiento programado sin parar tu operación',
-              'Documentación técnica completa de cada instalación',
+              'Instalación técnica fuera de ventanas de horario comercial',
+              'Cumplimiento estricto de normativas de seguridad europea',
+              'Redes redundantes enlazadas a nuestra central de control',
+              'Soporte prioritario e inmediato por contrato de servicio',
+              'Mantenimiento preventivo cíclico sin paradas operativas',
+              'Entrega de planimetría y documentación técnica unificada',
             ].map((item) => (
-              <li class="flex items-start gap-3">
-                <div class="mt-1 flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full bg-segumax-accent/10">
-                  <Check class="h-3 w-3 text-segumax-accent" stroke-width={3} />
+              <li class="flex items-start gap-3 border-b border-gris-100 pb-3 last:border-0 last:pb-0">
+                <div class="mt-0.5 flex h-4 w-4 flex-shrink-0 items-center justify-center text-mostaza-500">
+                  <Check class="h-4 w-4 stroke-[2.5]" />
                 </div>
-                <span class="text-segumax-text">{item}</span>
+                <span class="text-xs text-gris-600 font-light uppercase tracking-wide leading-tight">{item}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div>
-          <div class="aspect-[4/3] overflow-hidden rounded-2xl border border-segumax-border bg-white shadow-card">
-            <div class="flex h-full flex-col items-center justify-center gap-3 text-center">
-              <Building2 class="h-20 w-20 text-segumax-primary/20" stroke-width={1.5} />
-              <span class="font-display text-sm font-semibold tracking-wider text-segumax-text-soft">
-                FOTO DE INSTALACIÓN COMERCIAL
-              </span>
+        <!-- Right Column: Visual Placement Blueprint Box -->
+        <div class="lg:col-span-5 relative group">
+          <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
+            <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">REG. PL_COM_2026</span>
+            
+            <div class="font-mono text-[11px] text-gris-400 mb-6 flex items-center gap-2">
+              <span>[ PLATERÍA DE CONTROL // MATRIZ ]</span>
+            </div>
+
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-gris-100 border border-gris-200 flex flex-col justify-between p-6">
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-20"></div>
+              
+              <span class="font-mono text-[9px] text-gris-400 block tracking-widest">// DEPLOY_CORP_HQ</span>
+              
+              <div class="text-center z-10 space-y-1">
+                <span class="block kicker text-gris-400 font-medium">DIAGRAMA DE RED CORPORATIVA</span>
+                <span class="font-mono text-[10px] text-gris-400 font-light">[ CCTV Centralizado / Nodos Biométricos ]</span>
+              </div>
+
+              <div class="absolute bottom-0 right-0 h-12 w-12 bg-mostaza-500 transition-transform duration-300 group-hover:scale-105"></div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-between text-xs border-t border-gris-200 pt-4 font-mono">
+              <span class="kicker text-gris-900 font-semibold">TIPO DE INFRAESTRUCTURA</span>
+              <span class="text-gris-400 uppercase">[ ESCALABLE / MULTI-MÓDULO ]</span>
             </div>
           </div>
         </div>
+
       </div>
     </Container>
   </section>
 
-  <!-- CTA -->
-  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+  <!-- Technical Audit Closing Zone (Inverted Technical Layout Block) -->
+  <section class="bg-gris-900 text-white py-20 lg:py-28 border-b border-gris-900 overflow-hidden">
     <Container>
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="font-display text-3xl font-bold lg:text-4xl">
-          Solicita una evaluación para tu negocio
-        </h2>
-        <p class="mt-3 text-white/70">
-          Analizamos tus vulnerabilidades y te proponemos un sistema escalable
-          según tu presupuesto.
-        </p>
-        <a
-          href="/contacto"
-          class="font-display mt-6 inline-flex items-center gap-2 rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
-        >
-          Solicitar evaluación
-          <ArrowRight class="h-5 w-5" />
-        </a>
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-20 items-center">
+        
+        <div class="space-y-4">
+          <div class="font-mono text-xs text-mostaza-500 block tracking-wider uppercase">// RESERVA DE TICKET PARA AUDITORÍA COMERCIAL</div>
+          <h2 class="display-lg text-3xl lg:text-5xl text-white uppercase tracking-tight">
+            Estructure la <br />
+            auditoría de <span class="text-mostaza-500">su establecimiento</span>.
+          </h2>
+          <p class="text-sm leading-relaxed text-gris-300 font-light max-w-xl">
+            Asignamos un equipo corporativo certificado para mapear vectores de riesgo físico y planificar cargas solares modulares híbridas libres de costes de consultoría inicial.
+          </p>
+        </div>
+
+        <div class="lg:justify-self-end w-full sm:w-auto">
+          <a
+            href="/contacto"
+            class="group inline-flex w-full sm:w-auto items-center justify-between gap-8 bg-white border border-white px-8 py-5 font-mono text-xs uppercase tracking-wider text-gris-900 transition-colors duration-300 hover:bg-mostaza-500 hover:text-gris-900 hover:border-mostaza-500 shadow-sm"
+          >
+            <span>Agendar Auditoría Empresarial _</span>
+            <ArrowUpRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width={2} />
+          </a>
+        </div>
+
       </div>
     </Container>
   </section>

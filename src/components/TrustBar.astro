@@ -1,29 +1,38 @@
 ---
-import { ShieldCheck, Users, Building2, Clock } from '@lucide/astro';
 import Container from './Container.astro';
 
 const stats = [
-  { icon: Clock, value: '12+', label: 'Años de experiencia' },
-  { icon: Users, value: '500+', label: 'Hogares protegidos' },
-  { icon: Building2, value: '150+', label: 'Negocios protegidos' },
-  { icon: ShieldCheck, value: '24/7', label: 'Soporte técnico' },
+  { value: '12+', label: 'Años de servicio' },
+  { value: '500+', label: 'Hogares protegidos' },
+  { value: '150+', label: 'Negocios blindados' },
+  { value: '24/7', label: 'Monitoreo autónomo' },
 ];
 ---
 
-<section class="border-b border-segumax-border bg-segumax-bg-alt">
-  <Container class="py-10">
-    <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
-      {stats.map((stat) => (
-        <div class="flex items-center gap-4">
-          <div class="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-lg bg-segumax-primary/10">
-            <stat.icon class="h-6 w-6 text-segumax-primary" />
+<section class="border-b border-gris-200 bg-gris-100">
+  <Container>
+    <!-- Grid modular donde las líneas de separación son de un píxel exacto -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gris-200 border-x border-gris-200">
+      {stats.map((stat, i) => (
+        <div class="bg-white px-6 py-10 lg:px-8 lg:py-12 flex flex-col justify-between group transition-colors duration-300 hover:bg-gris-50 relative">
+          
+          <!-- Metadato de catálogo en la parte superior de cada tarjeta -->
+          <div class="font-mono text-[9px] text-gris-400 mb-6 tracking-widest select-none">
+            [ DATA_REF // 0{i + 1} ]
           </div>
-          <div>
-            <div class="font-display text-2xl font-bold text-segumax-primary">
+
+          <!-- Métrica técnica masiva con alineación limpia -->
+          <div class="space-y-2">
+            <span class="block text-4xl lg:text-5xl font-black tracking-tighter text-gris-900 font-mono">
               {stat.value}
-            </div>
-            <div class="text-sm text-segumax-text-soft">{stat.label}</div>
+            </span>
+            <span class="block font-sans text-xs uppercase tracking-wider font-semibold text-gris-500 group-hover:text-gris-900 transition-colors">
+              {stat.label}
+            </span>
           </div>
+
+          <!-- Pequeño nodo de estado clínico (Acento sutil) -->
+          <div class="absolute bottom-4 right-4 h-1 w-1 bg-gris-300 group-hover:bg-mostaza-500 transition-colors"></div>
         </div>
       ))}
     </div>

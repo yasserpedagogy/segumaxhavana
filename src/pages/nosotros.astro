@@ -1,210 +1,219 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Container from '../components/Container.astro';
-import { Award, Users, MapPin, ShieldCheck, Wrench, Headphones } from '@lucide/astro';
+import { Users, MapPin, ShieldCheck, Wrench, Headphones, ArrowUpRight } from '@lucide/astro';
 
 const valores = [
   {
     icon: ShieldCheck,
-    title: 'Seguridad primero',
-    description:
-      'Nunca comprometemos la seguridad. Cada decisión técnica prioriza tu protección.',
+    title: 'INGENIERÍA SIN CONCESIONES',
+    description: 'Aislamos de forma estricta los puntos críticos de vulnerabilidad perimetral. Cada decisión técnica prioriza la invulnerabilidad física de la propiedad.',
   },
   {
     icon: Users,
-    title: 'Trabajo en equipo',
-    description:
-      'Técnicos e ingenieros con más de 12 años de experiencia combinada en el rubro.',
+    title: 'CONVERGENCIA PROFESIONAL',
+    description: 'Técnicos e ingenieros titulados que unifican más de una década de recorrido industrial conjunto en redes de alta seguridad.',
   },
   {
     icon: Wrench,
-    title: 'Soluciones a medida',
-    description:
-      'No vendemos equipos genéricos. Diseñamos sistemas según tu caso y presupuesto.',
+    title: 'CONFIGURACIÓN INTEGRAL',
+    description: 'Rechazamos el comercio genérico de hardware masivo. Modelamos sistemas modulares basados en un diagnóstico perimetral real.',
   },
   {
     icon: Headphones,
-    title: 'Soporte continuo',
-    description:
-      'Monitoreo remoto y acompañamiento técnico después de cada instalación.',
+    title: 'MONITOREO POST-DESPLIEGUE',
+    description: 'Auditorías de firmware cíclicas y supervisión analítica transparente garantizada tras la entrega del ecosistema.',
   },
 ];
 
 const hitos = [
-  { year: '2013', title: 'Primeros proyectos', description: 'Inicio de operaciones individuales de cada miembro del equipo.' },
-  { year: '2018', title: 'Unión del equipo', description: 'Los técnicos e ingenieros deciden unir fuerzas y crear Segumax.' },
-  { year: '2021', title: 'Expansión de servicios', description: 'Incorporación de energía solar y automatización al portafolio.' },
-  { year: '2024', title: 'Consolidación', description: 'Más de 500 hogares y 150 negocios protegidos en toda Cuba.' },
+  { year: '2013', title: 'OPERACIÓN INDEPENDIENTE', description: 'Inicio de despliegues técnicos individuales y certificaciones en sistemas de radiofrecuencia.' },
+  { year: '2018', title: 'CONVERGENCIA DE FIRMA', description: 'Técnicos e ingenieros unifican capacidades operativas bajo el núcleo de ingeniería Segumax.' },
+  { year: '2021', title: 'MATRICES DE COBERTURA SOLAR', description: 'Incorporación de celdas fotovoltaicas monocristalinas y automatización domótica de relés.' },
+  { year: '2026', title: 'CONSOLIDACIÓN LOGÍSTICA', description: 'Optimización de perímetros residenciales y corporativos a nivel nacional desde el Hub de La Habana.' },
 ];
 ---
 
 <Layout
-  title="Nosotros | Segumax"
-  description="Conoce al equipo de Segumax: técnicos e ingenieros con más de 12 años protegiendo hogares y negocios en La Habana."
+  title="Estudio & Equipo | SEGUMAX"
+  description="Conoce al equipo de ingenieros y especialistas de Segumax: infraestructura de seguridad y energía solar en La Habana."
 >
-  <!-- Hero -->
-  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+  <!-- Architectural Directory Entry Hero -->
+  <section class="bg-gris-50 pt-24 pb-16 lg:pt-32 lg:pb-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-          NOSOTROS
-        </span>
-        <h1 class="font-display mt-4 text-4xl font-bold tracking-tight lg:text-5xl">
-          Técnicos e ingenieros al servicio de tu seguridad
+      <div class="flex flex-col border-b border-gris-200 pb-4 mb-12">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-marino-500 rounded-full"></span>
+          <span>ESTUDIO // CONVERGENCIA TÉCNICA E INGENIERÍA</span>
+        </div>
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest mt-1">ABOUT_REF_V26</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-8 items-end">
+        <h1 class="display-xl text-5xl md:text-7xl lg:text-8xl text-gris-900 tracking-tighter">
+          NUESTRO <br />
+          MANIFIESTO <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">TÉCNICO</span>.
         </h1>
-        <p class="mt-4 text-lg text-white/70">
-          Un grupo de profesionales que decidió unir experiencia y pasión para
-          proteger lo que más importa.
+        <p class="text-base lg:text-lg text-gris-500 font-light leading-relaxed max-w-md">
+          Alianza estratégica de ingenieros dedicados al blindaje perimetral autónomo y al desacople energético de redes públicas.
         </p>
       </div>
     </Container>
   </section>
 
-  <!-- Historia + imagen -->
-  <section class="bg-segumax-bg py-16 lg:py-20">
+  <!-- History + Blueprint Frame Layout -->
+  <section class="bg-white py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <div class="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-        <!-- Imagen placeholder -->
-        <div class="relative">
-          <div class="aspect-[4/3] overflow-hidden rounded-2xl border border-segumax-border bg-segumax-bg-alt shadow-card">
-            <div class="flex h-full flex-col items-center justify-center gap-3 text-center">
-              <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-segumax-primary/10">
-                <Users class="h-10 w-10 text-segumax-primary" />
-              </div>
-              <span class="font-display text-sm font-semibold tracking-wider text-segumax-text-soft">
-                FOTO DEL EQUIPO SEGUMAX
-              </span>
+      <div class="grid grid-cols-1 items-center gap-16 lg:grid-cols-12">
+        
+        <!-- Left Side: Visual Blueprint Window (IKEA Design Box) -->
+        <div class="lg:col-span-5 relative group">
+          <div class="ikea-box bg-white p-6 md:p-8 border border-gris-200 relative">
+            <span class="absolute top-4 right-4 font-mono text-[9px] text-gris-400 tracking-wider">REG. HQ_HAVANA</span>
+            
+            <div class="font-mono text-[11px] text-gris-400 mb-6 flex items-center gap-2">
+              <span>[ REGISTRO // COBERTURA ]</span>
             </div>
-          </div>
-          <!-- Badge flotante -->
-          <div class="absolute -bottom-6 -right-6 hidden rounded-2xl bg-segumax-accent p-6 shadow-card-hover lg:block">
-            <div class="flex items-center gap-4">
-              <Award class="h-10 w-10 text-white" />
-              <div>
-                <div class="font-display text-3xl font-bold text-white">12+</div>
-                <div class="text-sm text-white/90">años de experiencia</div>
+
+            <div class="relative aspect-[4/3] w-full overflow-hidden bg-gris-100 border border-gris-200 flex flex-col justify-between p-6">
+              <div class="absolute inset-0 bg-[linear-gradient(to_right,#E5E7EB_1px,transparent_1px),linear-gradient(to_bottom,#E5E7EB_1px,transparent_1px)] bg-[size:1.5rem_1.5rem] opacity-20"></div>
+              
+              <span class="font-mono text-[9px] text-gris-400 block tracking-widest">// DEPLOYMENT_GRID</span>
+              
+              <div class="text-center z-10 space-y-1">
+                <span class="block kicker text-gris-400">EQUIPO DE INGENIERÍA CENTRAL</span>
+                <span class="font-mono text-[10px] text-gris-400 font-light">[ Luz Natural / Ángulo Recto ]</span>
               </div>
+
+              <div class="absolute bottom-0 right-0 h-12 w-12 bg-mostaza-500 transition-transform duration-300 group-hover:scale-105"></div>
+            </div>
+
+            <div class="mt-6 flex items-center justify-between text-xs border-t border-gris-200 pt-4 font-mono">
+              <span class="kicker text-gris-900 font-semibold">TRAYECTORIA INTEGRADA</span>
+              <span class="text-mostaza-600 font-semibold font-mono">[ 12+ AÑOS XP ]</span>
             </div>
           </div>
         </div>
 
-        <!-- Texto -->
-        <div>
-          <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-            NUESTRA HISTORIA
-          </span>
-          <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary">
-            ¿Cómo surge Segumax?
+        <!-- Right Side: Content Block -->
+        <div class="lg:col-span-7 space-y-8">
+          <span class="font-mono text-xs text-mostaza-500 block tracking-wider uppercase">// GESTIÓN INFRAESTRUCTURAL</span>
+          <h2 class="text-3xl lg:text-4xl font-bold tracking-tight text-gris-900 font-sans uppercase">
+            ¿Cómo se consolida Segumax?
           </h2>
 
-          <div class="mt-6 space-y-4 text-lg leading-relaxed text-segumax-text-soft">
+          <div class="space-y-6 text-base text-gris-500 font-light leading-relaxed max-w-xl">
             <p>
-              Un grupo de técnicos e ingenieros que trabajábamos por separado
-              decidimos hacer un proyecto en común, cada uno aportando su
-              experiencia. Sumado, abarcamos más de <strong class="text-segumax-primary">12 años</strong>
-              en el rubro.
+              Estructuramos operaciones unificando disciplinas independientes de protección por radiofrecuencia, analítica digital avanzada y electrotecnia fotovoltaica. Centralizamos nuestras competencias bajo una sola firma técnica para ofrecer soluciones integradas con una trayectoria combinada de más de <strong class="font-medium text-gris-900 font-mono">[12+ años]</strong>.
             </p>
             <p>
-              Nos radicamos en La Habana, pero estamos disponibles para todo el
-              país previa negociación. De común acuerdo con el cliente,
-              proponemos un sistema integral escalable que prioriza sus
-              vulnerabilidades.
+              Establecemos nuestra base logística en La Habana, ampliando la cobertura técnica a nivel nacional para la ejecución de proyectos complejos residenciales y corporativos. De mutuo acuerdo con la entidad, dictaminamos planos de red transparentes y escalables.
             </p>
             <p>
-              Nuestro propósito es claro: <strong class="text-segumax-primary">no vendemos equipos, proponemos soluciones</strong>.
-              Trabajamos con las marcas líderes del sector (AJAX Systems, DSC
-              NEO, Honeywell) y diseñamos según cada presupuesto, sin
-              comprometer nunca la seguridad.
+              Nuestra premisa desplaza la comercialización genérica de hardware: aportamos soluciones integrales de resiliencia perimetral continua y blindaje solar autónomo. Trabajamos bajo normativas europeas rígidas junto a firmas líderes de la industria (AJAX Systems, DSC NEO, Honeywell).
             </p>
           </div>
 
-          <div class="mt-8 flex items-center gap-3 text-segumax-text">
-            <MapPin class="h-5 w-5 text-segumax-accent" />
-            <span class="font-medium">La Habana, Cuba · Cobertura nacional</span>
+          <div class="pt-4 flex items-center gap-2.5 font-mono text-xs text-gris-400 uppercase select-none">
+            <MapPin class="h-4 w-4 text-mostaza-500" stroke-width={2} />
+            <span>La Habana, Cuba // Despliegue Nacional</span>
           </div>
         </div>
+
       </div>
     </Container>
   </section>
-
-  <!-- Valores -->
-  <section class="bg-segumax-bg-alt py-16 lg:py-20">
+  <!-- Values Core Principles Section -->
+  <section class="bg-gris-100 py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-          NUESTROS VALORES
-        </span>
-        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
-          Lo que nos define
-        </h2>
+      <div class="flex flex-col border-b border-gris-200 pb-4 mb-16">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-mostaza-500 rounded-full"></span>
+          <span>FILOSOFÍA DE DESARROLLO // VALORES DE FIRMA</span>
+        </div>
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest mt-1">AXIS_VALUES</span>
       </div>
 
-      <div class="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {valores.map((valor) => (
-          <div class="rounded-2xl border border-segumax-border bg-white p-6 shadow-card transition hover:-translate-y-1 hover:shadow-card-hover">
-            <div class="flex h-12 w-12 items-center justify-center rounded-xl bg-segumax-accent/10">
-              <valor.icon class="h-6 w-6 text-segumax-accent" />
+      <!-- Aligned 2x2 catalog matrix grid -->
+      <div class="grid grid-cols-1 gap-px bg-gris-200 border border-gris-200 sm:grid-cols-2 lg:grid-cols-4">
+        {valores.map((valor, i) => (
+          <div class="ikea-box bg-white p-8 flex flex-col justify-between aspect-square group h-full relative">
+            <div class="font-mono text-[9px] text-gris-400 tracking-widest select-none mb-4">
+              [ DIRECTRIZ // 0{i + 1} ]
             </div>
-            <h3 class="font-display mt-5 text-xl font-bold text-segumax-primary">
-              {valor.title}
-            </h3>
-            <p class="mt-2 text-sm leading-relaxed text-segumax-text-soft">
-              {valor.description}
-            </p>
+            
+            <div class="space-y-3 mt-auto">
+              <h3 class="text-lg font-bold tracking-tight text-gris-900 font-sans uppercase">
+                {valor.title}
+              </h3>
+              <p class="text-xs leading-relaxed text-gris-500 font-light">
+                {valor.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
     </Container>
   </section>
 
-  <!-- Timeline -->
-  <section class="bg-segumax-bg py-16 lg:py-20">
+  <!-- Timeline Section -->
+  <section class="bg-white py-16 lg:py-24 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-3xl text-center">
-        <span class="font-display text-sm font-semibold tracking-widest text-segumax-accent">
-          NUESTRO RECORRIDO
-        </span>
-        <h2 class="font-display mt-4 text-4xl font-bold tracking-tight text-segumax-primary lg:text-5xl">
-          Más de una década protegiendo Cuba
-        </h2>
+      <div class="flex flex-col border-b border-gris-200 pb-4 mb-16">
+        <div class="kicker flex items-center gap-3">
+          <span class="inline-block h-1.5 w-1.5 bg-marino-500 rounded-full"></span>
+          <span>REGISTRO CRONOLÓGICO // HITOS DE PROYECTO</span>
+        </div>
+        <span class="font-mono text-[10px] text-gris-400 tracking-widest mt-1">HISTORIC_SHEET</span>
       </div>
 
-      <div class="mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        {hitos.map((hito) => (
-          <div class="relative rounded-2xl border border-segumax-border bg-white p-6 shadow-card">
-            <div class="font-display text-5xl font-bold text-segumax-accent">
+      <!-- Linear progression matrix grid -->
+      <div class="grid grid-cols-1 gap-px bg-gris-200 border border-gris-200 md:grid-cols-2 lg:grid-cols-4">
+        {hitos.map((hito, i) => (
+          <div class="bg-white p-6 lg:p-8 flex flex-col justify-between aspect-[4/4] transition-colors duration-300 hover:bg-gris-50 relative group">
+            <div class="font-mono text-4xl lg:text-5xl font-black tracking-tighter text-mostaza-500 group-hover:scale-105 transition-transform origin-left">
               {hito.year}
             </div>
-            <h3 class="font-display mt-4 text-lg font-bold text-segumax-primary">
-              {hito.title}
-            </h3>
-            <p class="mt-2 text-sm text-segumax-text-soft">
-              {hito.description}
-            </p>
+            <div class="space-y-2 mt-auto">
+              <h3 class="text-sm font-bold tracking-tight text-gris-900 font-sans uppercase">
+                {hito.title}
+              </h3>
+              <p class="text-xs leading-relaxed text-gris-500 font-light">
+                {hito.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
     </Container>
   </section>
 
-  <!-- CTA final -->
-  <section class="bg-segumax-primary py-16 text-white lg:py-20">
+  <!-- Final Call to Action -->
+  <section class="bg-gris-50 py-20 lg:py-28 border-b border-gris-200">
     <Container>
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="font-display text-3xl font-bold lg:text-4xl">
-          ¿Listo para trabajar con nosotros?
-        </h2>
-        <p class="mt-3 text-white/70">
-          Solicita una visita gratuita sin compromiso y descubre cómo podemos
-          proteger tu propiedad.
-        </p>
-        <a
-          href="/contacto"
-          class="font-display mt-6 inline-block rounded-lg bg-segumax-accent px-6 py-3 text-lg font-semibold tracking-wide text-white transition hover:bg-segumax-accent-hover"
-        >
-          Solicitar visita gratuita
-        </a>
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[1.5fr_1fr] lg:gap-20 items-center">
+        <div class="space-y-4">
+          <span class="font-mono text-xs text-mostaza-500 block tracking-wider">// CONFIGURACIÓN DE RED DISPONIBLE</span>
+          <h2 class="display-lg text-3xl lg:text-5xl text-gris-900 uppercase tracking-tight">
+            ¿Iniciar diseño <br />
+            de su <span class="text-transparent [-webkit-text-stroke:1px_var(--color-gris-900)]">infraestructura</span>?
+          </h2>
+          <p class="text-sm lg:text-base leading-relaxed text-gris-500 font-light max-w-xl">
+            Coordine una auditoría perimetral estructural sin cargo con nuestra terminal técnica para evaluar los vectores de cobertura idóneos para su propiedad.
+          </p>
+        </div>
+
+        <div class="lg:justify-self-end w-full sm:w-auto">
+          <a
+            href="/contacto"
+            class="group inline-flex w-full sm:w-auto items-center justify-between gap-8 bg-gris-900 text-white font-mono text-xs uppercase tracking-wider px-8 py-5 transition-colors duration-300 hover:bg-mostaza-500 hover:text-gris-900 shadow-sm"
+          >
+            <span>Solicitar Planos Técnicos _</span>
+            <ArrowUpRight class="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" stroke-width={2} />
+          </a>
+        </div>
       </div>
     </Container>
   </section>
 </Layout>
+
