@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Container from '../../components/Container.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import {
   BellRing, Cable, Flame, Camera, DoorOpen, Lightbulb, Sun, Check, ArrowRight,
 } from '@lucide/astro';
@@ -17,7 +17,7 @@ export async function getStaticPaths() {
 }
 
 const { servicio } = Astro.props;
-const { Content } = await servicio.render();
+const { Content } = await render(servicio);
 const Icon = iconMap[servicio.data.icon as keyof typeof iconMap];
 
 const serviciosRelacionados = (await getCollection('servicios'))
